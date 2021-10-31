@@ -1,0 +1,138 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Experiment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Experiment"@en.
+:Workflow rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Workflow"@en.
+:Task rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Task"@en.
+:Goal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Goal"@en.
+:ExperimentCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Experiment Characteristic"@en.
+:Data rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data"@en.
+:Output rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Output"@en.
+:Parameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Parameter"@en.
+:ParameterSetting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ParameterSetting"@en.
+:SpecifiesParameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "SpecifiesParameter"@en.
+:Implementation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Implementation"@en.
+:Software rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Software"@en.
+:Implements rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Implements"@en.
+:Algorithm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Algorithm"@en.
+:InputData rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "InputData"@en.
+:Feature rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Feature"@en.
+:FeatureCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "FeatureCharacteristic"@en.
+:DataCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "DataCharacteristic"@en.
+:ParameterCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "ParameterCharacteristic"@en.
+:hasParameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "hasParameter"@en.
+:ImplementationCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "ImplementationCharacteristic"@en.
+:AlgorithmCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "AlgorithmCharacteristic"@en.
+:InputData rdfs:subClassOf :Data.
+:experimentHasWorkflow rdf:type owl:ObjectProperty;
+    rdfs:domain :Experiment;
+    rdfs:range :Workflow.
+:workflowHasTask rdf:type owl:ObjectProperty;
+    rdfs:domain :Workflow;
+    rdfs:range :Task.
+:experimentHasGoal rdf:type owl:ObjectProperty;
+    rdfs:domain :Experiment;
+    rdfs:range :Goal.
+:experimentHasExperimentCharacteristic rdf:type owl:ObjectProperty;
+    rdfs:domain :Experiment;
+    rdfs:range :ExperimentCharacteristic.
+:dataHasTask rdf:type owl:ObjectProperty;
+    rdfs:domain :Data;
+    rdfs:range :Task.
+:outputHasTask rdf:type owl:ObjectProperty;
+    rdfs:domain :Output;
+    rdfs:range :Task.
+:parameterSettingHasTask rdf:type owl:ObjectProperty;
+    rdfs:domain :ParameterSetting;
+    rdfs:range :Task.
+:parameterSettingHasSpecifiesParameter rdf:type owl:ObjectProperty;
+    rdfs:domain :ParameterSetting;
+    rdfs:range :SpecifiesParameter.
+:specifiesParameterHasParameter rdf:type owl:ObjectProperty;
+    rdfs:domain :SpecifiesParameter;
+    rdfs:range :Parameter.
+:taskHasImplementation rdf:type owl:ObjectProperty;
+    rdfs:domain :Task;
+    rdfs:range :Implementation.
+:softwareHasImplementation rdf:type owl:ObjectProperty;
+    rdfs:domain :Software;
+    rdfs:range :Implementation.
+:implementationHasImplements rdf:type owl:ObjectProperty;
+    rdfs:domain :Implementation;
+    rdfs:range :Implements.
+:implementsHasAlgorithm rdf:type owl:ObjectProperty;
+    rdfs:domain :Implements;
+    rdfs:range :Algorithm.
+:dataHasFeature rdf:type owl:ObjectProperty;
+    rdfs:domain :Data;
+    rdfs:range :Feature.
+:featureCharacteristicHasFeature rdf:type owl:ObjectProperty;
+    rdfs:domain :FeatureCharacteristic;
+    rdfs:range :Feature.
+:dataCharacteristicHasData rdf:type owl:ObjectProperty;
+    rdfs:domain :DataCharacteristic;
+    rdfs:range :Data.
+:parameterCharacteristicHasParameterSetting rdf:type owl:ObjectProperty;
+    rdfs:domain :ParameterCharacteristic;
+    rdfs:range :ParameterSetting.
+:hasParameterHasTask rdf:type owl:ObjectProperty;
+    rdfs:domain :hasParameter;
+    rdfs:range :Task.
+:hasParameterHasParameter rdf:type owl:ObjectProperty;
+    rdfs:domain :hasParameter;
+    rdfs:range :Parameter.
+:implementationCharacteristicHasImplementation rdf:type owl:ObjectProperty;
+    rdfs:domain :ImplementationCharacteristic;
+    rdfs:range :Implementation.
+:algorithmCharacteristicHasAlgorithm rdf:type owl:ObjectProperty;
+    rdfs:domain :AlgorithmCharacteristic;
+    rdfs:range :Algorithm.

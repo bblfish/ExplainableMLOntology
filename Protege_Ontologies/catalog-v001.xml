@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/2016/03/mls#" uri="MLSchema.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1621530033442" name="duplicate:http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9" uri="MLExplanationOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1621530033442" name="duplicate:http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9" uri="MLS_UFO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1621530033442" name="http://www.w3.org/ns/mls" uri="MLSchema.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1621530033442" name="https://example.com" uri="MLExp_final.owl"/>
+    </group>
+</catalog>

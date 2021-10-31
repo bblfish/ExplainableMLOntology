@@ -1,0 +1,3805 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://example.com#"
+     xml:base="https://example.com"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:gufo="http://purl.org/nemo/gufo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://example.com">
+        <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://example.com#ExecutedBy -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#ExecutedBy">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Implementation"/>
+        <rdfs:range rdf:resource="https://example.com#Operation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#addressesInvolvesAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#addressesInvolvesAlgorithm">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Addresses"/>
+        <rdfs:range rdf:resource="https://example.com#Algorithm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#addressesInvolvesGoal -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#addressesInvolvesGoal">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Addresses"/>
+        <rdfs:range rdf:resource="https://example.com#Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#assessesInvolvesModel -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#assessesInvolvesModel">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Assesses"/>
+        <rdfs:range rdf:resource="https://example.com#MLModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#assessesInvolvesModelEvaluation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#assessesInvolvesModelEvaluation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Assesses"/>
+        <rdfs:range rdf:resource="https://example.com#ModelEvaluation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#callsInvolvesMLModel -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#callsInvolvesMLModel">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Calls"/>
+        <rdfs:range rdf:resource="https://example.com#MLModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#callsInvolvesPredictImplementation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#callsInvolvesPredictImplementation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Calls"/>
+        <rdfs:range rdf:resource="https://example.com#PredictImplementation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#correlates -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#correlates">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Correlates"/>
+        <rdfs:range rdf:resource="https://example.com#Feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#evaluatesInvolvesExplanationComponent -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#evaluatesInvolvesExplanationComponent">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#EvaluatesExplanationComponent"/>
+        <rdfs:range rdf:resource="https://example.com#ExplanationComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#evaluatesInvolvesExplanationComponentEvatuation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#evaluatesInvolvesExplanationComponentEvatuation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#EvaluatesExplanationComponent"/>
+        <rdfs:range rdf:resource="https://example.com#ExplanationComponentEvaluation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#explainsInvolvesExplanationComponent -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#explainsInvolvesExplanationComponent">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#ExplainsResultInstance"/>
+        <rdfs:range rdf:resource="https://example.com#ExplanationComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#explainsInvolvesResultInstance -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#explainsInvolvesResultInstance">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#ExplainsResultInstance"/>
+        <rdfs:range rdf:resource="https://example.com#ResultInstance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#explainsModelInvolvesModel -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#explainsModelInvolvesModel">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#ExplainsModel"/>
+        <rdfs:range rdf:resource="https://example.com#MLModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#explainsModelInvolvesModelExplanation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#explainsModelInvolvesModelExplanation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#ExplainsModel"/>
+        <rdfs:range rdf:resource="https://example.com#ModelExplanation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#hasMeasureInvolvesEvaluateModelImplementation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#hasMeasureInvolvesEvaluateModelImplementation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#HasMeasure"/>
+        <rdfs:range rdf:resource="https://example.com#EvaluateModelImplementation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#hasMeasureInvolvesMeasure -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#hasMeasureInvolvesMeasure">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#HasMeasure"/>
+        <rdfs:range rdf:resource="https://example.com#EvaluationMeasure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#hasParameterInvolvesImplementation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#hasParameterInvolvesImplementation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#HasParameter"/>
+        <rdfs:range rdf:resource="https://example.com#Implementation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#hasParameterInvolvesParameter -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#hasParameterInvolvesParameter">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#HasParameter"/>
+        <rdfs:range rdf:resource="https://example.com#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#implementsInvolvesAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#implementsInvolvesAlgorithm">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Implements"/>
+        <rdfs:range rdf:resource="https://example.com#Algorithm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#implementsInvolvesImplementation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#implementsInvolvesImplementation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#Implements"/>
+        <rdfs:range rdf:resource="https://example.com#Implementation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#specifiesInvolvesEvaluationMeasure -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#specifiesInvolvesEvaluationMeasure">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#SpecifiesModelEvaluation"/>
+        <rdfs:range rdf:resource="https://example.com#EvaluationMeasure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#specifiesInvolvesModelEvaluation -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#specifiesInvolvesModelEvaluation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#SpecifiesModelEvaluation"/>
+        <rdfs:range rdf:resource="https://example.com#ModelEvaluation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#specifiesInvolvesParameter -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#specifiesInvolvesParameter">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#SpecifiesParameter"/>
+        <rdfs:range rdf:resource="https://example.com#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#specifiesInvolvesParameterSetting -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#specifiesInvolvesParameterSetting">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#SpecifiesParameter"/>
+        <rdfs:range rdf:resource="https://example.com#ParameterSetting"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#specifiesMeasureInvolvesGoal -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#specifiesMeasureInvolvesGoal">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#SpecifiesMeasure"/>
+        <rdfs:range rdf:resource="https://example.com#Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.com#specifiesMeasureInvolvesMeasure -->
+
+    <owl:ObjectProperty rdf:about="https://example.com#specifiesMeasureInvolvesMeasure">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://example.com#SpecifiesMeasure"/>
+        <rdfs:range rdf:resource="https://example.com#EvaluationMeasure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://example.com#AccessDate -->
+
+    <owl:Class rdf:about="https://example.com#AccessDate">
+        <rdfs:subClassOf rdf:resource="https://example.com#DataSource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Addresses -->
+
+    <owl:Class rdf:about="https://example.com#Addresses">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#MLAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Algorithm -->
+
+    <owl:Class rdf:about="https://example.com#Algorithm">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#AlgorithmCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#AlgorithmCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#AlgorithmCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Algorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#AlgorithmTransparency -->
+
+    <owl:Class rdf:about="https://example.com#AlgorithmTransparency">
+        <rdfs:subClassOf rdf:resource="https://example.com#AlgorithmCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Assesses -->
+
+    <owl:Class rdf:about="https://example.com#Assesses">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#MLModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ModelEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Calls -->
+
+    <owl:Class rdf:about="https://example.com#Calls">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#MLModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#PredictImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#CategoryQuantity -->
+
+    <owl:Class rdf:about="https://example.com#CategoryQuantity">
+        <rdfs:subClassOf rdf:resource="https://example.com#FeatureCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Correlates -->
+
+    <owl:Class rdf:about="https://example.com#Correlates">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#CorrelationCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#CorrelationCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#CorrelationCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Correlates"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Coverage -->
+
+    <owl:Class rdf:about="https://example.com#Coverage">
+        <rdfs:subClassOf rdf:resource="https://example.com#ExplanationEvaluationCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Data -->
+
+    <owl:Class rdf:about="https://example.com#Data">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#DataCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#DataCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#DataCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#DataPeriod -->
+
+    <owl:Class rdf:about="https://example.com#DataPeriod">
+        <rdfs:subClassOf rdf:resource="https://example.com#DataCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#DataSource -->
+
+    <owl:Class rdf:about="https://example.com#DataSource">
+        <rdfs:subClassOf rdf:resource="https://example.com#DataCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#DataType -->
+
+    <owl:Class rdf:about="https://example.com#DataType">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#EvaluateExplanation -->
+
+    <owl:Class rdf:about="https://example.com#EvaluateExplanation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluateExplanationImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplanationEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#EvaluateExplanationImplementation -->
+
+    <owl:Class rdf:about="https://example.com#EvaluateExplanationImplementation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Implementation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#EvaluateModel -->
+
+    <owl:Class rdf:about="https://example.com#EvaluateModel">
+        <rdfs:subClassOf rdf:resource="https://example.com#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#Result"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#TestData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluateModelImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ModelEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#EvaluateModelImplementation -->
+
+    <owl:Class rdf:about="https://example.com#EvaluateModelImplementation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Implementation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#EvaluatesExplanationComponent -->
+
+    <owl:Class rdf:about="https://example.com#EvaluatesExplanationComponent">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplanationComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplanationComponentEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplainComponentEvaluationCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#EvaluationMeasure -->
+
+    <owl:Class rdf:about="https://example.com#EvaluationMeasure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#EvaluationProcedure -->
+
+    <owl:Class rdf:about="https://example.com#EvaluationProcedure">
+        <rdfs:subClassOf rdf:resource="https://example.com#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Experiment -->
+
+    <owl:Class rdf:about="https://example.com#Experiment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:someValuesFrom rdf:resource="https://example.com#Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#Operation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#Workflow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExperimentCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#ExperimentCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:someValuesFrom rdf:resource="https://example.com#Experiment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExperimentType -->
+
+    <owl:Class rdf:about="https://example.com#ExperimentType">
+        <rdfs:subClassOf rdf:resource="https://example.com#ExperimentCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Explain -->
+
+    <owl:Class rdf:about="https://example.com#Explain">
+        <rdfs:subClassOf rdf:resource="https://example.com#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplainImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Explanation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplainComponentEvaluationCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#ExplainComponentEvaluationCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluatesExplanationComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplainImplementation -->
+
+    <owl:Class rdf:about="https://example.com#ExplainImplementation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Implementation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplainableAlgorithm -->
+
+    <owl:Class rdf:about="https://example.com#ExplainableAlgorithm">
+        <rdfs:subClassOf rdf:resource="https://example.com#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplainedElement -->
+
+    <owl:Class rdf:about="https://example.com#ExplainedElement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplainsModel -->
+
+    <owl:Class rdf:about="https://example.com#ExplainsModel">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#MLModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ModelExplanation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplainsResultInstance -->
+
+    <owl:Class rdf:about="https://example.com#ExplainsResultInstance">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplanationComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ResultInstance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Explanation -->
+
+    <owl:Class rdf:about="https://example.com#Explanation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Output"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Explain"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplanationComponent -->
+
+    <owl:Class rdf:about="https://example.com#ExplanationComponent">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#ExplainsResultInstance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isComponentOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Explanation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplanationComponentEvaluation -->
+
+    <owl:Class rdf:about="https://example.com#ExplanationComponentEvaluation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#EvaluatesExplanationComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isComponentOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplanationEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplanationEvaluation -->
+
+    <owl:Class rdf:about="https://example.com#ExplanationEvaluation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Output"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#ExplanationEvaluationCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluateExplanation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplanationEvaluationCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#ExplanationEvaluationCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplanationEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplanationFormat -->
+
+    <owl:Class rdf:about="https://example.com#ExplanationFormat">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplanationInteraction -->
+
+    <owl:Class rdf:about="https://example.com#ExplanationInteraction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ExplanationScope -->
+
+    <owl:Class rdf:about="https://example.com#ExplanationScope">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Feature -->
+
+    <owl:Class rdf:about="https://example.com#Feature">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#FeatureCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isComponentOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#FeatureCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#FeatureCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Goal -->
+
+    <owl:Class rdf:about="https://example.com#Goal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                <owl:someValuesFrom rdf:resource="https://example.com#Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#GoalCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#GoalCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:someValuesFrom rdf:resource="https://example.com#Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#HasMeasure -->
+
+    <owl:Class rdf:about="https://example.com#HasMeasure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluateModelImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluationMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#HasParameter -->
+
+    <owl:Class rdf:about="https://example.com#HasParameter">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Implementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Implementation -->
+
+    <owl:Class rdf:about="https://example.com#Implementation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isComponentOf"/>
+                <owl:someValuesFrom rdf:resource="https://example.com#Workflow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#ImplementationCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isComponentOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Software"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ImplementationCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#ImplementationCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Implementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ImplementationLibrary -->
+
+    <owl:Class rdf:about="https://example.com#ImplementationLibrary">
+        <rdfs:subClassOf rdf:resource="https://example.com#ImplementationCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Implements -->
+
+    <owl:Class rdf:about="https://example.com#Implements">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Algorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Implementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#InputData -->
+
+    <owl:Class rdf:about="https://example.com#InputData">
+        <rdfs:subClassOf rdf:resource="https://example.com#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Interpretability -->
+
+    <owl:Class rdf:about="https://example.com#Interpretability">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#LearningType -->
+
+    <owl:Class rdf:about="https://example.com#LearningType">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#MLAlgorithm -->
+
+    <owl:Class rdf:about="https://example.com#MLAlgorithm">
+        <rdfs:subClassOf rdf:resource="https://example.com#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#MLImplementation -->
+
+    <owl:Class rdf:about="https://example.com#MLImplementation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Implementation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#MLModel -->
+
+    <owl:Class rdf:about="https://example.com#MLModel">
+        <rdfs:subClassOf rdf:resource="https://example.com#Output"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#ModelCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Train"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#MachineLearningTechnique -->
+
+    <owl:Class rdf:about="https://example.com#MachineLearningTechnique">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#MeasureValue -->
+
+    <owl:Class rdf:about="https://example.com#MeasureValue">
+        <rdfs:subClassOf rdf:resource="https://example.com#ModelEvaluationCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ModelCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#ModelCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#MLModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ModelEvaluation -->
+
+    <owl:Class rdf:about="https://example.com#ModelEvaluation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Output"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#SpecifiesModelEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluateModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Assesses"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ModelEvaluationCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#ModelEvaluationCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#SpecifiesModelEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ModelExplanation -->
+
+    <owl:Class rdf:about="https://example.com#ModelExplanation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Explanation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ExplainsModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#NumberCategories -->
+
+    <owl:Class rdf:about="https://example.com#NumberCategories">
+        <rdfs:subClassOf rdf:resource="https://example.com#FeatureCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#NumberFeatures -->
+
+    <owl:Class rdf:about="https://example.com#NumberFeatures">
+        <rdfs:subClassOf rdf:resource="https://example.com#DataCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#NumberInstances -->
+
+    <owl:Class rdf:about="https://example.com#NumberInstances">
+        <rdfs:subClassOf rdf:resource="https://example.com#DataCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#NumberNulls -->
+
+    <owl:Class rdf:about="https://example.com#NumberNulls">
+        <rdfs:subClassOf rdf:resource="https://example.com#FeatureCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Operation -->
+
+    <owl:Class rdf:about="https://example.com#Operation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:someValuesFrom rdf:resource="https://example.com#Experiment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Implementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Output"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Output -->
+
+    <owl:Class rdf:about="https://example.com#Output">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Operation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Parameter -->
+
+    <owl:Class rdf:about="https://example.com#Parameter">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#HasParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#SpecifiesParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ParameterSetting -->
+
+    <owl:Class rdf:about="https://example.com#ParameterSetting">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Operation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ParameterSettingCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#SpecifiesParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ParameterSettingCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#ParameterSettingCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ParameterSetting"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ParameterSettingValue -->
+
+    <owl:Class rdf:about="https://example.com#ParameterSettingValue">
+        <rdfs:subClassOf rdf:resource="https://example.com#ParameterSettingCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#PredictImplementation -->
+
+    <owl:Class rdf:about="https://example.com#PredictImplementation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Implementation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Calls"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Preprocess -->
+
+    <owl:Class rdf:about="https://example.com#Preprocess">
+        <rdfs:subClassOf rdf:resource="https://example.com#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#InputData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#PreprocessImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#PreprocessedData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#PreprocessImplementation -->
+
+    <owl:Class rdf:about="https://example.com#PreprocessImplementation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Implementation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#PreprocessedData -->
+
+    <owl:Class rdf:about="https://example.com#PreprocessedData">
+        <rdfs:subClassOf rdf:resource="https://example.com#Data"/>
+        <rdfs:subClassOf rdf:resource="https://example.com#Output"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Preprocess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#PreprocessingAlgorithm -->
+
+    <owl:Class rdf:about="https://example.com#PreprocessingAlgorithm">
+        <rdfs:subClassOf rdf:resource="https://example.com#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#PreprocessingTechnique -->
+
+    <owl:Class rdf:about="https://example.com#PreprocessingTechnique">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Result -->
+
+    <owl:Class rdf:about="https://example.com#Result">
+        <rdfs:subClassOf rdf:resource="https://example.com#Output"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#TestPredict"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ResultExplanation -->
+
+    <owl:Class rdf:about="https://example.com#ResultExplanation">
+        <rdfs:subClassOf rdf:resource="https://example.com#Explanation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#ResultInstance -->
+
+    <owl:Class rdf:about="https://example.com#ResultInstance">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isComponentOf"/>
+                <owl:someValuesFrom rdf:resource="https://example.com#Result"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Software -->
+
+    <owl:Class rdf:about="https://example.com#Software">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Source -->
+
+    <owl:Class rdf:about="https://example.com#Source">
+        <rdfs:subClassOf rdf:resource="https://example.com#DataSource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#SourceName -->
+
+    <owl:Class rdf:about="https://example.com#SourceName">
+        <rdfs:subClassOf rdf:resource="https://example.com#DataSource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#SpecifiesMeasure -->
+
+    <owl:Class rdf:about="https://example.com#SpecifiesMeasure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluationMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#SpecifiesModelEvaluation -->
+
+    <owl:Class rdf:about="https://example.com#SpecifiesModelEvaluation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#EvaluationMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ModelEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ModelEvaluationCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#SpecifiesParameter -->
+
+    <owl:Class rdf:about="https://example.com#SpecifiesParameter">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#ParameterSetting"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Study -->
+
+    <owl:Class rdf:about="https://example.com#Study">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#StudyCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#Experiment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#StudyCharacteristic -->
+
+    <owl:Class rdf:about="https://example.com#StudyCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#StudyField -->
+
+    <owl:Class rdf:about="https://example.com#StudyField">
+        <rdfs:subClassOf rdf:resource="https://example.com#StudyCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#SuitableMeasurement -->
+
+    <owl:Class rdf:about="https://example.com#SuitableMeasurement">
+        <rdfs:subClassOf rdf:resource="https://example.com#GoalCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#TestData -->
+
+    <owl:Class rdf:about="https://example.com#TestData">
+        <rdfs:subClassOf rdf:resource="https://example.com#PreprocessedData"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#TestPredict -->
+
+    <owl:Class rdf:about="https://example.com#TestPredict">
+        <rdfs:subClassOf rdf:resource="https://example.com#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#TestData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#PredictImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#Result"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Train -->
+
+    <owl:Class rdf:about="https://example.com#Train">
+        <rdfs:subClassOf rdf:resource="https://example.com#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://example.com#TrainData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#MLImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.com#MLModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#TrainData -->
+
+    <owl:Class rdf:about="https://example.com#TrainData">
+        <rdfs:subClassOf rdf:resource="https://example.com#PreprocessedData"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Trustworthiness -->
+
+    <owl:Class rdf:about="https://example.com#Trustworthiness">
+        <rdfs:subClassOf rdf:resource="https://example.com#ExplanationEvaluationCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- https://example.com#Workflow -->
+
+    <owl:Class rdf:about="https://example.com#Workflow">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://example.com#AccessDate -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#AccessDate">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Accuracy -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Accuracy">
+        <rdf:type rdf:resource="https://example.com#EvaluationMeasure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#AccuracySpecifiesSVMEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#AccuracySpecifiesSVMEvaluation">
+        <rdf:type rdf:resource="https://example.com#SpecifiesModelEvaluation"/>
+        <specifiesInvolvesEvaluationMeasure rdf:resource="https://example.com#Accuracy"/>
+        <specifiesInvolvesModelEvaluation rdf:resource="https://example.com#SVMEvaluation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Addresses -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Addresses">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Age -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Age">
+        <rdf:type rdf:resource="https://example.com#Feature"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Continuous"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#Covid-19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Algorithm -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Algorithm">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#AlgorithmCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#AlgorithmCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#AlgorithmTransparency -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#AlgorithmTransparency">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Assesses -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Assesses">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Calls -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Calls">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#CaseStudyCovid -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#CaseStudyCovid">
+        <rdf:type rdf:resource="https://example.com#Study"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Categorical -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Categorical">
+        <rdf:type rdf:resource="https://example.com#DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#CategoryQuantity -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#CategoryQuantity">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Classification -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Classification">
+        <rdf:type rdf:resource="https://example.com#MachineLearningTechnique"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ClassifyMortality_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ClassifyMortality_exp1">
+        <rdf:type rdf:resource="https://example.com#Goal"/>
+        <gufo:participatedIn rdf:resource="https://example.com#CaseStudyCovid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Continuous -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Continuous">
+        <rdf:type rdf:resource="https://example.com#DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Correlates -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Correlates">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#CorrelationCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#CorrelationCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Coverage -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Coverage">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Covid-19 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Covid-19">
+        <rdf:type rdf:resource="https://example.com#InputData"/>
+        <gufo:participatedIn rdf:resource="https://example.com#PreprocessCovid_Exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Covid-19Period -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Covid-19Period">
+        <rdf:type rdf:resource="https://example.com#DataPeriod"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Covid-19TestData_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Covid-19TestData_exp1">
+        <rdf:type rdf:resource="https://example.com#TestData"/>
+        <gufo:participatedIn rdf:resource="https://example.com#EvaluateSVM"/>
+        <gufo:participatedIn rdf:resource="https://example.com#PredictTest_exp1"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#PreprocessCovid_Exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Covid-19TrainData_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Covid-19TrainData_exp1">
+        <rdf:type rdf:resource="https://example.com#TrainData"/>
+        <gufo:participatedIn rdf:resource="https://example.com#PredictTrain_exp1"/>
+        <gufo:participatedIn rdf:resource="https://example.com#TrainSVM"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#PreprocessCovid_Exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Data -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Data">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#DataCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#DataCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#DataPeriod -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#DataPeriod">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#DataSource -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#DataSource">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#DataType -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#DataType">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#DecisionTree -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#DecisionTree">
+        <rdf:type rdf:resource="https://example.com#ExplanationFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Diabetes -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Diabetes">
+        <rdf:type rdf:resource="https://example.com#Feature"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Categorical"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#Covid-19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#DimensionalityReduction -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#DimensionalityReduction">
+        <rdf:type rdf:resource="https://example.com#PreprocessingTechnique"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Discrete -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Discrete">
+        <rdf:type rdf:resource="https://example.com#DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateExplanation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateExplanation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateExplanationImplementation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateExplanationImplementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateModel">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateModelHasMeasureAccuracy -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateModelHasMeasureAccuracy">
+        <rdf:type rdf:resource="https://example.com#HasMeasure"/>
+        <hasMeasureInvolvesEvaluateModelImplementation rdf:resource="https://example.com#TrainTestSplitPython"/>
+        <hasMeasureInvolvesMeasure rdf:resource="https://example.com#Accuracy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateModelImplementation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateModelImplementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluatePythonImplementsTrainTestSplit -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluatePythonImplementsTrainTestSplit">
+        <rdf:type rdf:resource="https://example.com#Implements"/>
+        <implementsInvolvesAlgorithm rdf:resource="https://example.com#TrainTestSplit"/>
+        <implementsInvolvesImplementation rdf:resource="https://example.com#TrainTestSplitPython"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateRIPPER -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateRIPPER">
+        <rdf:type rdf:resource="https://example.com#EvaluateExplanation"/>
+        <gufo:isEventProperPartOf rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateRipperPython -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateRipperPython">
+        <rdf:type rdf:resource="https://example.com#EvaluateExplanationImplementation"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#ExplainWorkflow"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#PythonNotebook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluateSVM -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluateSVM">
+        <rdf:type rdf:resource="https://example.com#EvaluateModel"/>
+        <gufo:isEventProperPartOf rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluatesExplanationComponent -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluatesExplanationComponent">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluationMeasure -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluationMeasure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluationProcedure -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluationProcedure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#EvaluationRulesRipper -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#EvaluationRulesRipper">
+        <rdf:type rdf:resource="https://example.com#ExplanationComponentEvaluation"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#RipperEvaluation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Exp1_RIPPER -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Exp1_RIPPER">
+        <rdf:type rdf:resource="https://example.com#Experiment"/>
+        <gufo:isEventProperPartOf rdf:resource="https://example.com#CaseStudyCovid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Experiment -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Experiment">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExperimentCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExperimentCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExperimentType -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExperimentType">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Explain -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Explain">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainComponentEvaluationCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainComponentEvaluationCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainImplementation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainImplementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainSVM -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainSVM">
+        <rdf:type rdf:resource="https://example.com#Explain"/>
+        <gufo:isEventProperPartOf rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainWorkflow -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainWorkflow">
+        <rdf:type rdf:resource="https://example.com#Workflow"/>
+        <gufo:participatedIn rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainableAlgorithm -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainableAlgorithm">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainedElement -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainedElement">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainsMLModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainsMLModel">
+        <rdf:type rdf:resource="https://example.com#ExplainedElement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainsModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainsModel">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainsOutput -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainsOutput">
+        <rdf:type rdf:resource="https://example.com#ExplainedElement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplainsResultInstance -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplainsResultInstance">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Explanation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Explanation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplanationComponent -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplanationComponent">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplanationComponentEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplanationComponentEvaluation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplanationEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplanationEvaluation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplanationEvaluationCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplanationEvaluationCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplanationFormat -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplanationFormat">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplanationInteraction -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplanationInteraction">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ExplanationScope -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ExplanationScope">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Feature -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Feature">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#FeatureCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#FeatureCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#FeatureExtraction -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#FeatureExtraction">
+        <rdf:type rdf:resource="https://example.com#PreprocessingTechnique"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Global -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Global">
+        <rdf:type rdf:resource="https://example.com#ExplanationScope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Goal -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Goal">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#GoalCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#GoalCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#GoalSpecifyAccuracy -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#GoalSpecifyAccuracy">
+        <rdf:type rdf:resource="https://example.com#SpecifiesMeasure"/>
+        <specifiesMeasureInvolvesGoal rdf:resource="https://example.com#ClassifyMortality_exp1"/>
+        <specifiesMeasureInvolvesMeasure rdf:resource="https://example.com#Accuracy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#HasMeasure -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#HasMeasure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#HasParameter -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#HasParameter">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Image -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Image">
+        <rdf:type rdf:resource="https://example.com#DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ImageHighlight -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ImageHighlight">
+        <rdf:type rdf:resource="https://example.com#ExplanationFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Implementation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Implementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ImplementationCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ImplementationCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ImplementationLibrary -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ImplementationLibrary">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Implements -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Implements">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#InputData -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#InputData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Phase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#InputVariableWeight -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#InputVariableWeight">
+        <rdf:type rdf:resource="https://example.com#ExplanationFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Inscrutable -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Inscrutable">
+        <rdf:type rdf:resource="https://example.com#Interpretability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Interative -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Interative">
+        <rdf:type rdf:resource="https://example.com#ExplanationInteraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Interpretability -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Interpretability">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#LearningType -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#LearningType">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#LinearSpecifiesKernel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#LinearSpecifiesKernel">
+        <rdf:type rdf:resource="https://example.com#SpecifiesParameter"/>
+        <specifiesInvolvesParameter rdf:resource="https://example.com#TypeOfKernel"/>
+        <specifiesInvolvesParameterSetting rdf:resource="https://example.com#SVMKernelSetting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Local -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Local">
+        <rdf:type rdf:resource="https://example.com#ExplanationScope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#MLAlgorithm -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#MLAlgorithm">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#MLImplementation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#MLImplementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#MLModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#MLModel">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#MLWorkflow -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#MLWorkflow">
+        <rdf:type rdf:resource="https://example.com#Workflow"/>
+        <gufo:participatedIn rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#MachineLearningTechnique -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#MachineLearningTechnique">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#MeasureValue -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#MeasureValue">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ModelCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ModelCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ModelEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ModelEvaluation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ModelEvaluationAssessesSVMModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ModelEvaluationAssessesSVMModel">
+        <rdf:type rdf:resource="https://example.com#Assesses"/>
+        <assessesInvolvesModel rdf:resource="https://example.com#SVMModel"/>
+        <assessesInvolvesModelEvaluation rdf:resource="https://example.com#SVMEvaluation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ModelEvaluationCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ModelEvaluationCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ModelExplanation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ModelExplanation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#NaturalLanguage -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#NaturalLanguage">
+        <rdf:type rdf:resource="https://example.com#ExplanationFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#NumberCategories -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#NumberCategories">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#NumberFeatures -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#NumberFeatures">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#NumberInstances -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#NumberInstances">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#NumberNulls -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#NumberNulls">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Operation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Operation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Output -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Output">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Parameter -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Parameter">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ParameterSetting -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ParameterSetting">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ParameterSettingCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ParameterSettingCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ParameterSettingValue -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ParameterSettingValue">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PredictImplementation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PredictImplementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PredictImplementationCallsSVMModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PredictImplementationCallsSVMModel">
+        <rdf:type rdf:resource="https://example.com#Calls"/>
+        <callsInvolvesMLModel rdf:resource="https://example.com#SVMModel"/>
+        <callsInvolvesPredictImplementation rdf:resource="https://example.com#PredictSVMPython"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PredictSVMPython -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PredictSVMPython">
+        <rdf:type rdf:resource="https://example.com#PredictImplementation"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#MLWorkflow"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#PythonNotebook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PredictTest_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PredictTest_exp1">
+        <rdf:type rdf:resource="https://example.com#TestPredict"/>
+        <gufo:isEventProperPartOf rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PredictTrain_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PredictTrain_exp1">
+        <rdf:type rdf:resource="https://example.com#TestPredict"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Preprocess -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Preprocess">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PreprocessCovid_Exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PreprocessCovid_Exp1">
+        <rdf:type rdf:resource="https://example.com#Preprocess"/>
+        <gufo:isEventProperPartOf rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PreprocessImplementation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PreprocessImplementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PreprocessedData -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PreprocessedData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Phase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PreprocessingAlgorithm -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PreprocessingAlgorithm">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PreprocessingTechnique -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PreprocessingTechnique">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#PythonNotebook -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#PythonNotebook">
+        <rdf:type rdf:resource="https://example.com#Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RIPPER -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RIPPER">
+        <rdf:type rdf:resource="https://example.com#ExplainableAlgorithm"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Global"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Rules"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Static"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RIPPERExplainsSVMModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RIPPERExplainsSVMModel">
+        <rdf:type rdf:resource="https://example.com#ExplainsModel"/>
+        <explainsModelInvolvesModel rdf:resource="https://example.com#SVMModel"/>
+        <explainsModelInvolvesModelExplanation rdf:resource="https://example.com#RipperExplanation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Regression -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Regression">
+        <rdf:type rdf:resource="https://example.com#MachineLearningTechnique"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Result -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Result">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ResultExplanation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ResultExplanation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ResultInstance -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ResultInstance">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ResultInstance1_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ResultInstance1_exp1">
+        <rdf:type rdf:resource="https://example.com#ResultInstance"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#TestPrediction_exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#ResultInstance2_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#ResultInstance2_exp1">
+        <rdf:type rdf:resource="https://example.com#ResultInstance"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#TestPrediction_exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RipperEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RipperEvaluation">
+        <rdf:type rdf:resource="https://example.com#ExplanationEvaluation"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#EvaluateRIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RipperExplanation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RipperExplanation">
+        <rdf:type rdf:resource="https://example.com#ModelExplanation"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#ExplainSVM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RipperPython -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RipperPython">
+        <rdf:type rdf:resource="https://example.com#ExplainImplementation"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#ExplainWorkflow"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#PythonNotebook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RipperPythonImplementsRipper -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RipperPythonImplementsRipper">
+        <rdf:type rdf:resource="https://example.com#Implements"/>
+        <implementsInvolvesAlgorithm rdf:resource="https://example.com#RIPPER"/>
+        <implementsInvolvesImplementation rdf:resource="https://example.com#RipperPython"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RipperRule1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RipperRule1">
+        <rdf:type rdf:resource="https://example.com#ExplanationComponent"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#RipperExplanation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#RipperRule2 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#RipperRule2">
+        <rdf:type rdf:resource="https://example.com#ExplanationComponent"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#RipperExplanation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Rules -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Rules">
+        <rdf:type rdf:resource="https://example.com#ExplanationFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVM -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVM">
+        <rdf:type rdf:resource="https://example.com#MLAlgorithm"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Classification"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Supervised"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Tabular"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMAddressesClassification -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMAddressesClassification">
+        <rdf:type rdf:resource="https://example.com#Addresses"/>
+        <addressesInvolvesAlgorithm rdf:resource="https://example.com#SVM"/>
+        <addressesInvolvesGoal rdf:resource="https://example.com#ClassifyMortality_exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMEvaluation">
+        <rdf:type rdf:resource="https://example.com#ModelEvaluation"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#EvaluateSVM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMKernelSetting -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMKernelSetting">
+        <rdf:type rdf:resource="https://example.com#ParameterSetting"/>
+        <gufo:participatedIn rdf:resource="https://example.com#TrainSVM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMModel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMModel">
+        <rdf:type rdf:resource="https://example.com#MLModel"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#Inscrutable"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#TrainSVM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMPython -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMPython">
+        <rdf:type rdf:resource="https://example.com#MLImplementation"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#MLWorkflow"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#PythonNotebook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMPythonHasParameterTypeOfKernel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMPythonHasParameterTypeOfKernel">
+        <rdf:type rdf:resource="https://example.com#HasParameter"/>
+        <hasParameterInvolvesImplementation rdf:resource="https://example.com#SVMPython"/>
+        <hasParameterInvolvesParameter rdf:resource="https://example.com#TypeOfKernel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMPythonImplementsSVM -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMPythonImplementsSVM">
+        <rdf:type rdf:resource="https://example.com#Implements"/>
+        <implementsInvolvesAlgorithm rdf:resource="https://example.com#SVM"/>
+        <implementsInvolvesImplementation rdf:resource="https://example.com#SVMPython"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SVMTransparency -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SVMTransparency">
+        <rdf:type rdf:resource="https://example.com#AlgorithmTransparency"/>
+        <gufo:inheresIn rdf:resource="https://example.com#SVM"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">SVM maps training examples to points in space so as to maximise the width of the gap between the two categories. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.
+
+In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
+
+When data are unlabelled, supervised learning is not possible, and an unsupervised learning approach is required, which attempts to find natural clustering of the data to groups, and then map new data to these formed groups.</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Software -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Software">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Source -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Source">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SourceName -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SourceName">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SpecifiesMeasure -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SpecifiesMeasure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SpecifiesModelEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SpecifiesModelEvaluation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SpecifiesParameter -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SpecifiesParameter">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Split -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Split">
+        <rdf:type rdf:resource="https://example.com#PreprocessingAlgorithm"/>
+        <gufo:hasReifiedQualityValue rdf:resource="https://example.com#SplitData"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SplitData -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SplitData">
+        <rdf:type rdf:resource="https://example.com#PreprocessingTechnique"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SplitPython -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SplitPython">
+        <rdf:type rdf:resource="https://example.com#PreprocessImplementation"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#MLWorkflow"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#PythonNotebook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SplitPythonImplementsSplit -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SplitPythonImplementsSplit">
+        <rdf:type rdf:resource="https://example.com#Implements"/>
+        <implementsInvolvesAlgorithm rdf:resource="https://example.com#Split"/>
+        <implementsInvolvesImplementation rdf:resource="https://example.com#SplitPython"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Static -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Static">
+        <rdf:type rdf:resource="https://example.com#ExplanationInteraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Study -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Study">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#StudyCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#StudyCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#StudyField -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#StudyField">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#StudyType -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#StudyType">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#SuitableMeasurement -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#SuitableMeasurement">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Supervised -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Supervised">
+        <rdf:type rdf:resource="https://example.com#LearningType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Tabular -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Tabular">
+        <rdf:type rdf:resource="https://example.com#DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TestData -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TestData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TestPredict -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TestPredict">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TestPrediction_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TestPrediction_exp1">
+        <rdf:type rdf:resource="https://example.com#Result"/>
+        <gufo:participatedIn rdf:resource="https://example.com#EvaluateSVM"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#PredictTest_exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Text -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Text">
+        <rdf:type rdf:resource="https://example.com#DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Train -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Train">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TrainData -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TrainData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TrainPrediction_exp1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TrainPrediction_exp1">
+        <rdf:type rdf:resource="https://example.com#Result"/>
+        <gufo:participatedIn rdf:resource="https://example.com#ExplainSVM"/>
+        <gufo:wasCreatedIn rdf:resource="https://example.com#PredictTrain_exp1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TrainSVM -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TrainSVM">
+        <rdf:type rdf:resource="https://example.com#Train"/>
+        <gufo:isEventProperPartOf rdf:resource="https://example.com#Exp1_RIPPER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TrainTestSplit -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TrainTestSplit">
+        <rdf:type rdf:resource="https://example.com#EvaluationProcedure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TrainTestSplitPython -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TrainTestSplitPython">
+        <rdf:type rdf:resource="https://example.com#EvaluateModelImplementation"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#MLWorkflow"/>
+        <gufo:isComponentOf rdf:resource="https://example.com#PythonNotebook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Transparent -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Transparent">
+        <rdf:type rdf:resource="https://example.com#Interpretability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Trustworthiness -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Trustworthiness">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#TypeOfKernel -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#TypeOfKernel">
+        <rdf:type rdf:resource="https://example.com#Parameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Unsupervised -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Unsupervised">
+        <rdf:type rdf:resource="https://example.com#LearningType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#Workflow -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#Workflow">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.com#hasMeasure -->
+
+    <owl:NamedIndividual rdf:about="https://example.com#hasMeasure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="https://example.com#Addresses">
+        <rdfs:label xml:lang="en">Addresses</rdfs:label>
+        <rdfs:comment xml:lang="en">Relator that indicates that the Machine Learning Algorithm addresses the goal of the study.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Algorithm">
+        <rdfs:comment xml:lang="en">The algorithm regardless software implementation. An algorithm can be a machine learning algorithm, a preprocessing algorithm, an evaluation procedure, etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">Algorithm</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#AlgorithmCharacteristic">
+        <rdfs:label xml:lang="en">AlgorithmCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Assesses">
+        <rdfs:comment xml:lang="en">Relator that indicates that the model evaluation assesses the Machine Learning Model.</rdfs:comment>
+        <rdfs:label xml:lang="en">Assesses</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Calls">
+        <rdfs:comment xml:lang="en">Relator that indicates that the implementation used to generate results or predictions calls the MLModels, which can act as functions and are executed.</rdfs:comment>
+        <rdfs:label xml:lang="en">Calls</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Correlates">
+        <rdfs:comment xml:lang="en">Relator that indicates that two features from the data are mathematically correlated.</rdfs:comment>
+        <rdfs:label xml:lang="en">Correlates</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#CorrelationCharacteristic">
+        <rdfs:label xml:lang="en">CorrelationCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Data">
+        <rdfs:label xml:lang="en">Data</rdfs:label>
+        <rdfs:comment xml:lang="en">Data are facts and statistics collected together for reference or analysis. They can be images, tables, texts, etc.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#DataCharacteristic">
+        <rdfs:label xml:lang="en">DataCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#EvaluateExplanation">
+        <rdfs:label xml:lang="en">EvaluateExplanation</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of operation that focus on evaluating the explanations generated by the Explain operation.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#EvaluateExplanationImplementation">
+        <rdfs:label xml:lang="en">EvaluateExplanationImplementation</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of implementation that implements the evaluation of the explanation.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#EvaluateModel">
+        <rdfs:label xml:lang="en">EvaluateModel</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of operation that focus on evaluating the ML Model. It executes the implementation of the evaluation procedure, generating the values for the measurements that assess the ML Model.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#EvaluateModelImplementation">
+        <rdfs:label xml:lang="en">EvaluateModelImplementation</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of implementation that implements the evaluation procedure.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#EvaluatesExplanationComponent">
+        <rdfs:comment xml:lang="en">Relator that indicates that the component of the explanation evaluation evaluates explanation components (e.g., coverage).</rdfs:comment>
+        <rdfs:label xml:lang="en">EvaluatesExplanationComponent</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#EvaluationMeasure">
+        <rdfs:label xml:lang="en">EvaluationMeasure</rdfs:label>
+        <rdfs:comment xml:lang="en">EvaluationMeasure is a measure to assess the performance of the machine learning model generated by the train operation. Examples are predictive accuracy or f-measure.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#EvaluationProcedure">
+        <rdfs:comment xml:lang="en">EvaluationProcedure is a technique to evaluate machine learning models, being considered specific types of algorithm since they can be implemented in different programming languages. Examples are cross-validation and leave-one-out.</rdfs:comment>
+        <rdfs:label xml:lang="en">EvaluationProcedure</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Experiment">
+        <rdfs:comment xml:lang="en">Experiment is a complex event composed of series of operations. Similarly to DMOP, it executes the implementations of operations by executing Workflows, which organizes sequentially the implementations of these operations. </rdfs:comment>
+        <rdfs:label xml:lang="en">Experiment</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Explain">
+        <rdfs:label xml:lang="en">Explain</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of operation that focus on generating the explanations from the MLModel.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplainComponentEvaluationCharacteristic">
+        <rdfs:label xml:lang="en">ExplainComponentEvaluationCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplainImplementation">
+        <rdfs:label xml:lang="en">ExplainImplementation</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of implementation that implements the explainable algorithm.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplainableAlgorithm">
+        <rdfs:comment xml:lang="en">Specific type of post-hoc methods that focus on generating explanations from the MLModel.</rdfs:comment>
+        <rdfs:label xml:lang="en">ExplainableAlgorithm</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplainsModel">
+        <rdfs:label xml:lang="en">ExplainsModel</rdfs:label>
+        <rdfs:comment xml:lang="en">Relator that indicates that the Model Explanation explains the ML Model. It enables retrieving the logic behind the ML Model after the post-hoc method is applied.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplainsResultInstance">
+        <rdfs:comment xml:lang="en">Relator that indicates that the explanation component explains the result instance, enabling retrieving the explanation of a specific instance of the result.</rdfs:comment>
+        <rdfs:label xml:lang="en">ExplainsResultInstance</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Explanation">
+        <rdfs:comment xml:lang="en">Type of output that is generated by the explain operation, which contains the explanation generated by the post-hoc method.</rdfs:comment>
+        <rdfs:label xml:lang="en">Explanation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplanationComponent">
+        <rdfs:comment xml:lang="en">Components of the Explanation, which can represent explanation of a single instance or one single rule.</rdfs:comment>
+        <rdfs:label xml:lang="en">ExplanationComponent</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplanationComponentEvaluation">
+        <rdfs:label xml:lang="en">ExplanationComponentEvaluation</rdfs:label>
+        <rdfs:comment xml:lang="en">A component of the explanation evaluation that evaluates explanation components (e.g., coverage), instead of evaluating the whole explanations (in the case of trustworthiness).</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplanationEvaluation">
+        <rdfs:label xml:lang="en">ExplanationEvaluation</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of output that is generated by the evaluate explanation operation. It can indicate, for example, the trustworthiness of the Explanation or the coverage of its components.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ExplanationEvaluationCharacteristic">
+        <rdfs:label xml:lang="en">ExplanationEvaluationCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Feature">
+        <rdfs:label xml:lang="en">Feature</rdfs:label>
+        <rdfs:comment xml:lang="en">Features are measurable properties or characteristic of a phenomenon. In a dataset, they can be the input variables.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#FeatureCharacteristic">
+        <rdfs:label xml:lang="en">FeatureCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Goal">
+        <rdfs:comment xml:lang="en">The main goal of the study, for example, diagnosis of patients with Covid-19.</rdfs:comment>
+        <rdfs:label xml:lang="en">Goal</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#HasMeasure">
+        <rdfs:label xml:lang="en">HasMeasure</rdfs:label>
+        <rdfs:comment xml:lang="en">Relator that indicates that implementation of the evaluation procedure takes into account the evaluation measurements.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#HasParameter">
+        <rdfs:label xml:lang="en">HasParameter</rdfs:label>
+        <rdfs:comment xml:lang="en">Relator that indicates that the Implementation may have Parameter(s).</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Implementation">
+        <rdfs:label xml:lang="en">Implementation</rdfs:label>
+        <rdfs:comment xml:lang="en"> Implementation is an executable implementation of an algorithm. It is versioned, and sometimes belongs to a library (e.g. WEKA).</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ImplementationCharacteristic">
+        <rdfs:label xml:lang="en">ImplementationCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Implements">
+        <rdfs:comment xml:lang="en">Relator that indicates that the Implementation implements an Algorithm.</rdfs:comment>
+        <rdfs:label xml:lang="en">Implements</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#InputData">
+        <rdfs:label xml:lang="en">InputData</rdfs:label>
+        <rdfs:comment xml:lang="en">Input data is the data used in the experiment. It is a phase of the data, representing the raw data prior to the preprocessing step.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#MLAlgorithm">
+        <rdfs:label xml:lang="en">MLAlgorithm</rdfs:label>
+        <rdfs:comment xml:lang="en">Machine Learnin Algorithm (MLAlgorithm) is a specific type of algorithms that are used to perform machine learning, such as NN, SVM, Decision Trees, Logistic Regression</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#MLImplementation">
+        <rdfs:label xml:lang="en">MLImplementation</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of implementation that implements Machine Learning Algorithms.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#MLModel">
+        <rdfs:label xml:lang="en">MLModel</rdfs:label>
+        <rdfs:comment xml:lang="en">Machine Learning Model (MLModel) is a generalization of a set of training data able to predict values for unseen instances. It is an output from the Train operation, which executes a ML algorithm implementation. Models have a dual nature. They can be treated as data structures and as such represented, stored and manipulated. On the other hand, they act as functions and are executed, taking as input data examples and giving as output the result of applying the function to a data example. Models can also be divided into global or local ones. A global model has global coverage of a data set, i.e., it generalizes the whole data set. A local model, such as a pattern set, is a set of local hypotheses, i.e. each applies to a limited region of the data set.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ModelCharacteristic">
+        <rdfs:label xml:lang="en">ModelCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ModelEvaluation">
+        <rdfs:comment xml:lang="en">ModelEvaluation is a setting of a value of the performance measure specified by the evaluation specification. It connects a evaluation measure with its value.</rdfs:comment>
+        <rdfs:label xml:lang="en">ModelEvaluation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ModelEvaluationCharacteristic">
+        <rdfs:label xml:lang="en">ModelEvaluationCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ModelExplanation">
+        <rdfs:comment xml:lang="en">Specific type of explanation, which can focus on explaining the fitted MLModel by expressing the logic behind it.</rdfs:comment>
+        <rdfs:label xml:lang="en">ModelExplanation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Operation">
+        <rdfs:label xml:lang="en">Operation</rdfs:label>
+        <rdfs:comment xml:lang="en">Operation, similarly to [DMOP] is an execution of an implementation that accomplish a specific piece of work that needs to be addressed. It is limited in time (has a start and end point), can be successful or failed.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Output">
+        <rdfs:comment xml:lang="en">Artifact created in the Operation, which is the event that brought the output into existence. It can be a preprocessed dataset, a machine learning model, an evaluation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Output</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Parameter">
+        <rdfs:label xml:lang="en">Parameter</rdfs:label>
+        <rdfs:comment xml:lang="en">Prior parameter of an implementation, i.e., a parameter which is set before its execution. For example, a Hyperparameter when training a ML model.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ParameterSetting">
+        <rdfs:label xml:lang="en">ParameterSetting</rdfs:label>
+        <rdfs:comment xml:lang="en">ParameterSetting is an entity which connects a parameter and its value that is being set before an implementation execution.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ParameterSettingCharacteristic">
+        <rdfs:label xml:lang="en">ParameterSettingCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#PredictImplementation">
+        <rdfs:label xml:lang="en">PredictImplementation</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of implementation that implements the code to generate predictions/results by calling the function of the fitted MLModel.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Preprocess">
+        <rdfs:comment xml:lang="en">Specific type of operation that focus on preprocessing the input data to make it more adequate to train and test the ML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">Preprocess</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#PreprocessImplementation">
+        <rdfs:comment xml:lang="en">Specific type of implementation that implements preprocessing algorithms.</rdfs:comment>
+        <rdfs:label xml:lang="en">PreprocessImplementation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#PreprocessedData">
+        <rdfs:label xml:lang="en">PreprocessedData</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of output that is generated by the preprocessing operation. It represents the phase of the data after the preprocessing step.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#PreprocessingAlgorithm">
+        <rdfs:label xml:lang="en">PreprocessingAlgorithm</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of algorithm that focus on preprocessing the input data making it more adequate to train and test the ML model.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Result">
+        <rdfs:comment xml:lang="en">Type of output that is generated by the test(predict) operation. It has the results or predictions generated using the fitted MLModel on the test data.</rdfs:comment>
+        <rdfs:label xml:lang="en">Result</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ResultExplanation">
+        <rdfs:comment xml:lang="en">Specific type of explanation, which focus on explaining the result or predicitons obtained by applying the MLModel function on the test data.</rdfs:comment>
+        <rdfs:label xml:lang="en">ResultExplanation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#ResultInstance">
+        <rdfs:comment xml:lang="en">Instance that represents one result or prediction from the total results.</rdfs:comment>
+        <rdfs:label xml:lang="en">ResultInstance</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Software">
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <rdfs:comment xml:lang="en">Software is implemented computer programs, procedures, scripts or rules with associated documentation, possibly constituting an organized environment, stored in read/write memory for the purpose of being executed within a computer system.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#SpecifiesMeasure">
+        <rdfs:label xml:lang="en">SpecifiesMeasure</rdfs:label>
+        <rdfs:comment xml:lang="en">Relator that indicates that the Goal of the study specifies which evaluation measures are adequate to evaluate the Machine Learning Model.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#SpecifiesModelEvaluation">
+        <rdfs:label xml:lang="en">SpecifiesModelEvaluation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#SpecifiesParameter">
+        <rdfs:label xml:lang="en">SpecifiesParameter</rdfs:label>
+        <rdfs:comment xml:lang="en">Relator that indicates that the ParameterSetting is specified by the Parameter.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Study">
+        <rdfs:comment xml:lang="en">Study is a complex event composed of experiments that belong together to do some kind of analysis on its results. This analysis can be general or very specific (e.g. a hypothesis test), having a specific goal.</rdfs:comment>
+        <rdfs:label xml:lang="en">Study</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#StudyCharacteristic">
+        <rdfs:label xml:lang="en">StudyCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#TestData">
+        <rdfs:label xml:lang="en">TestData</rdfs:label>
+        <rdfs:comment xml:lang="en">Part of preprocessed data that has the role to be used by the Test(predict) operation. </rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#TestPredict">
+        <rdfs:label xml:lang="en">Test(Predict)</rdfs:label>
+        <rdfs:comment xml:lang="en">Specific type of operation that executes the PredictImplementation, generating results from the test data.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Train">
+        <rdfs:comment xml:lang="en">Specific type of operation that train the Machine Learning model, executing the ML Algorithm implementation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Train</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#TrainData">
+        <rdfs:comment xml:lang="en">Part of preprocessed data that has the role to be used by the Train operation. </rdfs:comment>
+        <rdfs:label xml:lang="en">TrainData</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://example.com#Workflow">
+        <rdfs:comment xml:lang="en">Workflow is a complex structure thais composed of series of implementations that need to be completed sequentially. It can be, for example, a workflow for the ML process and a workflow for the explanation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Workflow</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

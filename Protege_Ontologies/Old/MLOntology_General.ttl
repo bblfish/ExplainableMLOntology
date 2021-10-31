@@ -1,0 +1,1025 @@
+@prefix : <https://example.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://example.com> .
+
+<https://example.com> rdf:type owl:Ontology ;
+                       owl:imports gufo: .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://example.com#AddressesInvolvesGoal
+:AddressesInvolvesGoal rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf gufo:mediates ;
+                       rdf:type owl:AsymmetricProperty ,
+                                owl:IrreflexiveProperty ;
+                       rdfs:domain :Addresses ;
+                       rdfs:range :Goal .
+
+
+###  https://example.com#AddressesInvolvesMLAlgorithm
+:AddressesInvolvesMLAlgorithm rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf gufo:mediates ;
+                              rdf:type owl:AsymmetricProperty ,
+                                       owl:IrreflexiveProperty ;
+                              rdfs:domain :Addresses ;
+                              rdfs:range :MLAlgorithm .
+
+
+###  https://example.com#AssessesInvolvesMLModel
+:AssessesInvolvesMLModel rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf gufo:mediates ;
+                         rdfs:domain :Assesses ;
+                         rdfs:range :MLModel .
+
+
+###  https://example.com#AssessesInvolvesModelEvaluation
+:AssessesInvolvesModelEvaluation rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:mediates ;
+                                 rdfs:domain :Assesses ;
+                                 rdfs:range :ModelEvaluation .
+
+
+###  https://example.com#HasInvolvesImplementation
+:HasInvolvesImplementation rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:mediates ;
+                           rdf:type owl:AsymmetricProperty ,
+                                    owl:IrreflexiveProperty ;
+                           rdfs:domain :HasParameter ;
+                           rdfs:range :Implementation .
+
+
+###  https://example.com#HasInvolvesParameter
+:HasInvolvesParameter rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf gufo:mediates ;
+                      rdf:type owl:AsymmetricProperty ,
+                               owl:IrreflexiveProperty ;
+                      rdfs:domain :HasParameter ;
+                      rdfs:range :Parameter .
+
+
+###  https://example.com#ImplementsInvolvesAlgorithm
+:ImplementsInvolvesAlgorithm rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf gufo:mediates ;
+                             rdf:type owl:AsymmetricProperty ,
+                                      owl:IrreflexiveProperty ;
+                             rdfs:domain :Implements ;
+                             rdfs:range :Algorithm .
+
+
+###  https://example.com#ImplementsInvolvesImplementation
+:ImplementsInvolvesImplementation rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf gufo:mediates ;
+                                  rdf:type owl:AsymmetricProperty ,
+                                           owl:IrreflexiveProperty ;
+                                  rdfs:domain :Implements ;
+                                  rdfs:range :Implementation .
+
+
+###  https://example.com#SpecifiesMeasureInvolvesGoal
+:SpecifiesMeasureInvolvesGoal rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf gufo:mediates ;
+                              rdf:type owl:AsymmetricProperty ,
+                                       owl:IrreflexiveProperty ;
+                              rdfs:domain :SpecifiesMeasure ;
+                              rdfs:range :Goal .
+
+
+###  https://example.com#SpecifiesMeasureInvolvesMeasure
+:SpecifiesMeasureInvolvesMeasure rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:mediates ;
+                                 rdfs:domain :SpecifiesMeasure ;
+                                 rdfs:range :EvaluationMeasure .
+
+
+###  https://example.com#SpecifiesModelEvaluationInvolvesMeasure
+:SpecifiesModelEvaluationInvolvesMeasure rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf gufo:mediates ;
+                                         rdf:type owl:AsymmetricProperty ,
+                                                  owl:IrreflexiveProperty ;
+                                         rdfs:domain :SpecifiesModelEvaluation ;
+                                         rdfs:range :EvaluationMeasure .
+
+
+###  https://example.com#SpecifiesModelEvaluationInvolvesModelEvaluation
+:SpecifiesModelEvaluationInvolvesModelEvaluation rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf gufo:mediates ;
+                                                 rdfs:domain :SpecifiesModelEvaluation ;
+                                                 rdfs:range :ModelEvaluation .
+
+
+###  https://example.com#SpecifiesParameterInvolvesParameter
+:SpecifiesParameterInvolvesParameter rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf gufo:mediates ;
+                                     rdf:type owl:AsymmetricProperty ,
+                                              owl:IrreflexiveProperty ;
+                                     rdfs:domain :SpecifiesParameter ;
+                                     rdfs:range :Parameter .
+
+
+###  https://example.com#SpecifiesParameterInvolvesParameterSetting
+:SpecifiesParameterInvolvesParameterSetting rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf gufo:mediates ;
+                                            rdf:type owl:AsymmetricProperty ,
+                                                     owl:IrreflexiveProperty ;
+                                            rdfs:domain :SpecifiesParameter ;
+                                            rdfs:range :ParameterSetting .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://example.com#Addresses
+:Addresses rdf:type owl:Class ;
+           rdfs:subClassOf gufo:Relator ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty gufo:mediates ;
+                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Goal
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty gufo:mediates ;
+                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :MLAlgorithm
+                           ] .
+
+
+###  https://example.com#Algorithm
+:Algorithm rdf:type owl:Class ;
+           rdfs:subClassOf gufo:FunctionalComplex ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                            ] ;
+                             owl:someValuesFrom :AlgorithmCharacteristic
+                           ] .
+
+
+###  https://example.com#AlgorithmCharacteristic
+:AlgorithmCharacteristic rdf:type owl:Class ;
+                         rdfs:subClassOf gufo:Quality ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty gufo:inheresIn ;
+                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :Algorithm
+                                         ] .
+
+
+###  https://example.com#Assesses
+:Assesses rdf:type owl:Class ;
+          rdfs:subClassOf gufo:Relator ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty gufo:mediates ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :MLModel
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty gufo:mediates ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :ModelEvaluation
+                          ] .
+
+
+###  https://example.com#Data
+:Data rdf:type owl:Class ;
+      rdfs:subClassOf gufo:FunctionalComplex ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                       ] ;
+                        owl:someValuesFrom :DataCharacteristic
+                      ] .
+
+
+###  https://example.com#DataCharacteristic
+:DataCharacteristic rdf:type owl:Class ;
+                    rdfs:subClassOf gufo:Quality ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty gufo:inheresIn ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :Data
+                                    ] .
+
+
+###  https://example.com#EvaluationMeasure
+:EvaluationMeasure rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  https://example.com#EvaluationProcedure
+:EvaluationProcedure rdf:type owl:Class ;
+                     rdfs:subClassOf :Algorithm .
+
+
+###  https://example.com#Experiment
+:Experiment rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Event ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                             ] ;
+                              owl:someValuesFrom :ExperimentCharacteristic
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf gufo:isEventProperPartOf
+                                             ] ;
+                              owl:someValuesFrom :Workflow
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf gufo:participatedIn
+                                             ] ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Goal
+                            ] .
+
+
+###  https://example.com#ExperimentCharacteristic
+:ExperimentCharacteristic rdf:type owl:Class ;
+                          rdfs:subClassOf gufo:Quality ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty gufo:inheresIn ;
+                                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :Experiment
+                                          ] .
+
+
+###  https://example.com#Feature
+:Feature rdf:type owl:Class ;
+         rdfs:subClassOf gufo:FunctionalComplex ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty gufo:isComponentOf ;
+                           owl:someValuesFrom :Data
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                          ] ;
+                           owl:someValuesFrom :FeatureCharacteristic
+                         ] .
+
+
+###  https://example.com#FeatureCharacteristic
+:FeatureCharacteristic rdf:type owl:Class ;
+                       rdfs:subClassOf gufo:Quality ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty gufo:inheresIn ;
+                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :Feature
+                                       ] .
+
+
+###  https://example.com#Goal
+:Goal rdf:type owl:Class ;
+      rdfs:subClassOf gufo:FunctionalComplex ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty gufo:participatedIn ;
+                        owl:someValuesFrom :Experiment
+                      ] .
+
+
+###  https://example.com#HasParameter
+:HasParameter rdf:type owl:Class ;
+              rdfs:subClassOf gufo:Relator ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty gufo:mediates ;
+                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Implementation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty gufo:mediates ;
+                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Parameter
+                              ] .
+
+
+###  https://example.com#Implementation
+:Implementation rdf:type owl:Class ;
+                rdfs:subClassOf gufo:FunctionalComplex ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty gufo:isComponentOf ;
+                                  owl:someValuesFrom :Software
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                                 ] ;
+                                  owl:someValuesFrom :ImplementationCharacteristic
+                                ] .
+
+
+###  https://example.com#ImplementationCharacteristic
+:ImplementationCharacteristic rdf:type owl:Class ;
+                              rdfs:subClassOf gufo:Quality ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty gufo:inheresIn ;
+                                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                owl:onClass :Implementation
+                                              ] .
+
+
+###  https://example.com#Implements
+:Implements rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Relator ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty gufo:mediates ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Algorithm
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty gufo:mediates ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Implementation
+                            ] .
+
+
+###  https://example.com#InputData
+:InputData rdf:type owl:Class ;
+           rdfs:subClassOf :Data .
+
+
+###  https://example.com#MLAlgorithm
+:MLAlgorithm rdf:type owl:Class ;
+             rdfs:subClassOf :Algorithm .
+
+
+###  https://example.com#MLModel
+:MLModel rdf:type owl:Class ;
+         rdfs:subClassOf :Output ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                          ] ;
+                           owl:someValuesFrom :ModelCharacteristic
+                         ] .
+
+
+###  https://example.com#ModelCharacteristic
+:ModelCharacteristic rdf:type owl:Class ;
+                     rdfs:subClassOf gufo:Quality ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty gufo:inheresIn ;
+                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :MLModel
+                                     ] .
+
+
+###  https://example.com#ModelEvaluation
+:ModelEvaluation rdf:type owl:Class ;
+                 rdfs:subClassOf :Output .
+
+
+###  https://example.com#ModelEvaluationCharacteristic
+:ModelEvaluationCharacteristic rdf:type owl:Class ;
+                               rdfs:subClassOf gufo:Quality ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty gufo:inheresIn ;
+                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :SpecifiesModelEvaluation
+                                               ] .
+
+
+###  https://example.com#Output
+:Output rdf:type owl:Class ;
+        rdfs:subClassOf gufo:FunctionalComplex ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty gufo:wasCreatedIn ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Task
+                        ] .
+
+
+###  https://example.com#Parameter
+:Parameter rdf:type owl:Class ;
+           rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  https://example.com#ParameterCharacteristic
+:ParameterCharacteristic rdf:type owl:Class ;
+                         rdfs:subClassOf gufo:Quality ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty gufo:inheresIn ;
+                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :ParameterSetting
+                                         ] .
+
+
+###  https://example.com#ParameterSetting
+:ParameterSetting rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:FunctionalComplex ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty gufo:participatedIn ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Task
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                                   ] ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ParameterCharacteristic
+                                  ] .
+
+
+###  https://example.com#Software
+:Software rdf:type owl:Class ;
+          rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  https://example.com#SpecifiesMeasure
+:SpecifiesMeasure rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:Relator ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty gufo:mediates ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :EvaluationMeasure
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty gufo:mediates ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Goal
+                                  ] .
+
+
+###  https://example.com#SpecifiesModelEvaluation
+:SpecifiesModelEvaluation rdf:type owl:Class ;
+                          rdfs:subClassOf gufo:Relator ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty gufo:mediates ;
+                                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :EvaluationMeasure
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty gufo:mediates ;
+                                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :ModelEvaluation
+                                          ] .
+
+
+###  https://example.com#SpecifiesParameter
+:SpecifiesParameter rdf:type owl:Class ;
+                    rdfs:subClassOf gufo:Relator ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty gufo:mediates ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :Parameter
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty gufo:mediates ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ParameterSetting
+                                    ] .
+
+
+###  https://example.com#Task
+:Task rdf:type owl:Class ;
+      rdfs:subClassOf gufo:Event ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty gufo:isEventProperPartOf ;
+                        owl:someValuesFrom :Workflow
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty [ owl:inverseOf gufo:participatedIn
+                                       ] ;
+                        owl:someValuesFrom :Data
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty [ owl:inverseOf gufo:participatedIn
+                                       ] ;
+                        owl:someValuesFrom :Output
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty [ owl:inverseOf gufo:participatedIn
+                                       ] ;
+                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Implementation
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty [ owl:inverseOf gufo:wasCreatedIn
+                                       ] ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Output
+                      ] .
+
+
+###  https://example.com#Workflow
+:Workflow rdf:type owl:Class ;
+          rdfs:subClassOf gufo:Event ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty gufo:isEventProperPartOf ;
+                            owl:someValuesFrom :Experiment
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf gufo:isEventProperPartOf
+                                           ] ;
+                            owl:someValuesFrom :Task
+                          ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://example.com#Accuracy
+:Accuracy rdf:type owl:NamedIndividual ,
+                   :EvaluationMeasure .
+
+
+###  https://example.com#AccuracySpecifiesSVMEvaluation
+:AccuracySpecifiesSVMEvaluation rdf:type owl:NamedIndividual ,
+                                         :SpecifiesModelEvaluation ;
+                                :SpecifiesModelEvaluationInvolvesMeasure :Accuracy ;
+                                :SpecifiesModelEvaluationInvolvesModelEvaluation :SVMEvaluation .
+
+
+###  https://example.com#Addresses
+:Addresses rdf:type owl:NamedIndividual ,
+                    gufo:Kind .
+
+
+###  https://example.com#Age
+:Age rdf:type owl:NamedIndividual ,
+              :Feature ;
+     gufo:isComponentOf :Covid-19 .
+
+
+###  https://example.com#AgeNull
+:AgeNull rdf:type owl:NamedIndividual ,
+                  :FeatureCharacteristic ;
+         gufo:inheresIn :Age ;
+         gufo:hasQualityValue 0 .
+
+
+###  https://example.com#Algorithm
+:Algorithm rdf:type owl:NamedIndividual ,
+                    gufo:Kind .
+
+
+###  https://example.com#AlgorithmCharacteristic
+:AlgorithmCharacteristic rdf:type owl:NamedIndividual ,
+                                  gufo:Kind .
+
+
+###  https://example.com#Assesses
+:Assesses rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  https://example.com#Covid-19
+:Covid-19 rdf:type owl:NamedIndividual ,
+                   :InputData .
+
+
+###  https://example.com#CovidDataSource
+:CovidDataSource rdf:type owl:NamedIndividual ,
+                          :DataCharacteristic ;
+                 gufo:inheresIn :Covid-19 ;
+                 gufo:hasQualityValue "https://www.gob.mx/salud/documentos/datos-abiertos-152127"^^xsd:string .
+
+
+###  https://example.com#CovidDiagnosis
+:CovidDiagnosis rdf:type owl:NamedIndividual ,
+                         :Goal ;
+                gufo:participatedIn :Experiment1 .
+
+
+###  https://example.com#Data
+:Data rdf:type owl:NamedIndividual ,
+               gufo:Kind .
+
+
+###  https://example.com#DataCharacteristic
+:DataCharacteristic rdf:type owl:NamedIndividual ,
+                             gufo:Kind .
+
+
+###  https://example.com#Diabetes
+:Diabetes rdf:type owl:NamedIndividual ,
+                   :Feature ;
+          gufo:isComponentOf :Covid-19 .
+
+
+###  https://example.com#DiabetesNull
+:DiabetesNull rdf:type owl:NamedIndividual ,
+                       :FeatureCharacteristic ;
+              gufo:inheresIn :Diabetes ;
+              gufo:hasQualityValue 0 .
+
+
+###  https://example.com#DiagnosisSpecifiesAccuracy
+:DiagnosisSpecifiesAccuracy rdf:type owl:NamedIndividual ,
+                                     :SpecifiesMeasure ;
+                            :SpecifiesMeasureInvolvesGoal :CovidDiagnosis ;
+                            :SpecifiesMeasureInvolvesMeasure :Accuracy .
+
+
+###  https://example.com#EvaluationMeasure
+:EvaluationMeasure rdf:type owl:NamedIndividual ,
+                            gufo:Kind .
+
+
+###  https://example.com#EvaluationProcedure
+:EvaluationProcedure rdf:type owl:NamedIndividual ,
+                              gufo:SubKind .
+
+
+###  https://example.com#Experiment
+:Experiment rdf:type owl:NamedIndividual ,
+                     gufo:EventType .
+
+
+###  https://example.com#Experiment1
+:Experiment1 rdf:type owl:NamedIndividual ,
+                      :Experiment .
+
+
+###  https://example.com#Experiment1Field
+:Experiment1Field rdf:type owl:NamedIndividual ,
+                           :ExperimentCharacteristic ;
+                  gufo:inheresIn :Experiment1 ;
+                  gufo:hasQualityValue "Healthcare"^^xsd:string .
+
+
+###  https://example.com#ExperimentCharacteristic
+:ExperimentCharacteristic rdf:type owl:NamedIndividual ,
+                                   gufo:Kind .
+
+
+###  https://example.com#Feature
+:Feature rdf:type owl:NamedIndividual ,
+                  gufo:Kind .
+
+
+###  https://example.com#FeatureCharacteristic
+:FeatureCharacteristic rdf:type owl:NamedIndividual ,
+                                gufo:Kind .
+
+
+###  https://example.com#Goal
+:Goal rdf:type owl:NamedIndividual ,
+               gufo:Kind .
+
+
+###  https://example.com#HasParameter
+:HasParameter rdf:type owl:NamedIndividual ,
+                       gufo:Kind .
+
+
+###  https://example.com#Implementation
+:Implementation rdf:type owl:NamedIndividual ,
+                         gufo:Kind .
+
+
+###  https://example.com#ImplementationCharacteristic
+:ImplementationCharacteristic rdf:type owl:NamedIndividual ,
+                                       gufo:Kind .
+
+
+###  https://example.com#Implements
+:Implements rdf:type owl:NamedIndividual ,
+                     gufo:Kind .
+
+
+###  https://example.com#InputData
+:InputData rdf:type owl:NamedIndividual ,
+                    gufo:Phase .
+
+
+###  https://example.com#Kernel
+:Kernel rdf:type owl:NamedIndividual ,
+                 :Parameter .
+
+
+###  https://example.com#LinearKernel
+:LinearKernel rdf:type owl:NamedIndividual ,
+                       :ParameterSetting .
+
+
+###  https://example.com#LinearKernelValue
+:LinearKernelValue rdf:type owl:NamedIndividual ,
+                            :ParameterCharacteristic ;
+                   gufo:inheresIn :LinearKernel ;
+                   gufo:hasQualityValue "Linear"^^xsd:string .
+
+
+###  https://example.com#LinearSpecifiesKernel
+:LinearSpecifiesKernel rdf:type owl:NamedIndividual ,
+                                :SpecifiesParameter ;
+                       :SpecifiesParameterInvolvesParameter :Kernel ;
+                       :SpecifiesParameterInvolvesParameterSetting :LinearKernel .
+
+
+###  https://example.com#MLAlgorithm
+:MLAlgorithm rdf:type owl:NamedIndividual ,
+                      gufo:SubKind .
+
+
+###  https://example.com#MLModel
+:MLModel rdf:type owl:NamedIndividual ,
+                  gufo:Kind .
+
+
+###  https://example.com#MLWorkflow
+:MLWorkflow rdf:type owl:NamedIndividual ,
+                     :Workflow ;
+            gufo:isEventProperPartOf :Experiment1 .
+
+
+###  https://example.com#ModelCharacteristic
+:ModelCharacteristic rdf:type owl:NamedIndividual ,
+                              gufo:Kind .
+
+
+###  https://example.com#ModelEvaluation
+:ModelEvaluation rdf:type owl:NamedIndividual ,
+                          gufo:Kind .
+
+
+###  https://example.com#ModelEvaluationCharacteristic
+:ModelEvaluationCharacteristic rdf:type owl:NamedIndividual ,
+                                        gufo:Kind .
+
+
+###  https://example.com#Output
+:Output rdf:type owl:NamedIndividual ,
+                 gufo:Category .
+
+
+###  https://example.com#Parameter
+:Parameter rdf:type owl:NamedIndividual ,
+                    gufo:Kind .
+
+
+###  https://example.com#ParameterCharacteristic
+:ParameterCharacteristic rdf:type owl:NamedIndividual ,
+                                  gufo:Kind .
+
+
+###  https://example.com#ParameterSetting
+:ParameterSetting rdf:type owl:NamedIndividual ,
+                           gufo:Kind .
+
+
+###  https://example.com#PythonNotebook
+:PythonNotebook rdf:type owl:NamedIndividual ,
+                         :Software .
+
+
+###  https://example.com#SVM
+:SVM rdf:type owl:NamedIndividual ,
+              :MLAlgorithm .
+
+
+###  https://example.com#SVMAccuracyValue
+:SVMAccuracyValue rdf:type owl:NamedIndividual ,
+                           :ModelEvaluationCharacteristic ;
+                  gufo:inheresIn :AccuracySpecifiesSVMEvaluation ;
+                  gufo:hasQualityValue 0.9 .
+
+
+###  https://example.com#SVMAdressesDiseaseDiagnosis
+:SVMAdressesDiseaseDiagnosis rdf:type owl:NamedIndividual ,
+                                      :Addresses ;
+                             :AddressesInvolvesGoal :CovidDiagnosis ;
+                             :AddressesInvolvesMLAlgorithm :SVM .
+
+
+###  https://example.com#SVMEvaluation
+:SVMEvaluation rdf:type owl:NamedIndividual ,
+                        :ModelEvaluation ;
+               gufo:wasCreatedIn :Test .
+
+
+###  https://example.com#SVMEvaluationAssessesSVMfitted
+:SVMEvaluationAssessesSVMfitted rdf:type owl:NamedIndividual ,
+                                         :Assesses ;
+                                :AssessesInvolvesMLModel :SVMfitted ;
+                                :AssessesInvolvesModelEvaluation :SVMEvaluation .
+
+
+###  https://example.com#SVMPython
+:SVMPython rdf:type owl:NamedIndividual ,
+                    :Implementation ;
+           gufo:isComponentOf :PythonNotebook .
+
+
+###  https://example.com#SVMPythonFromLibrary
+:SVMPythonFromLibrary rdf:type owl:NamedIndividual ,
+                               :ImplementationCharacteristic ;
+                      gufo:inheresIn :SVMPython ;
+                      gufo:hasQualityValue "scikit-learn"^^xsd:string .
+
+
+###  https://example.com#SVMPythonHasKernel
+:SVMPythonHasKernel rdf:type owl:NamedIndividual ,
+                             :HasParameter ;
+                    :HasInvolvesImplementation :SVMPython ;
+                    :HasInvolvesParameter :Kernel .
+
+
+###  https://example.com#SVMPythonImplementsSVM
+:SVMPythonImplementsSVM rdf:type owl:NamedIndividual ,
+                                 :Implements ;
+                        :ImplementsInvolvesAlgorithm :SVM ;
+                        :ImplementsInvolvesImplementation :SVMPython .
+
+
+###  https://example.com#SVMTransparency
+:SVMTransparency rdf:type owl:NamedIndividual ,
+                          :AlgorithmCharacteristic ;
+                 gufo:inheresIn :SVM ;
+                 gufo:hasQualityValue """SVM maps training examples to points in space so as to maximise the width of the gap between the two categories. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.
+
+In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
+
+When data are unlabelled, supervised learning is not possible, and an unsupervised learning approach is required, which attempts to find natural clustering of the data to groups, and then map new data to these formed groups."""^^xsd:string .
+
+
+###  https://example.com#SVMfitted
+:SVMfitted rdf:type owl:NamedIndividual ,
+                    :MLModel ;
+           gufo:wasCreatedIn :Train .
+
+
+###  https://example.com#SVMfittedInterpretability
+:SVMfittedInterpretability rdf:type owl:NamedIndividual ,
+                                    :ModelCharacteristic ;
+                           gufo:inheresIn :SVMfitted ;
+                           gufo:hasQualityValue "inscrutable"^^xsd:string .
+
+
+###  https://example.com#Sensitivity
+:Sensitivity rdf:type owl:NamedIndividual ,
+                      :EvaluationMeasure .
+
+
+###  https://example.com#Software
+:Software rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  https://example.com#SpecifiesMeasure
+:SpecifiesMeasure rdf:type owl:NamedIndividual ,
+                           gufo:Kind .
+
+
+###  https://example.com#SpecifiesModelEvaluation
+:SpecifiesModelEvaluation rdf:type owl:NamedIndividual ,
+                                   gufo:Kind .
+
+
+###  https://example.com#SpecifiesParameter
+:SpecifiesParameter rdf:type owl:NamedIndividual ,
+                             gufo:Kind .
+
+
+###  https://example.com#SplitTrainTest
+:SplitTrainTest rdf:type owl:NamedIndividual ,
+                         :EvaluationProcedure .
+
+
+###  https://example.com#SplitTrainTestPython
+:SplitTrainTestPython rdf:type owl:NamedIndividual ,
+                               :Implementation ;
+                      gufo:isComponentOf :PythonNotebook .
+
+
+###  https://example.com#SplitTrainTestPythonInvolvesSplitTrainTest
+:SplitTrainTestPythonInvolvesSplitTrainTest rdf:type owl:NamedIndividual ,
+                                                     :Implements ;
+                                            :ImplementsInvolvesAlgorithm :SplitTrainTest ;
+                                            :ImplementsInvolvesImplementation :SplitTrainTestPython .
+
+
+###  https://example.com#SplitTrainTestfromLibrary
+:SplitTrainTestfromLibrary rdf:type owl:NamedIndividual ,
+                                    :ImplementationCharacteristic ;
+                           gufo:inheresIn :SplitTrainTestPython ;
+                           gufo:hasQualityValue "scikit-learn"^^xsd:string .
+
+
+###  https://example.com#Task
+:Task rdf:type owl:NamedIndividual ,
+               gufo:EventType .
+
+
+###  https://example.com#Test
+:Test rdf:type owl:NamedIndividual ,
+               :Task ;
+      gufo:isEventProperPartOf :MLWorkflow .
+
+
+###  https://example.com#Train
+:Train rdf:type owl:NamedIndividual ,
+                :Task ;
+       gufo:isEventProperPartOf :MLWorkflow .
+
+
+###  https://example.com#Workflow
+:Workflow rdf:type owl:NamedIndividual ,
+                   gufo:EventType .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Addresses rdfs:label "Addresses"@en .
+
+
+:Algorithm rdfs:label "Algorithm"@en .
+
+
+:AlgorithmCharacteristic rdfs:label "AlgorithmCharacteristic"@en .
+
+
+:Assesses rdfs:label "Assesses"@en .
+
+
+:Data rdfs:label "Data"@en .
+
+
+:DataCharacteristic rdfs:label "DataCharacteristic"@en .
+
+
+:EvaluationMeasure rdfs:label "EvaluationMeasure"@en .
+
+
+:EvaluationProcedure rdfs:label "EvaluationProcedure"@en .
+
+
+:Experiment rdfs:label "Experiment"@en .
+
+
+:ExperimentCharacteristic rdfs:label "ExperimentCharacteristic"@en .
+
+
+:Feature rdfs:label "Feature"@en .
+
+
+:FeatureCharacteristic rdfs:label "FeatureCharacteristic"@en .
+
+
+:Goal rdfs:label "Goal"@en .
+
+
+:HasParameter rdfs:label "HasParameter"@en .
+
+
+:Implementation rdfs:label "Implementation"@en .
+
+
+:ImplementationCharacteristic rdfs:label "ImplementationCharacteristic"@en .
+
+
+:Implements rdfs:label "Implements"@en .
+
+
+:InputData rdfs:label "InputData"@en .
+
+
+:MLAlgorithm rdfs:label "MLAlgorithm"@en .
+
+
+:MLModel rdfs:label "MLModel"@en .
+
+
+:ModelCharacteristic rdfs:label "ModelCharacteristic"@en .
+
+
+:ModelEvaluation rdfs:label "ModelEvaluation"@en .
+
+
+:ModelEvaluationCharacteristic rdfs:label "ModelEvaluationCharacteristic"@en .
+
+
+:Output rdfs:label "Output"@en .
+
+
+:Parameter rdfs:label "Parameter"@en .
+
+
+:ParameterCharacteristic rdfs:label "ParameterCharacteristic"@en .
+
+
+:ParameterSetting rdfs:label "ParameterSetting"@en .
+
+
+:Software rdfs:label "Software"@en .
+
+
+:SpecifiesMeasure rdfs:label "SpecifiesMeasure"@en .
+
+
+:SpecifiesModelEvaluation rdfs:label "SpecifiesModelEvaluation"@en .
+
+
+:SpecifiesParameter rdfs:label "SpecifiesParameter"@en .
+
+
+:Task rdfs:label "Task"@en .
+
+
+:Workflow rdfs:label "Workflow"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

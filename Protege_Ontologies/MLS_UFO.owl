@@ -1,0 +1,768 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#"
+     xml:base="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:gufo="http://purl.org/nemo/gufo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9">
+        <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Algorithm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Algorithm">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Assess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Assess">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Data -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Data">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DataCharacteristic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DataCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationCharacteristic"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DefinedOn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DefinedOn">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationMeasure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationMeasure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationProcedure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationProcedure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HasHyperParameter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HasHyperParameter">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameter">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameterSetting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameterSetting">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implementation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implementation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationCharacteristic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implements -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implements">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Model -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Model">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Software -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Software">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SpecifiedBy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SpecifiedBy">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Task">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Accuracy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Accuracy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationMeasure"/>
+        <gufo:isComponentOf rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#AccuracyValue -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#AccuracyValue">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluation"/>
+        <gufo:wasCreatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.98</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Age -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Age">
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Algorithm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Algorithm">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Assess -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Assess">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Classification -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Classification">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Task"/>
+        <gufo:participatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ClassificationDefinedOnCovid19 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ClassificationDefinedOnCovid19">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DefinedOn"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Classification"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Data"/>
+        <gufo:participatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#CrossValidation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#CrossValidation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationProcedure"/>
+        <gufo:isComponentOf rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Data -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Data">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DataCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DataCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DefinedOn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DefinedOn">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationMeasure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationMeasure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationProcedure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationProcedure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecificationAssessClassification -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecificationAssessClassification">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Assess"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Classification"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HasHyperParameter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HasHyperParameter">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameter">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameterSetting -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameterSetting">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ICU -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ICU">
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implementation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationFromLibrary -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationFromLibrary">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationCharacteristic"/>
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPython"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scikit-learn</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implements -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implements">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Interpretability -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Interpretability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic"/>
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMModel"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inscrutable</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#KernelSpecifiedByLinear -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#KernelSpecifiedByLinear">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SpecifiedBy"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#LinearKernel"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#TypeOfKernel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#LinearKernel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#LinearKernel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameterSetting"/>
+        <gufo:participatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Linear</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Model -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Model">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluationSpecifiedByAccuracy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluationSpecifiedByAccuracy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SpecifiedBy"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Accuracy"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#AccuracyValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluationSpecifiedBySensitivity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluationSpecifiedBySensitivity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SpecifiedBy"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Sensitivity"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SensitivityValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#NumberFeatures -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#NumberFeatures">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DataCharacteristic"/>
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">41</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#NumberInstances -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#NumberInstances">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DataCharacteristic"/>
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9451</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Obesity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Obesity">
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#PythonNotebook -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#PythonNotebook">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run"/>
+        <gufo:isEventProperPartOf rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Algorithm"/>
+        <gufo:participatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMModel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMModel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Model"/>
+        <gufo:wasCreatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPython -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPython">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implementation"/>
+        <gufo:isComponentOf rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#PythonNotebook"/>
+        <gufo:participatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPythonHasHyperParameterTypeOfKernel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPythonHasHyperParameterTypeOfKernel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HasHyperParameter"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPython"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#TypeOfKernel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPythonImplementsSVM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPythonImplementsSVM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implements"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVM"/>
+        <gufo:mediates rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SVMPython"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Sensitivity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Sensitivity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationMeasure"/>
+        <gufo:isComponentOf rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SensitivityValue -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SensitivityValue">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluation"/>
+        <gufo:wasCreatedIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run1"/>
+        <gufo:hasQualityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.60</gufo:hasQualityValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Sex -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Sex">
+        <gufo:inheresIn rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Covid-19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Software -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Software">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SpecifiedBy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#SpecifiedBy">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Task -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Task">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#TypeOfKernel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#TypeOfKernel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Algorithm">
+        <rdfs:label xml:lang="en">Algorithm</rdfs:label>
+        <rdfs:comment xml:lang="en">The algorithm regardless software implementation.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Data">
+        <rdfs:comment xml:lang="en">Data is a data item composed of data examples and it may be of a various level of granularity and complexity. 
+With regard to granularity, it can be a whole dataset (for instance, one main table and possibly other tables), or only a single table, or only a feature (e.g., a column of a table), or only an instance (e.g., row of a table), or a single feature-value pair. 
+With regard to complexity, data examples are characterized by their datatype, which may be arbitrarily complex (e.g., instead of a table it can be an arbitrary graph).</rdfs:comment>
+        <rdfs:label xml:lang="en">Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#DataCharacteristic">
+        <rdfs:comment xml:lang="en">DataCharacteristic is a distinguishing quality or property that distinguish one data from another.
+Such characteristics are often statistical ones (e.g., the number of instances
+or the number of features of a data set). They may be also informationtheoretic measures (e.g., class entropy of a categorical data set) or geometric measures of data complexity (e.g., the highest discriminatory power of any single feature in the data set).</rdfs:comment>
+        <rdfs:label xml:lang="en">DataCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Experiment">
+        <rdfs:label xml:lang="en">Experiment</rdfs:label>
+        <rdfs:comment xml:lang="en">Experiment is a collection of runs.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameter">
+        <rdfs:comment xml:lang="en">Hyperparameter is a prior parameter of an implementation, i.e., a parameter which is set before its execution (e.g. C, the complexity parameter, in weka.SMO).</rdfs:comment>
+        <rdfs:label xml:lang="en">HyperParameter</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameterSetting">
+        <rdfs:label xml:lang="en">HyperParameterSetting</rdfs:label>
+        <rdfs:comment xml:lang="en">HyperParameterSetting is an entity which connects a hyperparameter and its value that is being set before an implementation execution.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ImplementationCharacteristic">
+        <rdfs:label xml:lang="en">ImplementationCharacteristic</rdfs:label>
+        <rdfs:comment xml:lang="en">IImplementationCharacteristic is a distinguishing quality or property that distinguish one implementation from another.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelCharacteristic">
+        <rdfs:comment xml:lang="en">ModelCharacteristic is a distinguishing quality or property that distinguish one model from another. An example model characetristic may be interpretabilty or a complexity of the model.</rdfs:comment>
+        <rdfs:label xml:lang="en">ModelCharacteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Run">
+        <rdfs:comment xml:lang="en">Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed.</rdfs:comment>
+        <rdfs:label xml:lang="en">Run</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Software">
+        <rdfs:comment xml:lang="en">Software is implemented computer programs, procedures, scripts or rules with associated documentation, possibly constituting an organized environment, stored in read/write memory for the purpose of being executed within a computer system.</rdfs:comment>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Algorithm"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Data"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationMeasure"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationProcedure"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#EvaluationSpecification"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameter"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#HyperParameterSetting"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Implementation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Model"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#ModelEvaluation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Software"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#Task"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
