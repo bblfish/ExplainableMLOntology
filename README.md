@@ -7,5 +7,7 @@ Authors: Patricia Inoue Nakagawa, Luís Ferreira Pires, João Luiz Rebelo Moreir
 
 Folders:
   Data and Code: datasets and notebook for the Covid-19 and SVM case study
+  
   Visual Paradigm conceptual models: Conceptual models developed using Visual Paradigm and OntoUML Plugin (available in https://github.com/OntoUML/ontouml-vp-plugin)
+  
   Protege_ontologies: Files in ttl exported from Visual Paradigm and can be opened in Protégé and saved as OWL. 
