@@ -1,0 +1,274 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+
+<http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9>
+    a owl:Ontology ;
+    owl:imports <http://purl.org/nemo/gufo#> .
+
+:Accuracy
+    gufo:isComponentOf :EvaluationSpecification1 ;
+    a :EvaluationMeasure, owl:NamedIndividual .
+
+:AccuracyValue
+    gufo:hasQualityValue 0.98 ;
+    gufo:wasCreatedIn :Run1 ;
+    a :ModelEvaluation, owl:NamedIndividual .
+
+:Age
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual .
+
+:Algorithm
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "The algorithm regardless software implementation."@en ;
+    rdfs:label "Algorithm"@en ;
+    rdfs:subClassOf gufo:Object .
+
+:Assess
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Relator .
+
+:Classification
+    gufo:participatedIn :Run1 ;
+    a :Task, owl:NamedIndividual .
+
+:ClassificationDefinedOnCovid19
+    gufo:mediates :Classification, :Covid-19 ;
+    a :DefinedOn, owl:NamedIndividual .
+
+:Covid-19
+    gufo:participatedIn :Run1 ;
+    a :Data, owl:NamedIndividual .
+
+:CrossValidation
+    gufo:isComponentOf :EvaluationSpecification1 ;
+    a :EvaluationProcedure, owl:NamedIndividual .
+
+:Data
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment """Data is a data item composed of data examples and it may be of a various level of granularity and complexity. 
+With regard to granularity, it can be a whole dataset (for instance, one main table and possibly other tables), or only a single table, or only a feature (e.g., a column of a table), or only an instance (e.g., row of a table), or a single feature-value pair. 
+With regard to complexity, data examples are characterized by their datatype, which may be arbitrarily complex (e.g., instead of a table it can be an arbitrary graph)."""@en ;
+    rdfs:label "Data"@en ;
+    rdfs:subClassOf gufo:Object .
+
+:DataCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment """DataCharacteristic is a distinguishing quality or property that distinguish one data from another.
+Such characteristics are often statistical ones (e.g., the number of instances
+or the number of features of a data set). They may be also informationtheoretic measures (e.g., class entropy of a categorical data set) or geometric measures of data complexity (e.g., the highest discriminatory power of any single feature in the data set)."""@en ;
+    rdfs:label "DataCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality ;
+    owl:disjointWith :ImplementationCharacteristic, :ModelCharacteristic .
+
+:DefinedOn
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Relator .
+
+:EvaluationMeasure
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Object .
+
+:EvaluationProcedure
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Object .
+
+:EvaluationSpecification
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:EvaluationSpecification1
+    a :EvaluationSpecification, owl:NamedIndividual .
+
+:EvaluationSpecificationAssessClassification
+    gufo:mediates :Classification, :EvaluationSpecification1 ;
+    a :Assess, owl:NamedIndividual .
+
+:Experiment
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Experiment is a collection of runs."@en ;
+    rdfs:label "Experiment"@en ;
+    rdfs:subClassOf gufo:Event ;
+    owl:disjointWith :Run .
+
+:Experiment1
+    a :Experiment, owl:NamedIndividual .
+
+:HasHyperParameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Relator .
+
+:HyperParameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Hyperparameter is a prior parameter of an implementation, i.e., a parameter which is set before its execution (e.g. C, the complexity parameter, in weka.SMO)."@en ;
+    rdfs:label "HyperParameter"@en ;
+    rdfs:subClassOf gufo:Object .
+
+:HyperParameterSetting
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "HyperParameterSetting is an entity which connects a hyperparameter and its value that is being set before an implementation execution."@en ;
+    rdfs:label "HyperParameterSetting"@en ;
+    rdfs:subClassOf gufo:Object .
+
+:ICU
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual .
+
+:Implementation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Object .
+
+:ImplementationCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "IImplementationCharacteristic is a distinguishing quality or property that distinguish one implementation from another."@en ;
+    rdfs:label "ImplementationCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality ;
+    owl:disjointWith :ModelCharacteristic .
+
+:ImplementationFromLibrary
+    gufo:hasQualityValue "scikit-learn"^^xsd:string ;
+    gufo:inheresIn :SVMPython ;
+    a :ImplementationCharacteristic, owl:NamedIndividual .
+
+:Implements
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Relator .
+
+:Interpretability
+    gufo:hasQualityValue "inscrutable"^^xsd:string ;
+    gufo:inheresIn :SVMModel ;
+    a :ModelCharacteristic, owl:NamedIndividual .
+
+:KernelSpecifiedByLinear
+    gufo:mediates :LinearKernel, :TypeOfKernel ;
+    a :SpecifiedBy, owl:NamedIndividual .
+
+:LinearKernel
+    gufo:hasQualityValue "Linear"^^xsd:string ;
+    gufo:participatedIn :Run1 ;
+    a :HyperParameterSetting, owl:NamedIndividual .
+
+:Model
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Object .
+
+:ModelCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "ModelCharacteristic is a distinguishing quality or property that distinguish one model from another. An example model characetristic may be interpretabilty or a complexity of the model."@en ;
+    rdfs:label "ModelCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality .
+
+:ModelEvaluation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Object .
+
+:ModelEvaluationSpecifiedByAccuracy
+    gufo:mediates :Accuracy, :AccuracyValue ;
+    a :SpecifiedBy, owl:NamedIndividual .
+
+:ModelEvaluationSpecifiedBySensitivity
+    gufo:mediates :Sensitivity, :SensitivityValue ;
+    a :SpecifiedBy, owl:NamedIndividual .
+
+:NumberFeatures
+    gufo:hasQualityValue "41"^^xsd:int ;
+    gufo:inheresIn :Covid-19 ;
+    a :DataCharacteristic, owl:NamedIndividual .
+
+:NumberInstances
+    gufo:hasQualityValue "9451"^^xsd:int ;
+    gufo:inheresIn :Covid-19 ;
+    a :DataCharacteristic, owl:NamedIndividual .
+
+:Obesity
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual .
+
+:PythonNotebook
+    a :Software, owl:NamedIndividual .
+
+:Run
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed."@en ;
+    rdfs:label "Run"@en ;
+    rdfs:subClassOf gufo:Event .
+
+:Run1
+    gufo:isEventProperPartOf :Experiment1 ;
+    a :Run, owl:NamedIndividual .
+
+:SVM
+    gufo:participatedIn :Run1 ;
+    a :Algorithm, owl:NamedIndividual .
+
+:SVMModel
+    gufo:wasCreatedIn :Run1 ;
+    a :Model, owl:NamedIndividual .
+
+:SVMPython
+    gufo:isComponentOf :PythonNotebook ;
+    gufo:participatedIn :Run1 ;
+    a :Implementation, owl:NamedIndividual .
+
+:SVMPythonHasHyperParameterTypeOfKernel
+    gufo:mediates :SVMPython, :TypeOfKernel ;
+    a :HasHyperParameter, owl:NamedIndividual .
+
+:SVMPythonImplementsSVM
+    gufo:mediates :SVM, :SVMPython ;
+    a :Implements, owl:NamedIndividual .
+
+:Sensitivity
+    gufo:isComponentOf :EvaluationSpecification1 ;
+    a :EvaluationMeasure, owl:NamedIndividual .
+
+:SensitivityValue
+    gufo:hasQualityValue 0.60 ;
+    gufo:wasCreatedIn :Run1 ;
+    a :ModelEvaluation, owl:NamedIndividual .
+
+:Sex
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual .
+
+:Software
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Software is implemented computer programs, procedures, scripts or rules with associated documentation, possibly constituting an organized environment, stored in read/write memory for the purpose of being executed within a computer system."@en ;
+    rdfs:label "Software"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:SpecifiedBy
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Relator .
+
+:Task
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Object .
+
+:TypeOfKernel
+    a :HyperParameter, owl:NamedIndividual .
+
+[]
+    a owl:AllDisjointClasses ;
+    owl:members (:Algorithm
+        :Data
+        :EvaluationMeasure
+        :EvaluationProcedure
+        :EvaluationSpecification
+        :HyperParameter
+        :HyperParameterSetting
+        :Implementation
+        :Model
+        :ModelEvaluation
+        :Software
+        :Task
+    ) .
+
