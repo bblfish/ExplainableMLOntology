@@ -10,7 +10,7 @@ in file...
 
 ### gufo:participatedIn replaces mls relations?
 
-In [MLS_UFO_ONTOUML.ttl](MLS_UFO_ONTOUML.ttl) a `Run` is defined
+In [Protege_Ontologies/MLS_UFO_ONTOUML.ttl](MLS_UFO_ONTOUML.ttl) a `Run` is defined
 in another namespace call it `expl` 
 
 ```Turtle
