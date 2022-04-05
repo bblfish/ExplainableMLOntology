@@ -16,6 +16,22 @@ doing, which is the latest, etc...
 
 This contrasts to the much simpler layout of the [ML-Schema/core](https://github.com/ML-Schema/core) repository for example.
 
+### Structure of the github repo ontology files
+
+So we are left to have to guess what the files are doing
+As I go through the content I will fill in this section.
+
+
+* [MLOntology_Specific.ttl](Protege_Ontologies/MLOntology_Specific.ttl): this seems to be a file handwritten that contains concepts similar to the MLS ontology (`Run`, `Feature`, `Software`) but it also contains Covid19 concepts such as `Age`, `AgeCorrelatesDiabetes`, `Covid-19`,...)
+* [MLOntology_General2.ttl](Protege_Ontologies/MLOntology_General2.ttl) contains the generic classes equivalent it seems to [MLS](https://ml-schema.github.io/documentation/ML%20Schema.html) such as `Task`, `ModelCharacteristic`, `Algorithm`, ... but with new types that seem to be related to the desire to only use upper level `gufo` ontology relations...
+* [MLS_UFO.owl.ttl](Protege_Ontologies/MLS_UFO.owl.ttl): is an ontology for the Covid19 examples described in the paper and the thesis defining terms such as `Obesity`, `Sex`, `Covid-19`,... But it also contains definitions of concepts with the same names as those [defined in MLS](https://ml-schema.github.io/documentation/ML%20Schema.html). E.g. `Run`, `Experiment`, `Model`, `Implementation`, `Algorithm`, `Data` and some that are closely related such as `Implements`,`DataCharacteristic`... Why not just link to the terms defined elsewhere? That would immediately make clear what the purpose of this file was.
+* [MLS_UFO_ONTOUML.ttl](Protege_Ontologies/MLS_UFO_ONTOUML.ttl): This looks like a rewrite of the [MLS Ontology](https://ml-schema.github.io/documentation/ML%20Schema.html) redefined using only the gufo ontology.
+
+
+Other files
+* [MLSchema.owl.ttl](Protege_Ontologies/MLSchema.owl.ttl) is a copy of the MLS ontology that Henry Story placed here for easy access
+* [Run.ttl](Protege_Ontologies/Run.ttl): a merging of a couple of rdf files Henry Story put together (which ones?) 
+* 
 ## Classes are labelled as owl:NamedIndividuals
 
 In [MLS_UFO_ONTOUML.ttl](Protege_Ontologies/MLS_UFO_ONTOUML.ttl) has statements like
@@ -106,14 +122,14 @@ The file [MLS_UFO.owl.ttl](Protege_Ontologies/MLS_UFO.owl.ttl), which seems to c
 @prefix : <http://www.semanticweb.org/paty_/ontologies/2021/3/untitled-ontology-9#> .
 ```
 That URL is not dereferenceable at present. Much better would have been to use just the relative url `<#>`. Then other files
-in the same directory could have referenced the definitions there using a relative url such as `<MLS_UFO#:Run1>`. Adding a symbolic link from `<MLS_UFO>` to [MLS_UFO.owl.ttl](Protege_Ontologies/MLS_UFO.owl.ttl) would make those links locally dereferenceable too, for software that knew how to follow links.
+in the same directory could have referenced the definitions there using a relative url such as `<MLS_UFO#Run1>`. Adding a symbolic link from `<MLS_UFO>` to [MLS_UFO.owl.ttl](Protege_Ontologies/MLS_UFO.owl.ttl) would make those links locally dereferenceable too, for software that knew how to follow links.
 
 This would also make it easy to seperate the instance data
 from the ontology itself, by simply placing them in different fils and having the instance data refer to the ontology. For example instead of defining `Run` in `<MLS_UFO>` it could have used the `Run` defined in [MLS_UFO_ONTOUML.ttl](Protege_Ontologies/MLS_UFO_ONTOUML.ttl).
 
 ### No Links to the data
 
-The repository helfpil comes with a [data and Code](Data%20and%20Code/) directory, but there is no link to those files such as [dataset.zip](Data%20and%20Code/dataset.zip) or files contained in that archive such as `covid.csv`.
+The repository helpfully comes with a [data and Code](Data%20and%20Code/) directory, but there is no link to those files such as [dataset.zip](Data%20and%20Code/dataset.zip) or files contained in that archive such as `covid.csv`.
 
 This failure of linking up all the pieces of the puzzle makes the examples more difficult to read. It also fails
 to exploit the most important aspect of linked data, namely the ability of software to follow links to reach the data.
@@ -185,7 +201,13 @@ in N3 as follows
    is rdfs:subPropertyOf of mls:hasInput, mls:executes, mls:achieves .
 ```
 
-That would take care of adding the extra `gufo` triples if needed.
+That would take care of adding the extra `gufo` triples if needed. 
+
+If there are reasons not to have mls relations be subproperties of the inverse of `gufo:participatedIn` then
+it would have been good to have a discussion on this. 
+(todo: check: perhaps there is in the masters thesis)
+
+
 
 
 
