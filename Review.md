@@ -31,13 +31,13 @@ As I go through the content I will fill in this section.
 Other files
 * [MLSchema.owl.ttl](Protege_Ontologies/MLSchema.owl.ttl) is a copy of the MLS ontology that Henry Story placed here for easy access
 * [Run.ttl](Protege_Ontologies/Run.ttl): a merging of a couple of rdf files Henry Story put together (which ones?) 
-* 
+ 
 ## Classes are labelled as owl:NamedIndividuals
 
 In [MLS_UFO_ONTOUML.ttl](Protege_Ontologies/MLS_UFO_ONTOUML.ttl) has statements like
 
 ```turtle
-:Run rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+extml:Run rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
     rdfs:subClassOf gufo:Event;
     rdfs:label "Run"@en.    
 ```
@@ -207,10 +207,68 @@ If there are reasons not to have mls relations be subproperties of the inverse o
 it would have been good to have a discussion on this. 
 (todo: check: perhaps there is in the masters thesis)
 
+## mls:Task and extml:Task are different
 
+[mls:Task](https://ml-schema.github.io/documentation/ML%20Schema.html#d4e601) is a subclass of [mls:InformationEntity](https://ml-schema.github.io/documentation/ML%20Schema.html#d4e707).
 
+```Turtle
+mls:Task rdf:type owl:Class ;
+      rdfs:subClassOf mls:InformationEntity ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty mls:definedOn ;
+                        owl:someValuesFrom mls:Data
+                      ] ;
+      dct:description "Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data." ;
+      rdfs:comment "Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data." .
+```
 
+On the other hand an `extml:Task` is a subclass of [gufo:Event](https://nemo-ufes.github.io/gufo/#Event).
 
+```
+extml:Task rdf:type owl:Class ;
+      rdfs:subClassOf gufo:Event .
+```      
+
+This feels very much like they are incompatible types: an Information Entity (a document) is not an Event. A Task is something that can fail to happen, whereas an Event is something that happens. 
+
+Add that MLS defines an InformationEntity to be disjoint with a Process which is dijoint with a Quality.
+
+```Turtle
+:InformationEntity rdf:type owl:Class ;
+    owl:disjointWith :Process .
+:Process rdf:type owl:Class ;
+    owl:disjointWith :Quality .    
+```
+
+This is represented in the ML Schema diagram which encodes 
+Entities as yellow boxes, Processes as Blue Boxes and Qualities as Green ones.
+
+![MLS Core Vocab](https://ml-schema.github.io/documentation/ML-Schema.png)
+
+So these are thop level distinctions in MLS.
+
+What is the point of making a Task be an information Entity? Well I think it is what allows one to speak indirectly of possible future ways of achieving or
+not achieving the task. This cannot be done with an
+event without speaking of possible future events, which
+leads us into modal logic. There is a simple relation between an Event and a Task and that is that a Run [mls:achieves](https://ml-schema.github.io/documentation/ML%20Schema.html#d4e113) a Task, or the other way a task is achieved by a Run.
+
+The [MLS Paper](https://ui.adsabs.harvard.edu/abs/2018arXiv180705351C/abstract) gives some insight into Task on page 4, in the section on the upper level categories
+
+> Information content entity is defined in the [IAO (Information Artefact Ontology)](https://github.com/information-artifact-ontology/IAO/) as “a generically dependent continuant that is about some thing.” Examples of information entities in our vocabulary include:
+task, data, dataset, feature algorithm, implementation,
+software, hyper-parameter, hyper-parameter setting,
+model, model evaluation, evaluation measure, evaluation specification and evaluation procedure.
+
+It also fits with [prov:Plan](https://www.w3.org/TR/2013/REC-prov-o-20130430/#Plan) that is defined as an Entity for which provenance may need to be determined. We see here that Prov-O sees a Plan as an Entity. It is not much to assume that a Task forms part of a Plan, so that it would also be an Entity.
+
+![Top Level view of Prov Ontology](https://www.w3.org/TR/2013/REC-prov-o-20130430/diagrams/expanded.svg)
+
+The `prov:Plan` class is a superclass of [p-plan:Plan](http://vocab.linkeddata.es/p-plan/index.html#Plan) from the Provenance Plan ontology that allows one to describe Plans and steps of plans.
+
+This shows how the `mls` and `extml` are diverging on the concept of Task. This does not mean that they cannot be
+related. But to do that one has to understand [gUFO](https://nemo-ufes.github.io/gufo/#types) the simplified OWL version of `UFO`, whose concepts are described  for example in a recent paper [UFO: Unified Foundational Ontology](https://content.iospress.com/articles/applied-ontology/ao210256) ([pdf](http://www.inf.ufes.br/~gguizzardi/Applied_Ontology__UFO__Unified_Foundational_Ontology.pdf)), which comes with this UML diagram. The concepts are also described in the extML Masters Thesis.
+
+![UFO Taxonomy](https://content.iospress.com/media/ao/2022/17-1/ao-17-1-ao210256/ao-17-ao210256-g001.jpg?width=755)
 
 
 

@@ -1,0 +1,59 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix general: <general#> .
+
+<#> dc:creator <https://bblfish.net/people/henry/card#me>;
+   dc:title "Machine Learning Schema (MLS) ontology extensions" ;
+   rdfs:comment """
+   Extension of MLS ontology concepts with the gufo ontology.
+   This should help work out 
+   * how useful these extensions are
+   * if a drift occurs doing this between the new emls ontology 
+     and the the original mls one
+   * dependencies between vocabularies  
+   """ .
+
+# helper inverses
+
+_:gufo_participant owl:inverseOf gufo:participatedIn .
+_:gufo_created owl:inverseOf gufo:wasCreatedIn .
+
+
+
+mls:Task rdf:type owl:Class ;
+   rdfs:comment """
+     This set of subclass restrictions allows one to
+     conclude that if one has a Task, then one has the
+     given properties from that task, namely 
+     gufo:isEventProperPartOf, and the inverse of 
+     gufo:participatedIn and gufo:wasCreatedIn to the
+     relevant classes. But looking at the mls ontology
+     we see that 
+   """;
+   rdfs:subClassOf gufo:Event ,
+   [ rdf:type owl:Restriction ;
+      owl:onProperty gufo:isEventProperPartOf ;
+      owl:someValuesFrom general:Workflow
+   ] ,
+   [ rdf:type owl:Restriction ;
+      owl:onProperty _:gufo_participant ;
+      owl:someValuesFrom mls:Data
+   ] ,
+   [ rdf:type owl:Restriction ;
+      owl:onProperty _:gufo_participant;
+      owl:someValuesFrom general:Output
+   ] ,
+   [ rdf:type owl:Restriction ;
+      owl:onProperty _:gufo_participant ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass mls:Implementation
+   ] ,
+   [ rdf:type owl:Restriction ;
+      owl:onProperty _:gufo_created ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass general:Output
+   ] .

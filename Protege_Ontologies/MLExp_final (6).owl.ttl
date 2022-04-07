@@ -1,0 +1,4112 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <https://example.com#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+
+<https://example.com>
+    a owl:Ontology ;
+    owl:imports <http://purl.org/nemo/gufo#> .
+
+:AccessDate
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates when the dataset was accessed."@en ;
+    rdfs:label "AccessDate"@en ;
+    rdfs:subClassOf :DataSource .
+
+:Accuracy
+    a owl:NamedIndividual, :EvaluationMeasure .
+
+:AccuracySpecifiesSVMEvaluation
+    a owl:NamedIndividual, :SpecifiesModelEvaluation ;
+    :specifiesInvolvesEvaluationMeasure :Accuracy ;
+    :specifiesInvolvesModelEvaluation :SVMEvaluation .
+
+:Addresses
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the Machine Learning Algorithm addresses the goal of the study."@en ;
+    rdfs:label "Addresses"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Goal ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLAlgorithm ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Age_Covid-19
+    gufo:hasReifiedQualityValue :Continuous ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "AGE Identifies the age of the patient."@en .
+
+:Age_Covid-19Test
+    gufo:hasReifiedQualityValue :Continuous ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "AGE Identifies the age of the patient."@en .
+
+:Age_Covid-19Train
+    gufo:hasReifiedQualityValue :Continuous ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "AGE Identifies the age of the patient."@en .
+
+:Algorithm
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "The algorithm regardless software implementation. An algorithm can be a machine learning algorithm, a preprocessing algorithm, an evaluation procedure, etc."@en ;
+    rdfs:label "Algorithm"@en ;
+    rdfs:subClassOf gufo:VariableCollection, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :AlgorithmCharacteristic
+    ] .
+
+:AlgorithmCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the Algorithm."@en ;
+    rdfs:label "AlgorithmCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Algorithm ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:AlgorithmTransparency
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Description about how the algorithm usually works."@en ;
+    rdfs:label "AlgorithmTransparency"@en ;
+    rdfs:subClassOf :AlgorithmCharacteristic .
+
+:Assesses
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the model evaluation assesses the Machine Learning Model."@en ;
+    rdfs:label "Assesses"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLModel ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ModelEvaluation ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Asthma_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Asthma Identifies if the patient has a diagnosis of asthma."@en .
+
+:Asthma_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Asthma Identifies if the patient has a diagnosis of asthma."@en .
+
+:Asthma_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Asthma_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Asthma_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Asthma Identifies if the patient has a diagnosis of asthma."@en .
+
+:Asthma_Covid-19Train_1
+    gufo:hasQualityValue 174 ;
+    gufo:inheresIn :Asthma_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Asthma_Covid-19Train_2
+    gufo:hasQualityValue 6441 ;
+    gufo:inheresIn :Asthma_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Asthma_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Asthma_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Asthma_Covid-19_1
+    gufo:hasQualityValue "18026"^^xsd:string ;
+    gufo:inheresIn :Asthma_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Asthma_Covid-19_2
+    gufo:hasQualityValue "546824"^^xsd:string ;
+    gufo:inheresIn :Asthma_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Asthma_Covid-19_Null
+    gufo:hasQualityValue "1752"^^xsd:string ;
+    gufo:inheresIn :Asthma_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Asthma_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Asthma_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:COPD_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "COPD Identifies if the patient has a diagnosis of chronic obstructive pulmonary disease (COPD)."@en .
+
+:COPD_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :COPD_Covid-19Test_exp1 ;
+    a owl:NamedIndividual, :Categories .
+
+:COPD_Covid-19Test_exp1
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "COPD Identifies if the patient has a diagnosis of chronic obstructive pulmonary disease (COPD)"@en .
+
+:COPD_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "COPD Identifies if the patient has a diagnosis of chronic obstructive pulmonary disease (COPD)."@en .
+
+:COPD_Covid-19Train_1
+    gufo:hasQualityValue 105 ;
+    gufo:inheresIn :COPD_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:COPD_Covid-19Train_2
+    gufo:hasQualityValue 6510 ;
+    gufo:inheresIn :COPD_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:COPD_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :COPD_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:COPD_Covid-19_1
+    gufo:hasQualityValue 9130 ;
+    gufo:inheresIn :COPD_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:COPD_Covid-19_2
+    gufo:hasQualityValue 555723 ;
+    gufo:inheresIn :COPD_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:COPD_Covid-19_Null
+    gufo:hasQualityValue 1749 ;
+    gufo:inheresIn :COPD_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:COPD_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :COPD_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Calls
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the implementation used to generate results or predictions calls the MLModels, which can act as functions and are executed."@en ;
+    rdfs:label "Calls"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLModel ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :PredictImplementation ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Cardiovascular_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "CARDIOVASCULAR Identifies if the patient has a diagnosis of cardiovascular disease."@en .
+
+:Cardiovascular_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "CARDIOVASCULAR Identifies if the patient has a diagnosis of cardiovascular disease."@en .
+
+:Cardiovascular_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Cardiovascular_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Cardiovascular_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "CARDIOVASCULAR Identifies if the patient has a diagnosis of cardiovascular disease."@en .
+
+:Cardiovascular_Covid-19Train_1
+    gufo:hasQualityValue 132 ;
+    gufo:inheresIn :Cardiovascular_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Cardiovascular_Covid-19Train_2
+    gufo:hasQualityValue 6483 ;
+    gufo:inheresIn :Cardiovascular_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Cardiovascular_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Cardiovascular_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Cardiovascular_Covid-19_1
+    gufo:hasQualityValue 12775 ;
+    gufo:inheresIn :Cardiovascular_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Cardiovascular_Covid-19_2
+    gufo:hasQualityValue 552005 ;
+    gufo:inheresIn :Cardiovascular_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Cardiovascular_Covid-19_Null
+    gufo:hasQualityValue 1822 ;
+    gufo:inheresIn :Cardiovascular_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Cardiovascular_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Cardiovascular_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Categorical
+    a owl:NamedIndividual, :DataType .
+
+:Categories
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Categories of a categorical variable."@en ;
+    rdfs:label "Categories"@en ;
+    rdfs:subClassOf :FeatureCharacteristic .
+
+:CategoryQuantity
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Quantity of each category for a categorical variable."@en ;
+    rdfs:label "CategoryQuantity"@en ;
+    rdfs:subClassOf :FeatureCharacteristic .
+
+:Classification
+    a owl:NamedIndividual, :MLTechnique ;
+    rdfs:comment "Indicates that the ML algorithm performs classification tasks." .
+
+:ClassificationMetric1
+    gufo:hasQualityValue "Accuracy"^^xsd:string ;
+    gufo:inheresIn :ClassifyMortality_exp1 ;
+    a owl:NamedIndividual, :SuitableMeasurement .
+
+:ClassificationMetric2
+    gufo:hasQualityValue "Specificity"^^xsd:string ;
+    gufo:inheresIn :ClassifyMortality_exp1 ;
+    a owl:NamedIndividual, :SuitableMeasurement .
+
+:ClassificationMetric3
+    gufo:hasQualityValue "Sensitivity"^^xsd:string ;
+    gufo:inheresIn :ClassifyMortality_exp1 ;
+    a owl:NamedIndividual, :SuitableMeasurement .
+
+:ClassificationReport
+    a owl:NamedIndividual, :EvaluationProcedure .
+
+:ClassificationReportPython
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:isComponentOf :MLWorkflow, :PythonNotebook ;
+    a owl:NamedIndividual, :EvaluateModelImplementation ;
+    rdfs:comment "Implementation of the classification report containing relevant metrics for classification problems in scikit-learn library to Python."^^xsd:string ;
+    :executedBy :EvaluateSVM .
+
+:ClassificationReportPythonFromLibrary
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:hasQualityValue "scikit-learn"^^xsd:string ;
+    gufo:inheresIn :ClassificationReportPython ;
+    a owl:NamedIndividual, :ImplementationLibrary .
+
+:ClassificationReportPythonImplementsClassificationReport
+    a owl:NamedIndividual, :Implements ;
+    :implementsInvolvesAlgorithm :ClassificationReport ;
+    :implementsInvolvesImplementation :ClassificationReportPython .
+
+:ClassifyMortality_exp1
+    dc:creator "Patricia"^^xsd:string, """The goal of the experiment 1 is to understand the ML model using the RIPPER rule extractor method. 
+The ML model is used to predict mortality of confirmed cases using Epidemiology dataset of tested people for COVID-19 in Mexico."""^^xsd:string ;
+    gufo:participatedIn :Experiment1 ;
+    a owl:NamedIndividual, :Goal .
+
+:ClassifyMortality_exp2
+    gufo:participatedIn :Experiment2 ;
+    a owl:NamedIndividual, :Goal .
+
+:CleanData
+    a owl:NamedIndividual, :PreprocessingTechnique ;
+    rdfs:comment "Indicates that the preprocessing technique is related to cleaning the data." .
+
+:ColumnsSpecifiesRenameColumnSetting
+    a owl:NamedIndividual, :SpecifiesParameter ;
+    :specifiesInvolvesParameter :RenameColumnParam ;
+    :specifiesInvolvesParameterSetting :RenameColumnSetting .
+
+:ContactOtherCovid_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identify if the patient had contact with any other case diagnosed with SARS CoV-2."@en .
+
+:ContactOtherCovid_Covid-19_1
+    gufo:hasQualityValue 221867 ;
+    gufo:inheresIn :ContactOtherCovid_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ContactOtherCovid_Covid-19_2
+    gufo:hasQualityValue 169704 ;
+    gufo:inheresIn :ContactOtherCovid_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ContactOtherCovid_Covid-19_Null
+    gufo:hasQualityValue 175031 ;
+    gufo:inheresIn :ContactOtherCovid_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:ContactOtherCovid_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :ContactOtherCovid_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Continuous
+    a owl:NamedIndividual, :DataType .
+
+:Correlates
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that two features from the data are mathematically correlated."@en ;
+    rdfs:label "Correlates"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+        owl:onClass :Feature ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:onClass :CorrelationCharacteristic ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:CorrelationCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the correlations between features."@en ;
+    rdfs:label "CorrelationCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Correlates ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:CoverageRipperRule01
+    gufo:hasQualityValue 102 ;
+    gufo:inheresIn :EvaluationRipperRule01 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule02
+    gufo:hasQualityValue 30 ;
+    gufo:inheresIn :EvaluationRipperRule02 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule03
+    gufo:hasQualityValue 13 ;
+    gufo:inheresIn :EvaluationRipperRule03 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule04
+    gufo:hasQualityValue 165 ;
+    gufo:inheresIn :EvaluationRipperRule04 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule05
+    gufo:hasQualityValue 76 ;
+    gufo:inheresIn :EvaluationRipperRule05 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule06
+    gufo:hasQualityValue 184 ;
+    gufo:inheresIn :EvaluationRipperRule06 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule07
+    gufo:hasQualityValue 29 ;
+    gufo:inheresIn :EvaluationRipperRule07 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule08
+    gufo:hasQualityValue 53 ;
+    gufo:inheresIn :EvaluationRipperRule08 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule09
+    gufo:hasQualityValue 22 ;
+    gufo:inheresIn :EvaluationRipperRule09 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule10
+    gufo:hasQualityValue 15 ;
+    gufo:inheresIn :EvaluationRipperRule10 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule11
+    gufo:hasQualityValue 10 ;
+    gufo:inheresIn :EvaluationRipperRule11 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule12
+    gufo:hasQualityValue 13 ;
+    gufo:inheresIn :EvaluationRipperRule12 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule13
+    gufo:hasQualityValue 16 ;
+    gufo:inheresIn :EvaluationRipperRule13 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule14
+    gufo:hasQualityValue 13 ;
+    gufo:inheresIn :EvaluationRipperRule14 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule15
+    gufo:hasQualityValue 28 ;
+    gufo:inheresIn :EvaluationRipperRule15 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageRipperRule16
+    gufo:hasQualityValue 82 ;
+    gufo:inheresIn :EvaluationRipperRule16 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageSPLimeExplanation01
+    gufo:hasQualityValue 1408 ;
+    gufo:inheresIn :EvaluationSPLimeExplanation01 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageSPLimeExplanation02
+    gufo:hasQualityValue 1 ;
+    gufo:inheresIn :EvaluationSPLimeExplanation02 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageSPLimeExplanation03
+    gufo:hasQualityValue 1 ;
+    gufo:inheresIn :EvaluationSPLimeExplanation03 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageSPLimeExplanation04
+    gufo:hasQualityValue 1 ;
+    gufo:inheresIn :EvaluationSPLimeExplanation04 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:CoverageSPLimeExplanation05
+    gufo:hasQualityValue 5 ;
+    gufo:inheresIn :EvaluationSPLimeExplanation05 ;
+    a owl:NamedIndividual, :ExplanationCoverage .
+
+:Covid-19
+    gufo:participatedIn :PreprocessCovid ;
+    a owl:NamedIndividual, :InputData ;
+    rdfs:comment "Epidemiology dataset of tested people for COVID-19 in Mexico"@en .
+
+:Covid-19AccessDate
+    gufo:hasQualityValue "22-07-2020"^^xsd:date ;
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual, :AccessDate .
+
+:Covid-19Features
+    gufo:hasQualityValue 23 ;
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual, :NumberFeatures .
+
+:Covid-19Instances
+    gufo:hasQualityValue 9451 ;
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual, :NumberInstances .
+
+:Covid-19Period
+    gufo:hasBeginPointInXSDDate "01-01-2020"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "29-06-2020"^^xsd:date ;
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual, :DataPeriod .
+
+:Covid-19SourceName
+    gufo:hasQualityValue "Dados Abiertos Mexico"^^xsd:string ;
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual, :SourceName .
+
+:Covid-19TestData
+    gufo:participatedIn :EvaluateSVM, :PredictTest ;
+    gufo:wasCreatedIn :PreprocessCovid ;
+    a owl:NamedIndividual, :TestData ;
+    rdfs:comment "Preprocessed test set ."^^xsd:string .
+
+:Covid-19TestFeatures
+    gufo:hasQualityValue 17 ;
+    gufo:inheresIn :Covid-19TestData ;
+    a owl:NamedIndividual, :NumberFeatures .
+
+:Covid-19TestInstances
+    gufo:hasQualityValue 2836 ;
+    gufo:inheresIn :Covid-19TestData ;
+    a owl:NamedIndividual, :NumberInstances .
+
+:Covid-19TestPeriod
+    gufo:hasBeginPointInXSDDate "01-06-2020"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "02-06-2020"^^xsd:date ;
+    gufo:inheresIn :Covid-19TestData ;
+    a owl:NamedIndividual, :DataPeriod .
+
+:Covid-19TrainData
+    gufo:participatedIn :ExplainSVMLIME, :ExplainSVMRIPPER, :PredictTrain_exp1, :TrainSVM ;
+    gufo:wasCreatedIn :PreprocessCovid ;
+    a owl:NamedIndividual, :TrainData ;
+    rdfs:comment "Preprocessed train set."^^xsd:string .
+
+:Covid-19TrainFeatures
+    gufo:hasQualityValue 17 ;
+    gufo:inheresIn :Covid-19TrainData ;
+    a owl:NamedIndividual, :NumberFeatures .
+
+:Covid-19TrainInstances
+    gufo:hasQualityValue 6615 ;
+    gufo:inheresIn :Covid-19TrainData ;
+    a owl:NamedIndividual, :NumberInstances .
+
+:Covid-19TrainPeriod
+    gufo:hasBeginPointInXSDDate "01-06-2020"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "02-06-2020"^^xsd:date ;
+    gufo:inheresIn :Covid-19TrainData ;
+    a owl:NamedIndividual, :DataPeriod .
+
+:Covid-19Website
+    gufo:hasQualityValue "https://www.gob.mx/salud/documentos/datos-abiertos-152127"^^xsd:string ;
+    gufo:inheresIn :Covid-19 ;
+    a owl:NamedIndividual, :Source .
+
+:CovidRes_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories (INDRE, LESP and LAVE). (Catalog of diagnostic results attached)."@en .
+
+:CovidResult_Covid-19_1
+    gufo:hasQualityValue 220657 ;
+    gufo:inheresIn :CovidRes_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:CovidResult_Covid-19_2
+    gufo:hasQualityValue 279035 ;
+    gufo:inheresIn :CovidRes_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:CovidResult_Covid-19_3
+    gufo:hasQualityValue 66910 ;
+    gufo:inheresIn :CovidRes_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:CovidResult_Covid-19_categories
+    gufo:hasQualityValue "1=negative, 2=positive, 3=waiting result"^^xsd:string ;
+    gufo:inheresIn :CovidRes_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Data
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Data are facts and statistics collected together for reference or analysis. They can be images, tables, texts, etc."@en ;
+    rdfs:label "Data"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :DataCharacteristic
+    ] .
+
+:DataCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the data."@en ;
+    rdfs:label "DataCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Data ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:DataPeriod
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the period of the dataset."@en ;
+    rdfs:label "DataPeriod"@en ;
+    rdfs:subClassOf :DataCharacteristic .
+
+:DataSource
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the source of the dataset."@en ;
+    rdfs:label "DataSource"@en ;
+    rdfs:subClassOf :DataCharacteristic .
+
+:DataType
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Type of data. It can represent the type of data required by the ML Algorithm or the data type of the feature."@en ;
+    rdfs:label "DataType"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:Date
+    a owl:NamedIndividual, :DataType .
+
+:DateDied_Covid-19
+    gufo:hasReifiedQualityValue :Date ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies the date the patient died."@en .
+
+:DateSystem_Covid-19
+    gufo:hasReifiedQualityValue :Date ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "The database is fed daily, this variable allows identifying the date of the last update."@en .
+
+:DeathCorrelatesAge
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Age_Covid-19Train, :Death_Covid-19Train .
+
+:DeathCorrelatesAgeValue
+    gufo:hasQualityValue 0.355090 ;
+    gufo:inheresIn :DeathCorrelatesAge ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:DeathCorrelatesHospitalized
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Death_Covid-19Train, :PatientType_Covid-19Train .
+
+:DeathCorrelatesHospitalizedValue
+    gufo:hasQualityValue 0.489923 ;
+    gufo:inheresIn :DeathCorrelatesHospitalized ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:Death_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Indicates if the patient died or recovered."@en .
+
+:Death_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 0 = No"^^xsd:string ;
+    gufo:inheresIn :Death_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Death_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Indicates if the patient died or recovered."@en .
+
+:Death_Covid-19Train_1
+    gufo:hasQualityValue 81 ;
+    gufo:inheresIn :Death_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Death_Covid-19Train_2
+    gufo:hasQualityValue 6534 ;
+    gufo:inheresIn :Death_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Death_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 0 = No"^^xsd:string ;
+    gufo:inheresIn :Death_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:DecisionTree
+    a owl:NamedIndividual, :ExplanationFormat ;
+    rdfs:comment "Indicates that the explainable method generates explanations in the format of decision trees." .
+
+:DiabetesCorrelatesICU
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Diabetes_Covid-19Train, :ICU_Covid-19Train .
+
+:DiabetesCorrelatesICUValue
+    gufo:hasQualityValue 0.245985 ;
+    gufo:inheresIn :DiabetesCorrelatesICU ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:DiabetesCorrelatesPneumonia
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Diabetes_Covid-19Train, :Pneumonia_Covid-19Train .
+
+:DiabetesCorrelatesPneumoniaValue
+    gufo:hasQualityValue 0.212427 ;
+    gufo:inheresIn :DiabetesCorrelatesPneumonia ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:Diabetes_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "DIABETES Identifies if the patient has a diagnosis of diabetes."@en .
+
+:Diabetes_Covid-19PTrain_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Diabetes_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Diabetes_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "DIABETES Identifies if the patient has a diagnosis of diabetes."@en .
+
+:Diabetes_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Diabetes_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Diabetes_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "DIABETES Identifies if the patient has a diagnosis of diabetes."@en .
+
+:Diabetes_Covid-19Train_1
+    gufo:hasQualityValue 956 ;
+    gufo:inheresIn :Diabetes_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Diabetes_Covid-19Train_2
+    gufo:hasQualityValue 5659 ;
+    gufo:inheresIn :Diabetes_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Diabetes_Covid-19_1
+    gufo:hasQualityValue 70831 ;
+    gufo:inheresIn :Diabetes_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Diabetes_Covid-19_2
+    gufo:hasQualityValue 493790 ;
+    gufo:inheresIn :Diabetes_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Diabetes_Covid-19_Null
+    gufo:hasQualityValue 1981 ;
+    gufo:inheresIn :Diabetes_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Diabetes_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Diabetes_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:DimensionalityReduction
+    a owl:NamedIndividual, :PreprocessingTechnique ;
+    rdfs:comment "Indicates that the preprocessing technique is related to reduce the dimensionality of the data." .
+
+:Discrete
+    a owl:NamedIndividual, :DataType .
+
+:DropColumn
+    gufo:hasReifiedQualityValue :CleanData ;
+    a owl:NamedIndividual, :PreprocessingAlgorithm ;
+    rdfs:comment "Remove columns from the dataframe."@en .
+
+:DropColumnsParam
+    a owl:NamedIndividual, :Parameter ;
+    rdfs:comment "Columns of the dataset to be dropped."@en .
+
+:EntryDate_Covid-19
+    gufo:hasReifiedQualityValue :Date ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies the date of the patient's admission to the care unit."@en .
+
+:EvaluateExplanation
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of operation that focus on evaluating the explanations generated by the Explain operation."@en ;
+    rdfs:label "EvaluateExplanation"@en ;
+    rdfs:subClassOf :Operation, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluateExplanationImplementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Explain ;
+        owl:onProperty gufo:historicallyDependsOn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :ExplanationEvaluation ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:EvaluateExplanationImplementation
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of implementation that implements the evaluation of the explanation."@en ;
+    rdfs:label "EvaluateExplanationImplementation"@en ;
+    rdfs:subClassOf :Implementation .
+
+:EvaluateLIMEPython
+    gufo:isComponentOf :ExplainWorfklow_exp2, :PythonNotebook ;
+    a owl:NamedIndividual, :EvaluateExplanationImplementation ;
+    :executedBy :EvaluateSPLIME .
+
+:EvaluateModel
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of operation that focus on evaluating the ML Model. It executes the implementation of the evaluation procedure, generating the values for the measurements that assess the ML Model."@en ;
+    rdfs:label "EvaluateModel"@en ;
+    rdfs:subClassOf :Operation, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :Result
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :TestData
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluateModelImplementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Predict ;
+        owl:onProperty gufo:historicallyDependsOn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :ModelEvaluation ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:EvaluateModelHasMeasureAccuracy
+    a owl:NamedIndividual, :HasMeasure ;
+    :hasMeasureInvolvesEvaluateModelImplementation :ClassificationReportPython ;
+    :hasMeasureInvolvesMeasure :Accuracy .
+
+:EvaluateModelHasMeasureSensitivity
+    a owl:NamedIndividual, :HasMeasure ;
+    :hasMeasureInvolvesEvaluateModelImplementation :ClassificationReportPython ;
+    :hasMeasureInvolvesMeasure :Sensitivity .
+
+:EvaluateModelHasMeasureSpecificity
+    a owl:NamedIndividual, :HasMeasure ;
+    :hasMeasureInvolvesEvaluateModelImplementation :ClassificationReportPython ;
+    :hasMeasureInvolvesMeasure :Specificity .
+
+:EvaluateModelImplementation
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of implementation that implements the evaluation procedure."@en ;
+    rdfs:label "EvaluateModelImplementation"@en ;
+    rdfs:subClassOf :Implementation .
+
+:EvaluateRIPPER
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:historicallyDependsOn :ExplainSVMRIPPER ;
+    gufo:isEventProperPartOf :ExplainWorkflow_exec_exp1 ;
+    a owl:NamedIndividual, :EvaluateExplanation ;
+    rdfs:comment "Evaluate the explanations (rules) generated using RIPPER, regarding coverage of the rules and trustworthiness."^^xsd:string .
+
+:EvaluateRipperPython
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:isComponentOf :ExplainWorkflow_exp1, :PythonNotebook ;
+    a owl:NamedIndividual, :EvaluateExplanationImplementation ;
+    rdfs:comment "Manual implementation to evaluate the explanations generated by the RIPPER method. The implementation evaluates coverage of the rules and accuracy of the rules to the test set."^^xsd:string ;
+    :executedBy :EvaluateRIPPER .
+
+:EvaluateSPLIME
+    gufo:historicallyDependsOn :ExplainSVMLIME ;
+    gufo:isEventProperPartOf :ExplainWorkflow_exec_exp2 ;
+    a owl:NamedIndividual, :EvaluateExplanation .
+
+:EvaluateSVM
+    gufo:historicallyDependsOn :PredictTest ;
+    gufo:isEventProperPartOf :MLWorkflow_exec ;
+    a owl:NamedIndividual, :EvaluateModel ;
+    rdfs:comment "Evaluate the fitted SVM ML model according to the evaluation procedures and measures."^^xsd:string .
+
+:EvaluatesExplanationComponent
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the component of the explanation evaluation evaluates explanation components (e.g., coverage)."@en ;
+    rdfs:label "EvaluatesExplanationComponent"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ExplanationComponent ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ExplanationComponentEvaluation ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:EvaluationMeasure
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "EvaluationMeasure is a measure to assess the performance of the machine learning model generated by the train operation. Examples are predictive accuracy or f-measure."@en ;
+    rdfs:label "EvaluationMeasure"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:EvaluationProcedure
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "EvaluationProcedure is a technique to evaluate machine learning models, being considered specific types of algorithm since they can be implemented in different programming languages. Examples are cross-validation and leave-one-out."@en ;
+    rdfs:label "EvaluationProcedure"@en ;
+    rdfs:subClassOf :Algorithm .
+
+:EvaluationRIPPERAccuracy
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule01
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule02
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule03
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule04
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule05
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule06
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule07
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule08
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule09
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule10
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule11
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule12
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule13
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule14
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule15
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRule16
+    gufo:isComponentOf :RipperEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationRipperRuleEvaluatesRipperRule01
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule01 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule01 .
+
+:EvaluationRipperRuleEvaluatesRipperRule02
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule02 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule02 .
+
+:EvaluationRipperRuleEvaluatesRipperRule03
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule03 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule03 .
+
+:EvaluationRipperRuleEvaluatesRipperRule04
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule04 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule04 .
+
+:EvaluationRipperRuleEvaluatesRipperRule05
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule05 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule05 .
+
+:EvaluationRipperRuleEvaluatesRipperRule06
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule06 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule06 .
+
+:EvaluationRipperRuleEvaluatesRipperRule07
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule07 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule07 .
+
+:EvaluationRipperRuleEvaluatesRipperRule08
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule08 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule08 .
+
+:EvaluationRipperRuleEvaluatesRipperRule09
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule09 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule09 .
+
+:EvaluationRipperRuleEvaluatesRipperRule10
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule10 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule10 .
+
+:EvaluationRipperRuleEvaluatesRipperRule11
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule11 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule11 .
+
+:EvaluationRipperRuleEvaluatesRipperRule12
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule12 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule12 .
+
+:EvaluationRipperRuleEvaluatesRipperRule13
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule13 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule13 .
+
+:EvaluationRipperRuleEvaluatesRipperRule14
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule14 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule14 .
+
+:EvaluationRipperRuleEvaluatesRipperRule15
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule15 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule15 .
+
+:EvaluationRipperRuleEvaluatesRipperRule16
+    a owl:NamedIndividual, :EvaluatesExplanationComponent ;
+    :evaluatesInvolvesExplanationComponent :RipperRule16 ;
+    :evaluatesInvolvesExplanationComponentEvaluation :EvaluationRipperRule16 .
+
+:EvaluationSPLimeExplanation01
+    gufo:isComponentOf :SPLimeEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationSPLimeExplanation02
+    gufo:isComponentOf :SPLimeEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationSPLimeExplanation03
+    gufo:isComponentOf :SPLimeEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationSPLimeExplanation04
+    gufo:isComponentOf :SPLimeEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:EvaluationSPLimeExplanation05
+    gufo:isComponentOf :SPLimeEvaluation ;
+    a owl:NamedIndividual, :ExplanationComponentEvaluation .
+
+:Exp1_field
+    gufo:hasQualityValue "Healthcare"^^xsd:string ;
+    gufo:inheresIn :Experiment1 ;
+    a owl:NamedIndividual, :ExperimentDomain .
+
+:Exp1_type
+    gufo:hasQualityValue "Machine Learning and explanation experiment"^^xsd:string ;
+    gufo:inheresIn :Experiment1 ;
+    a owl:NamedIndividual, :ExperimentType .
+
+:Exp2_field
+    gufo:hasQualityValue "Healthcare"^^xsd:string ;
+    gufo:inheresIn :Experiment2 ;
+    a owl:NamedIndividual, :ExperimentDomain .
+
+:Exp2_type
+    gufo:hasQualityValue "ML Experiment"^^xsd:string ;
+    gufo:inheresIn :Experiment2 ;
+    a owl:NamedIndividual, :ExperimentType .
+
+:Experiment
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "An experiment is a complex process composed of subprocesses that belong together to do some kind of analysis on its results. This analysis can be general or very specific (e.g. a hypothesis test), having a specific goal."@en ;
+    rdfs:label "Experiment"@en ;
+    rdfs:subClassOf gufo:Event, [
+        a owl:Restriction ;
+        owl:onProperty gufo:isEventProperPartOf ;
+        owl:someValuesFrom :Study
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :ExperimentCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:isEventProperPartOf
+        ] ;
+        owl:someValuesFrom :WFExecution
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Goal ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ] .
+
+:Experiment1
+    dc:creator "Patricia"@en ;
+    gufo:hasBeginPointInXSDDate "26-05-2021"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "26-05-2021"^^xsd:date ;
+    a owl:NamedIndividual, :Experiment ;
+    rdfs:comment "Predict mortality of confirmed cases using Epidemiology dataset of tested people for COVID-19 in Mexico and generate explanation using RIPPER."@en .
+
+:Experiment2
+    dc:creator "Patricia"@en ;
+    gufo:hasBeginPointInXSDDate "31-05-2021"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "31-05-2021"^^xsd:date ;
+    a owl:NamedIndividual, :Experiment ;
+    rdfs:comment "Predict mortality of confirmed cases using Epidemiology dataset of tested people for COVID-19 in Mexico and generate explanation using LIME."@en .
+
+:ExperimentCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the Experiment."@en ;
+    rdfs:label "ExperimentCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Experiment ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ExperimentDomain
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the domain of the experiment, for example, healthcare."@en ;
+    rdfs:label "ExperimentDomain"@en ;
+    rdfs:subClassOf :ExperimentCharacteristic .
+
+:ExperimentType
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the type of experiment, for example, a machine learning experiment."@en ;
+    rdfs:label "ExperimentType"@en ;
+    rdfs:subClassOf :ExperimentCharacteristic .
+
+:Explain
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of operation that focus on generating the explanations from the MLModel."@en ;
+    rdfs:label "Explain"@en ;
+    rdfs:subClassOf :Operation, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ExplainImplementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Train ;
+        owl:onProperty gufo:historicallyDependsOn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Explanation ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ExplainImplementation
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of implementation that implements the explainable algorithm."@en ;
+    rdfs:label "ExplainImplementation"@en ;
+    rdfs:subClassOf :Implementation .
+
+:ExplainSVMLIME
+    gufo:historicallyDependsOn :TrainSVM ;
+    gufo:isEventProperPartOf :ExplainWorkflow_exec_exp2 ;
+    a owl:NamedIndividual, :Explain .
+
+:ExplainSVMRIPPER
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:historicallyDependsOn :TrainSVM ;
+    gufo:isEventProperPartOf :ExplainWorkflow_exec_exp1 ;
+    a owl:NamedIndividual, :Explain ;
+    rdfs:comment "Generate explanations of the ML model using the RIPPER method to extract rules."^^xsd:string .
+
+:ExplainWorfklow_exp2
+    gufo:participatedIn :ExplainWorkflow_exec_exp2 ;
+    a owl:NamedIndividual, :Workflow .
+
+:ExplainWorkflow_exec_exp1
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:hasBeginPointInXSDDate "26-05-2021"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "26-05-2021"^^xsd:date ;
+    gufo:isEventProperPartOf :Experiment1 ;
+    a owl:NamedIndividual, :WFExecution ;
+    rdfs:comment "Workflow to generate and evaluate explanations from the ML Model."^^xsd:string .
+
+:ExplainWorkflow_exec_exp2
+    dc:creator "Patricia"@en ;
+    gufo:hasBeginPointInXSDDate "31-05-2021"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "31-05-2021"^^xsd:date ;
+    gufo:isEventProperPartOf :Experiment2 ;
+    a owl:NamedIndividual, :WFExecution ;
+    rdfs:comment "Workflow to generate and evaluate explanations from the ML Model."@en .
+
+:ExplainWorkflow_exp1
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:participatedIn :ExplainWorkflow_exec_exp1 ;
+    a owl:NamedIndividual, :Workflow ;
+    rdfs:comment "Workflow that contains the implementation steps of the explanation process, executed by WFExecution."^^xsd:string .
+
+:ExplainableAlgorithm
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of post-hoc methods that focus on generating explanations from the MLModel."@en ;
+    rdfs:label "ExplainableAlgorithm"@en ;
+    rdfs:subClassOf :Algorithm .
+
+:ExplainableMethodFlexibility
+    a owl:Class ;
+    rdfs:comment "ExplainableMethodFlexibility"@en, "Identifies if the post-hoc method is model-specific or model-agnostic."@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:ExplainedElement
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Element that is explained by the explanation, i.e., if it explains the logic behind the ML Model or the result."@en ;
+    rdfs:label "ExplainedElement"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:ExplainedElementMLModel
+    a owl:NamedIndividual, :ExplainedElement ;
+    rdfs:comment "Indicates that the explainable method generates explanations that explains the logic behind the ML model." .
+
+:ExplainedElementOutput
+    a owl:NamedIndividual, :ExplainedElement ;
+    rdfs:comment "Indicates that the explainable method generates explanations that explains one output instance." .
+
+:ExplainsModel
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the Model Explanation explains the ML Model. It enables retrieving the logic behind the ML Model after the post-hoc method is applied."@en ;
+    rdfs:label "ExplainsModel"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLModel ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ModelExplanation ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:ExplainsResultInstance
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the explanation component explains the result instance, enabling retrieving the explanation of a specific instance of the result."@en ;
+    rdfs:label "ExplainsResultInstance"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ExplanationComponent ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ResultInstance ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Explanation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Type of output that is generated by the explain operation, which contains the explanation generated by the post-hoc method."@en ;
+    rdfs:label "Explanation"@en ;
+    rdfs:subClassOf :Output, [
+        a owl:Restriction ;
+        owl:onClass :Explain ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ExplanationAccuracy
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Accuracy is the proportion of correct predictions (both true positives and true negatives) among the total number of cases examined."^^xsd:string ;
+    rdfs:label "ExplanationAccuracy"@en ;
+    rdfs:subClassOf :ExplanationComponentEvaluationCharacteristic .
+
+:ExplanationComponent
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Components of the Explanation, which can represent explanation of a single instance or one single rule."@en ;
+    rdfs:label "ExplanationComponent"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:someValuesFrom :ExplainsResultInstance
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Explanation ;
+        owl:onProperty gufo:isComponentOf ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ExplanationComponentCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the Explanation Component."@en ;
+    rdfs:label "ExplanationComponentCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:onClass :ExplanationComponent ;
+        owl:onProperty gufo:inheresIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ExplanationComponentEvaluation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "A component of the explanation evaluation that evaluates explanation components (e.g., coverage), instead of evaluating the whole explanations (in the case of trustworthiness)."@en ;
+    rdfs:label "ExplanationComponentEvaluation"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:someValuesFrom :EvaluatesExplanationComponent
+    ], [
+        a owl:Restriction ;
+        owl:onClass :ExplanationEvaluation ;
+        owl:onProperty gufo:isComponentOf ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ExplanationComponentEvaluationCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the Explanation Component Evaluation."@en ;
+    rdfs:label "ExplanationComponentEvaluationCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ExplanationComponentEvaluation ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ExplanationCoverage
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Number of instances covered by the Explanation Component."@en ;
+    rdfs:label "ExplanationCoverage"@en ;
+    rdfs:subClassOf :ExplanationComponentEvaluationCharacteristic .
+
+:ExplanationEvaluation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Type of output that is generated by the evaluate explanation operation. It can indicate, for example, the trustworthiness of the Explanation or the coverage of its components."@en ;
+    rdfs:label "ExplanationEvaluation"@en ;
+    rdfs:subClassOf :Output, [
+        a owl:Restriction ;
+        owl:onClass :EvaluateExplanation ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ExplanationEvaluationCharacteristic
+    a gufo:Kind, owl:NamedIndividual .
+
+:ExplanationFidelity
+    a owl:Class ;
+    rdfs:comment "Indicates how faithful the explanation is to the underlying ML model."@en ;
+    rdfs:label "ExplanationFidelity"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:ExplanationFormat
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Type of explanation generated by the algorithm"@en ;
+    rdfs:label "ExplanationFormat"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:ExplanationInteraction
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates if the explanation generated by the algorithm is static or interactive."@en ;
+    rdfs:label "ExplanationInteraction"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:ExplanationScope
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Scope of the explainable algorithm."@en ;
+    rdfs:label "ExplanationScope"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:Feature
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Features are measurable properties or characteristic of a phenomenon. In a dataset, they can be the input variables."@en ;
+    rdfs:label "Feature"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :FeatureCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Data ;
+        owl:onProperty gufo:isComponentOf ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:FeatureCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the features."@en ;
+    rdfs:label "FeatureCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Feature ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:FeatureExtraction
+    a owl:NamedIndividual, :PreprocessingTechnique ;
+    rdfs:comment "Indicates that the preprocessing technique is related to extracting features of the data." .
+
+:Global
+    a owl:NamedIndividual, :ExplanationScope ;
+    rdfs:comment "Indicates that the scope of the explainable method is global, that is, considers the whole dataset." .
+
+:Goal
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "The main goal of the study, for example, diagnosis of patients with Covid-19."@en ;
+    rdfs:label "Goal"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty gufo:participatedIn ;
+        owl:someValuesFrom :Experiment
+    ] .
+
+:GoalCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the goal of the experiment."@en ;
+    rdfs:label "GoalCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:onProperty gufo:inheresIn ;
+        owl:someValuesFrom :Goal
+    ] .
+
+:GoalSpecifiesAccuracy_exp1
+    a owl:NamedIndividual, :SpecifiesMeasure ;
+    :specifiesMeasureInvolvesGoal :ClassifyMortality_exp1 ;
+    :specifiesMeasureInvolvesMeasure :Accuracy .
+
+:GoalSpecifiesAccuracy_exp2
+    a owl:NamedIndividual, :SpecifiesMeasure ;
+    :specifiesMeasureInvolvesGoal :ClassifyMortality_exp2 ;
+    :specifiesMeasureInvolvesMeasure :Accuracy .
+
+:GoalSpecifiesSensitivity_exp1
+    a owl:NamedIndividual, :SpecifiesMeasure ;
+    :specifiesMeasureInvolvesGoal :ClassifyMortality_exp1 ;
+    :specifiesMeasureInvolvesMeasure :Sensitivity .
+
+:GoalSpecifiesSensitivity_exp2
+    a owl:NamedIndividual, :SpecifiesMeasure ;
+    :specifiesMeasureInvolvesGoal :ClassifyMortality_exp2 ;
+    :specifiesMeasureInvolvesMeasure :Sensitivity .
+
+:GoalSpecifiesSpecificity_exp1
+    a owl:NamedIndividual, :SpecifiesMeasure ;
+    :specifiesMeasureInvolvesGoal :ClassifyMortality_exp1 ;
+    :specifiesMeasureInvolvesMeasure :Specificity .
+
+:GoalSpecifiesSpecificity_exp2
+    a owl:NamedIndividual, :SpecifiesMeasure ;
+    :specifiesMeasureInvolvesGoal :ClassifyMortality_exp2 ;
+    :specifiesMeasureInvolvesMeasure :Specificity .
+
+:HasMeasure
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that implementation of the evaluation procedure takes into account the evaluation measurements."@en ;
+    rdfs:label "HasMeasure"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluateModelImplementation ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluationMeasure ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:HasParameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the Implementation may have Parameter(s)."@en ;
+    rdfs:label "HasParameter"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Parameter ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:HospitalizedCorrelatesAge
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Age_Covid-19Train, :PatientType_Covid-19Train .
+
+:HospitalizedCorrelatesAgeValue
+    gufo:hasQualityValue 0.402038 ;
+    gufo:inheresIn :HospitalizedCorrelatesAge ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:Hospitalized_Covid-19Train_1
+    gufo:hasQualityValue 4843 ;
+    gufo:inheresIn :PatientType_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Hospitalized_Covid-19Train_2
+    gufo:hasQualityValue 1772 ;
+    gufo:inheresIn :PatientType_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:HypertensionCorrelatesDiabetes
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Diabetes_Covid-19Train, :Hypertension_Covid-19Train .
+
+:HypertensionCorrelatesDiabetesValue
+    gufo:hasQualityValue 0.364664 ;
+    gufo:inheresIn :HypertensionCorrelatesDiabetes ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:HypertensionCorrelatesICU
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Hypertension_Covid-19Train, :ICU_Covid-19Train .
+
+:HypertensionCorrelatesICUValue
+    gufo:hasQualityValue 0.252025 ;
+    gufo:inheresIn :HypertensionCorrelatesICU ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:HypertensionCorrelatesPneumonia
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Hypertension_Covid-19Train, :Pneumonia_Covid-19Train .
+
+:HypertensionCorrelatesPneumoniaValue
+    gufo:hasQualityValue 0.210804 ;
+    gufo:inheresIn :HypertensionCorrelatesPneumonia ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:Hypertension_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "HYPERTENSION Identifies if the patient has a diagnosis of hypertension."@en .
+
+:Hypertension_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "HYPERTENSION Identifies if the patient has a diagnosis of hypertension."@en .
+
+:Hypertension_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Hypertension_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Hypertension_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "HYPERTENSION Identifies if the patient has a diagnosis of hypertension."@en .
+
+:Hypertension_Covid-19Train_1
+    gufo:hasQualityValue 1259 ;
+    gufo:inheresIn :Hypertension_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Hypertension_Covid-19Train_2
+    gufo:hasQualityValue 5356 ;
+    gufo:inheresIn :Hypertension_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Hypertension_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Hypertension_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Hypertension_Covid-19_1
+    gufo:hasQualityValue 92508 ;
+    gufo:inheresIn :Hypertension_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Hypertension_Covid-19_2
+    gufo:hasQualityValue 472270 ;
+    gufo:inheresIn :Hypertension_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Hypertension_Covid-19_Null
+    gufo:hasQualityValue 1824 ;
+    gufo:inheresIn :Hypertension_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Hypertension_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Hypertension_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:ICU_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "ICU Identifies if the patient required to enter an Intensive Care Unit."@en .
+
+:ICU_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "ICU Identifies if the patient required to enter an Intensive Care Unit."@en .
+
+:ICU_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No, 97 = Not applicable"^^xsd:string ;
+    gufo:inheresIn :ICU_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:ICU_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "ICU Identifies if the patient required to enter an Intensive Care Unit."@en .
+
+:ICU_Covid-19Train_1
+    gufo:hasQualityValue 136 ;
+    gufo:inheresIn :ICU_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ICU_Covid-19Train_2
+    gufo:hasQualityValue 1636 ;
+    gufo:inheresIn :ICU_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ICU_Covid-19Train_97
+    gufo:hasQualityValue 4843 ;
+    gufo:inheresIn :ICU_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ICU_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No, 97 = Not applicable"^^xsd:string ;
+    gufo:inheresIn :ICU_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:ICU_Covid-19_1
+    gufo:hasQualityValue 10112 ;
+    gufo:inheresIn :ICU_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ICU_Covid-19_2
+    gufo:hasQualityValue 111676 ;
+    gufo:inheresIn :ICU_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ICU_Covid-19_97
+    gufo:hasQualityValue 444689 ;
+    gufo:inheresIn :ICU_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:ICU_Covid-19_Null
+    gufo:hasQualityValue 125 ;
+    gufo:inheresIn :ICU_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:ICU_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No, 97 = Not applicable"^^xsd:string ;
+    gufo:inheresIn :ICU_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:ID_Covid-19
+    gufo:hasReifiedQualityValue :Discrete ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Case identifier number"@en .
+
+:Image
+    a owl:NamedIndividual, :DataType .
+
+:ImageHighlight
+    a owl:NamedIndividual, :ExplanationFormat ;
+    rdfs:comment "Indicates that the explainable method generates explanations in the format of highlighted pixels in a image." .
+
+:Immunosuppression_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has immunosuppression."@en .
+
+:Immunosuppression_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has immunosuppression."@en .
+
+:Immunosuppression_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Immunosuppression_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Immunosuppression_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has immunosuppression."@en .
+
+:Immunosuppression_Covid-19Train_1
+    gufo:hasQualityValue 88 ;
+    gufo:inheresIn :Immunosuppression_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Immunosuppression_Covid-19Train_2
+    gufo:hasQualityValue 6527 ;
+    gufo:inheresIn :Immunosuppression_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Immunosuppression_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Immunosuppression_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Immunosuppression_Covid-19_1
+    gufo:hasQualityValue 8978 ;
+    gufo:inheresIn :Immunosuppression_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Immunosuppression_Covid-19_2
+    gufo:hasQualityValue 555644 ;
+    gufo:inheresIn :Immunosuppression_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Immunosuppression_Covid-19_Null
+    gufo:hasQualityValue 1980 ;
+    gufo:inheresIn :Immunosuppression_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Immunosuppression_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No"^^xsd:string ;
+    gufo:inheresIn :Immunosuppression_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Implementation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment " Implementation is an executable implementation of an algorithm. It is versioned, and sometimes belongs to a library (e.g. WEKA)."@en ;
+    rdfs:label "Implementation"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty gufo:isComponentOf ;
+        owl:someValuesFrom :Workflow
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :ImplementationCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Software ;
+        owl:onProperty gufo:isComponentOf ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ImplementationCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the implementation."@en ;
+    rdfs:label "ImplementationCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ImplementationLibrary
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the library if the implementation is implemented by a package or library."@en ;
+    rdfs:label "ImplementationLibrary"@en ;
+    rdfs:subClassOf :ImplementationCharacteristic .
+
+:Implements
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the Implementation implements an Algorithm."@en ;
+    rdfs:label "Implements"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Algorithm ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:InputData
+    a gufo:Phase, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Input data is the data used in the experiment. It is a phase of the data, representing the raw data prior to the preprocessing step."@en ;
+    rdfs:label "InputData"@en ;
+    rdfs:subClassOf :Data ;
+    owl:disjointWith :PreprocessedData .
+
+:InputVariableWeight
+    a owl:NamedIndividual, :ExplanationFormat ;
+    rdfs:comment "Indicates that the explainable method generates explanations in the format of variable weights in a text or tabular data." .
+
+:Inscrutable
+    a owl:NamedIndividual, :Interpretability ;
+    rdfs:comment "Indicates that the ML algorithm is inscrutable (not trasparent)." .
+
+:Interactive
+    a owl:NamedIndividual, :ExplanationInteraction ;
+    rdfs:comment "Indicates that the explainable method generates explanations that are interactive." .
+
+:Interpretability
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:label "MLInterpretability"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:IntubedCorrelatesDiabetes
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Diabetes_Covid-19Train, :Intubed_Covid-19Train .
+
+:IntubedCorrelatesDiabetesValue
+    gufo:hasQualityValue 0.245839 ;
+    gufo:inheresIn :IntubedCorrelatesDiabetes ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:IntubedCorrelatesHypertension
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Hypertension_Covid-19Train, :Intubed_Covid-19Train .
+
+:IntubedCorrelatesHypertensionValue
+    gufo:hasQualityValue 0.253902 ;
+    gufo:inheresIn :IntubedCorrelatesHypertension ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:IntubedCorrelatesICU
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :ICU_Covid-19Train, :Intubed_Covid-19Train .
+
+:IntubedCorrelatesICUValue
+    gufo:hasQualityValue 0.995625 ;
+    gufo:inheresIn :IntubedCorrelatesICU ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:IntubedCorrelatesPneumonia
+    a owl:NamedIndividual, :Correlates ;
+    :correlates :Intubed_Covid-19Train, :Pneumonia_Covid-19Train .
+
+:IntubedCorrelatesPneumoniaValue
+    gufo:hasQualityValue 0.658587 ;
+    gufo:inheresIn :IntubedCorrelatesPneumonia ;
+    a owl:NamedIndividual, :CorrelationCharacteristic .
+
+:Intubed_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient required intubation."@en .
+
+:Intubed_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient required intubation."@en .
+
+:Intubed_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No, 97 = Not applicable"^^xsd:string ;
+    gufo:inheresIn :Intubed_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Intubed_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient required intubation."@en .
+
+:Intubed_Covid-19Train_1
+    gufo:hasQualityValue 143 ;
+    gufo:inheresIn :Intubed_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Intubed_Covid-19Train_2
+    gufo:hasQualityValue 1629 ;
+    gufo:inheresIn :Intubed_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Intubed_Covid-19Train_97
+    gufo:hasQualityValue 4843 ;
+    gufo:inheresIn :Intubed_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Intubed_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No, 97 = Not applicable"^^xsd:string ;
+    gufo:inheresIn :Intubed_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Intubed_Covid-19_1
+    gufo:hasQualityValue 9965 ;
+    gufo:inheresIn :Intubed_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Intubed_Covid-19_2
+    gufo:hasQualityValue 111824 ;
+    gufo:inheresIn :Intubed_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Intubed_Covid-19_97
+    gufo:hasQualityValue 444689 ;
+    gufo:inheresIn :Intubed_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Intubed_Covid-19_Null
+    gufo:hasQualityValue 124 ;
+    gufo:inheresIn :Intubed_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Intubed_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No, 97 = Not applicable"^^xsd:string ;
+    gufo:inheresIn :Intubed_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:KernelSpecifiesKernelType
+    a owl:NamedIndividual, :SpecifiesParameter ;
+    :specifiesInvolvesParameter :TypeOfKernelParam ;
+    :specifiesInvolvesParameterSetting :SVMKernelSetting .
+
+:LIME
+    dc:creator "Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin"@en ;
+    dc:date "2016"@en ;
+    dc:title "\"Why Should I Trust You?\": Explaining the Predictions of Any Classifier"@en ;
+    gufo:hasReifiedQualityValue :ExplainedElementMLModel, :ExplainedElementOutput, :InputVariableWeight, :Local, :LocalFidelity, :ModelAgnostic, :Static ;
+    a owl:NamedIndividual, :ExplainableAlgorithm .
+
+:LIMEPython
+    gufo:isComponentOf :ExplainWorfklow_exp2, :PythonNotebook ;
+    a owl:NamedIndividual, :ExplainImplementation ;
+    :executedBy :ExplainSVMLIME .
+
+:LearningType
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:label "LearningType"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:LimeExplanation
+    gufo:wasCreatedIn :ExplainSVMLIME ;
+    a owl:NamedIndividual, :ResultExplanation .
+
+:LimeExplanation00
+    gufo:isComponentOf :LimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:LimeExplanation00ExplainsResultInstance00
+    a owl:NamedIndividual, :ExplainsResultInstance ;
+    :explainsInvolvesExplanationComponent :LimeExplanation00 ;
+    :explainsInvolvesResultInstance :ResultInstance00 .
+
+:LimeExplanation00Value
+    gufo:hasQualityValue """[('intubed=1', 0.6154841019238257),
+ ('icu=1', -0.23887455785695177),
+ ('copd=2', -0.08853933650649158),
+ ('pneumonia=1', 0.06534032643961966),
+ ('patient_type=2', -0.044199746183323924),
+ ('other_disease=2', 0.03710435413289758),
+ ('sex=2', 0.022895460764403554),
+ ('cardiovascular=2', -0.0216007102502643),
+ ('hypertension=2', -0.02133577686069555),
+ ('age', 0.017670861014632416),
+ ('diabetes=2', 0.013580131603379215),
+ ('obesity=2', -0.008897946813529133),
+ ('renal_chronic=2', 0.006524385459357452),
+ ('immunosuppression=2', 0.0055522636654152455),
+ ('asthma=2', -0.0038508652077779717),
+ ('tobacco=1', -0.003739629683093074)]"""^^xsd:string ;
+    gufo:inheresIn :LimeExplanation00 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:LimeExplanation01
+    gufo:isComponentOf :LimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:LimeExplanation01ExplainsResultInstance01
+    a owl:NamedIndividual, :ExplainsResultInstance ;
+    :explainsInvolvesExplanationComponent :LimeExplanation01 ;
+    :explainsInvolvesResultInstance :ResultInstance01 .
+
+:LimeExplanation01Value
+    gufo:hasQualityValue """[('intubed=97', -0.7656389673350394),
+ ('icu=97', 0.23244674630754567),
+ ('pneumonia=2', -0.04132288409459061),
+ ('renal_chronic=2', -0.03678550151854597),
+ ('patient_type=1', 0.03123426758590798),
+ ('copd=2', -0.02802099547763556),
+ ('other_disease=2', 0.021728249446465977),
+ ('age', 0.019452275259615074),
+ ('immunosuppression=2', -0.014022341322546258),
+ ('hypertension=2', -0.009981418086365067),
+ ('diabetes=2', 0.009679542693044097),
+ ('cardiovascular=2', 0.009586878971084787),
+ ('asthma=2', -0.007018022837506875),
+ ('tobacco=2', 0.005437268740498237),
+ ('sex=2', 0.004388335576254076),
+ ('obesity=2', -0.0036122633993878363)]"""^^xsd:string ;
+    gufo:inheresIn :LimeExplanation01 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:LimeExplanation02
+    gufo:isComponentOf :LimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:LimeExplanation02ExplainsResultInstance02
+    a owl:NamedIndividual, :ExplainsResultInstance ;
+    :explainsInvolvesExplanationComponent :LimeExplanation02 ;
+    :explainsInvolvesResultInstance :ResultInstance02 .
+
+:LimeExplanation02Value
+    gufo:hasQualityValue """[('intubed=2', 0.7146535313854077),
+ ('icu=2', -0.2363451455785819),
+ ('pneumonia=1', 0.04434876291854826),
+ ('patient_type=2', -0.03187719393662432),
+ ('copd=2', -0.02804977874435309),
+ ('immunosuppression=2', -0.022208146202334546),
+ ('renal_chronic=2', -0.022061568725089225),
+ ('age', 0.020898999580094297),
+ ('hypertension=2', -0.018977262525854095),
+ ('cardiovascular=2', 0.01665622517135697),
+ ('other_disease=2', 0.015366885129255355),
+ ('tobacco=2', 0.014179436848327712),
+ ('asthma=2', -0.013258320905381867),
+ ('diabetes=1', -0.007404500795270865),
+ ('sex=1', -0.005620660391282329),
+ ('obesity=2', 0.0006955766493285971)]"""^^xsd:string ;
+    gufo:inheresIn :LimeExplanation02 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:LimeExplanation03
+    gufo:isComponentOf :LimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:LimeExplanation03ExplainsResultInstance03
+    a owl:NamedIndividual, :ExplainsResultInstance ;
+    :explainsInvolvesExplanationComponent :LimeExplanation03 ;
+    :explainsInvolvesResultInstance :ResultInstance03 .
+
+:LimeExplanation03Value
+    gufo:hasQualityValue """[('intubed=97', -0.7657390082015048),
+ ('icu=97', 0.23083196584618196),
+ ('pneumonia=2', -0.04523399228398043),
+ ('renal_chronic=2', -0.03566811042425281),
+ ('patient_type=1', 0.03377383370054058),
+ ('copd=2', -0.031095086818593427),
+ ('other_disease=2', 0.022453837557559534),
+ ('age', 0.02205468284021284),
+ ('immunosuppression=2', -0.0142447031573384),
+ ('cardiovascular=2', 0.01399767935844397),
+ ('hypertension=2', -0.010628509224517354),
+ ('diabetes=2', 0.010100616877406744),
+ ('tobacco=2', 0.007023181169454146),
+ ('sex=1', -0.0057826838110762715),
+ ('asthma=2', -0.003736137355981059),
+ ('obesity=2', -0.0034526460170110867)]"""^^xsd:string ;
+    gufo:inheresIn :LimeExplanation03 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:LimePythonImplementsLime
+    a owl:NamedIndividual, :Implements ;
+    :implementsInvolvesAlgorithm :LIME ;
+    :implementsInvolvesImplementation :LIMEPython .
+
+:Local
+    a owl:NamedIndividual, :ExplanationScope ;
+    rdfs:comment "Indicates that the scope of the explainable method is local, that is, considers the only one instance of the dataset." .
+
+:LocalFidelity
+    a owl:NamedIndividual, :ExplanationFidelity ;
+    rdfs:comment "Indicates if the explanation if locally faithfull to the underlying ML model." .
+
+:MLAlgorithm
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Machine Learnin Algorithm (MLAlgorithm) is a specific type of algorithms that are used to perform machine learning, such as NN, SVM, Decision Trees, Logistic Regression"@en ;
+    rdfs:label "MLAlgorithm"@en ;
+    rdfs:subClassOf :Algorithm .
+
+:MLImplementation
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of implementation that implements Machine Learning Algorithms."@en ;
+    rdfs:label "MLImplementation"@en ;
+    rdfs:subClassOf :Implementation .
+
+:MLModel
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Machine Learning Model (MLModel) is a generalization of a set of training data able to predict values for unseen instances. It is an output from the Train operation, which executes a ML algorithm implementation. Models have a dual nature. They can be treated as data structures and as such represented, stored and manipulated. On the other hand, they act as functions and are executed, taking as input data examples and giving as output the result of applying the function to a data example. Models can also be divided into global or local ones. A global model has global coverage of a data set, i.e., it generalizes the whole data set. A local model, such as a pattern set, is a set of local hypotheses, i.e. each applies to a limited region of the data set."@en ;
+    rdfs:label "MLModel"@en ;
+    rdfs:subClassOf :Output, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :ModelCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Train ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:MLTechnique
+    a owl:Class ;
+    rdfs:comment "Type of technique used by ML Algorithm."@en ;
+    rdfs:label "MLTechnique"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:MLWorkflow
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:participatedIn :MLWorkflow_exec ;
+    a owl:NamedIndividual, :Workflow ;
+    rdfs:comment "Workflow that contains the implementation steps of the ML process, executed by WFExecution."^^xsd:string .
+
+:MLWorkflow_exec
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:hasBeginPointInXSDDate "26-05-2021"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "26-05-2021"^^xsd:date ;
+    gufo:isEventProperPartOf :Experiment1, :Experiment2 ;
+    a owl:NamedIndividual, :WFExecution ;
+    rdfs:comment "Workflow for the ML process, consisting of preprocessing data, train ML model and test the ML model."^^xsd:string .
+
+:MachineLearningTechnique
+    a gufo:AbstractIndividualType, owl:NamedIndividual .
+
+:MeasureValue
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Receives the value for the measurement after the ML evaluation step is performed."@en ;
+    rdfs:label "MeasureValue"@en ;
+    rdfs:subClassOf :ModelEvaluationCharacteristic .
+
+:ModelAgnostic
+    a owl:NamedIndividual, :ExplainableMethodFlexibility ;
+    rdfs:comment "Indicates if the explainable method is model-agnostic." .
+
+:ModelCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the ML model."@en ;
+    rdfs:label "ModelCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLModel ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ModelEvaluation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "ModelEvaluation is a setting of a value of the performance measure specified by the evaluation specification. It connects a evaluation measure with its value."@en ;
+    rdfs:label "ModelEvaluation"@en ;
+    rdfs:subClassOf :Output, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:someValuesFrom :SpecifiesModelEvaluation
+    ], [
+        a owl:Restriction ;
+        owl:onClass :EvaluateModel ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Assesses ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ModelEvaluationAssessesSVMModel
+    a owl:NamedIndividual, :Assesses ;
+    :assessesInvolvesModel :SVMModel ;
+    :assessesInvolvesModelEvaluation :SVMEvaluation .
+
+:ModelEvaluationCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the ML model evaluation."@en ;
+    rdfs:label "ModelEvaluationCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :SpecifiesModelEvaluation ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ModelExplanation
+    a gufo:Role, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of explanation, which can focus on explaining the fitted MLModel by expressing the logic behind it."@en ;
+    rdfs:label "ModelExplanation"@en ;
+    rdfs:subClassOf :Explanation, [
+        a owl:Restriction ;
+        owl:onClass :ExplainsModel ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ModelSpecific
+    a owl:NamedIndividual, :ExplainableMethodFlexibility ;
+    rdfs:comment "Indicates if the explainable method is model-specific." .
+
+:NaturalLanguage
+    a owl:NamedIndividual, :ExplanationFormat ;
+    rdfs:comment "Indicates that the explainable method generates explanations in the format of natural language." .
+
+:NewValueColumnParam
+    a owl:NamedIndividual, :Parameter ;
+    rdfs:comment "String containing the new values for the columns to be used as parameter of a function."^^xsd:string .
+
+:NewValueSpecifiesNewValueSetting
+    a owl:NamedIndividual, :SpecifiesParameter ;
+    :specifiesInvolvesParameter :NewValueColumnParam ;
+    :specifiesInvolvesParameterSetting :RenameColumnNewValueSetting .
+
+:NumberCategories
+    a gufo:SubKind, owl:NamedIndividual .
+
+:NumberFeatures
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the number of features that a dataset contains."@en ;
+    rdfs:label "NumberFeatures"@en ;
+    rdfs:subClassOf :DataCharacteristic .
+
+:NumberInstances
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the number of instances that a dataset contains."@en ;
+    rdfs:label "NumberInstances"@en ;
+    rdfs:subClassOf :DataCharacteristic .
+
+:NumberNulls
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Number of NULL values in a feature."@en ;
+    rdfs:label "NumberNulls"@en ;
+    rdfs:subClassOf :FeatureCharacteristic .
+
+:Obesity_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "OBESITY Identifies if the patient is diagnosed with obesity."@en .
+
+:Obesity_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "OBESITY Identifies if the patient is diagnosed with obesity."@en .
+
+:Obesity_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Obesity_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Obesity_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "OBESITY Identifies if the patient is diagnosed with obesity."@en .
+
+:Obesity_Covid-19Train_1
+    gufo:hasQualityValue 1229 ;
+    gufo:inheresIn :Obesity_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Obesity_Covid-19Train_2
+    gufo:hasQualityValue 5386 ;
+    gufo:inheresIn :Obesity_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Obesity_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Obesity_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Obesity_Covid-19_1
+    gufo:hasQualityValue 92272 ;
+    gufo:inheresIn :Obesity_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Obesity_Covid-19_2
+    gufo:hasQualityValue 472549 ;
+    gufo:inheresIn :Obesity_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Obesity_Covid-19_Null
+    gufo:hasQualityValue 1781 ;
+    gufo:inheresIn :Obesity_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Obesity_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No"^^xsd:string ;
+    gufo:inheresIn :Obesity_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Operation
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Operation, similarly to [DMOP] is an execution of an implementation that accomplish a specific piece of work that needs to be addressed. It is limited in time (has a start and end point), can be successful or failed."@en ;
+    rdfs:label "Operation"@en ;
+    rdfs:subClassOf gufo:Event, [
+        a owl:Restriction ;
+        owl:onProperty gufo:isEventProperPartOf ;
+        owl:someValuesFrom :WFExecution
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:someValuesFrom :Output
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ] .
+
+:OtherDisease_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has a diagnosis of other diseases."@en .
+
+:OtherDisease_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has a diagnosis of other diseases."@en .
+
+:OtherDisease_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :OtherDisease_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:OtherDisease_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has a diagnosis of other diseases."@en .
+
+:OtherDisease_Covid-19Train_1
+    gufo:hasQualityValue 185 ;
+    gufo:inheresIn :OtherDisease_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:OtherDisease_Covid-19Train_2
+    gufo:hasQualityValue 6422 ;
+    gufo:inheresIn :OtherDisease_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:OtherDisease_Covid-19Train_Null
+    gufo:hasQualityValue 8 ;
+    gufo:inheresIn :OtherDisease_Covid-19Train ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:OtherDisease_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :OtherDisease_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:OtherDisease_Covid-19_1
+    gufo:hasQualityValue 17084 ;
+    gufo:inheresIn :OtherDisease_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:OtherDisease_Covid-19_2
+    gufo:hasQualityValue 546920 ;
+    gufo:inheresIn :OtherDisease_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:OtherDisease_Covid-19_Null
+    gufo:hasQualityValue 2598 ;
+    gufo:inheresIn :OtherDisease_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:OtherDisease_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No"^^xsd:string ;
+    gufo:inheresIn :OtherDisease_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Output
+    a gufo:Category, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Artifact created in the Operation, which is the event that brought the output into existence. It can be a preprocessed dataset, a machine learning model, an evaluation."@en ;
+    rdfs:label "Output"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onClass :Operation ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Parameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Prior parameter of an implementation, i.e., a parameter which is set before its execution. For example, a Hyperparameter when training a ML model."@en ;
+    rdfs:label "Parameter"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:someValuesFrom :HasParameter
+    ], [
+        a owl:Restriction ;
+        owl:onClass :SpecifiesParameter ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ParameterSetting
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "ParameterSetting is an entity which connects a parameter and its value that is being set before an implementation execution."@en ;
+    rdfs:label "ParameterSetting"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onClass :ParameterSettingCharacteristic ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :SpecifiesParameter ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Operation ;
+        owl:onProperty gufo:participatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ParameterSettingCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Characteristics of the parameter setting."@en ;
+    rdfs:label "ParameterSettingCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ParameterSetting ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ParameterSettingValue
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Receives the value of the parameter set before the execution of the implementation takes place."@en ;
+    rdfs:label "ParameterSettingValue"@en ;
+    rdfs:subClassOf :ParameterSettingCharacteristic .
+
+:PatientType_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "PATIENT_TYPE Identifies the type of care received by the patient in the unit. It is called an outpatient if you returned home or it is called an inpatient if you were admitted to hospital."@en .
+
+:PatientType_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient returned home or were admitted to hospital."@en .
+
+:PatientType_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Ambulatory , 2 = Hospitalized"^^xsd:string ;
+    gufo:inheresIn :PatientType_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:PatientType_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies it the patient returned home or were admitted to hospital."@en .
+
+:PatientType_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Ambulatory , 2 = Hospitalized"^^xsd:string ;
+    gufo:inheresIn :PatientType_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:PatientType_Covid-19_1
+    gufo:hasQualityValue 444689 ;
+    gufo:inheresIn :PatientType_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:PatientType_Covid-19_2
+    gufo:hasQualityValue 121913 ;
+    gufo:inheresIn :PatientType_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:PatientType_Covid-19_categories
+    gufo:hasQualityValue "1=Ambulatory, 2=Hospitalized"^^xsd:string ;
+    gufo:inheresIn :PatientType_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Pneumona_Covid-19_2
+    gufo:hasQualityValue 478416 ;
+    gufo:inheresIn :Pneumonia_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Pneumonia_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "PNEUMONIA Identifies if the patient was diagnosed with pneumonia."@en .
+
+:Pneumonia_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "PNEUMONIA Identifies if the patient was diagnosed with pneumonia."@en .
+
+:Pneumonia_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Pneumonia_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Pneumonia_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "PNEUMONIA Identifies if the patient was diagnosed with pneumonia."@en .
+
+:Pneumonia_Covid-19Train_1
+    gufo:hasQualityValue 1394 ;
+    gufo:inheresIn :Pneumonia_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Pneumonia_Covid-19Train_2
+    gufo:hasQualityValue 5221 ;
+    gufo:inheresIn :Pneumonia_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Pneumonia_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Pneumonia_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Pneumonia_Covid-19_1
+    gufo:hasQualityValue 88175 ;
+    gufo:inheresIn :Pneumonia_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Pneumonia_Covid-19_Null
+    gufo:hasQualityValue 11 ;
+    gufo:inheresIn :Pneumonia_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Pneumonia_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No"^^xsd:string ;
+    gufo:inheresIn :Pneumonia_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Predict
+    a owl:Class ;
+    rdfs:comment "Specific type of operation that executes the PredictImplementation, generating results from the test data."@en ;
+    rdfs:label "Predict"@en ;
+    rdfs:subClassOf :Operation, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :TestData
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :PredictImplementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Train ;
+        owl:onProperty gufo:historicallyDependsOn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Result ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:PredictImplementation
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of implementation that implements the code to generate predictions/results by calling the function of the fitted MLModel."@en ;
+    rdfs:label "PredictImplementation"@en ;
+    rdfs:subClassOf :Implementation, [
+        a owl:Restriction ;
+        owl:onClass :Calls ;
+        owl:onProperty [
+            owl:inverseOf gufo:mediates
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:PredictImplementationCallsSVMModel
+    a owl:NamedIndividual, :Calls ;
+    :callsInvolvesMLModel :SVMModel ;
+    :callsInvolvesPredictImplementation :PredictSVMPython .
+
+:PredictSVMPython
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:isComponentOf :ExplainWorkflow_exp1, :MLWorkflow, :PythonNotebook ;
+    a owl:NamedIndividual, :PredictImplementation ;
+    rdfs:comment "Implementation of the predict function  in Python to predict the results of a dataset using the fitted ML model."^^xsd:string ;
+    :executedBy :PredictTest, :PredictTrain_exp1 .
+
+:PredictSVMPythonFromLibrary
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:hasQualityValue "scikit-learn"^^xsd:string ;
+    gufo:inheresIn :PredictSVMPython ;
+    a owl:NamedIndividual, :ImplementationLibrary .
+
+:PredictTest
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:historicallyDependsOn :TrainSVM ;
+    gufo:isEventProperPartOf :MLWorkflow_exec ;
+    a owl:NamedIndividual, :Predict ;
+    rdfs:comment "Generate predicitions (classifications) using the test dataset in the ML workflow to test the ML Model."^^xsd:string .
+
+:PredictTrain_exp1
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:historicallyDependsOn :TrainSVM ;
+    gufo:isEventProperPartOf :ExplainWorkflow_exec_exp1 ;
+    a owl:NamedIndividual, :Predict ;
+    rdfs:comment "Generate predicitions (classifications) using the train dataset in the Explanation workflow to generate explanations."^^xsd:string .
+
+:Pregnacy_Covid-19_Null
+    gufo:hasQualityValue 1587 ;
+    gufo:inheresIn :Pregnant_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Pregnancy_Covid-19_1
+    gufo:hasQualityValue 4063 ;
+    gufo:inheresIn :Pregnant_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Pregnancy_Covid-19_2
+    gufo:hasQualityValue 273840 ;
+    gufo:inheresIn :Pregnant_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Pregnancy_Covid-19_97
+    gufo:hasQualityValue 287112 ;
+    gufo:inheresIn :Pregnant_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Pregnant_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient is pregnant."@en .
+
+:Pregnant_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No, 97 = Not applicable"^^xsd:string ;
+    gufo:inheresIn :Pregnant_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Preprocess
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of operation that focus on preprocessing the input data to make it more adequate to train and test the ML model."@en ;
+    rdfs:label "Preprocess"@en ;
+    rdfs:subClassOf :Operation, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :InputData
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:someValuesFrom :PreprocessedData
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :PreprocessImplementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ] .
+
+:PreprocessCovid
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:isEventProperPartOf :MLWorkflow_exec ;
+    a owl:NamedIndividual, :Preprocess ;
+    rdfs:comment "Preprocess Covid-19 dataset"^^xsd:string .
+
+:PreprocessImplementation
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of implementation that implements preprocessing algorithms."@en ;
+    rdfs:label "PreprocessImplementation"@en ;
+    rdfs:subClassOf :Implementation .
+
+:PreprocessedData
+    a gufo:Phase, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Type of output that is generated by the preprocessing operation. It represents the phase of the data after the preprocessing step."@en ;
+    rdfs:label "PreprocessedData"@en ;
+    rdfs:subClassOf :Data, :Output, [
+        a owl:Restriction ;
+        owl:onClass :Preprocess ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:PreprocessingAlgorithm
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of algorithm that focus on preprocessing the input data making it more adequate to train and test the ML model."@en ;
+    rdfs:label "PreprocessingAlgorithm"@en ;
+    rdfs:subClassOf :Algorithm .
+
+:PreprocessingTechnique
+    a gufo:AbstractIndividualType, owl:Class, owl:NamedIndividual ;
+    rdfs:label "PreprocessingTechnique"@en ;
+    rdfs:subClassOf gufo:QualityValue .
+
+:PythonNotebook
+    a owl:NamedIndividual, :Software ;
+    rdfs:comment """Software used to implement the Case study.
+Jupyter Notebook 6.0.3
+Python 3"""^^xsd:string .
+
+:RIPPER
+    dc:creator "William W. Cohen, Yoram Singer"^^xsd:string ;
+    dc:date "1995"^^xsd:date ;
+    dc:title "A Simple, Fast, and Effective Rule Learner"^^xsd:string ;
+    gufo:hasReifiedQualityValue :ExplainedElementMLModel, :Global, :ModelAgnostic, :Rules, :Static, :Unfaithful ;
+    a owl:NamedIndividual, :ExplainableAlgorithm .
+
+:RIPPERExplainsSVMModel
+    a owl:NamedIndividual, :ExplainsModel ;
+    :explainsModelInvolvesModel :SVMModel ;
+    :explainsModelInvolvesModelExplanation :RipperExplanation .
+
+:Regression
+    a owl:NamedIndividual, :MLTechnique ;
+    rdfs:comment "Indicates that the ML algorithm performs regression." .
+
+:RemoveColumnPythonFromLibrary
+    dc:creator """pandas: powerful Python data analysistoolkit
+Wes McKinney and the Pandas Development Team"""^^xsd:string ;
+    gufo:hasQualityValue "pandas"^^xsd:string ;
+    gufo:inheresIn :RemoveColumnsPython ;
+    a owl:NamedIndividual, :ImplementationLibrary ;
+    owl:versionInfo "Release 1.2.4"^^xsd:string .
+
+:RemoveColumnPythonHasParameterColumn
+    a owl:NamedIndividual, :HasParameter ;
+    :hasParameterInvolvesImplementation :RemoveColumnsPython ;
+    :hasParameterInvolvesParameter :DropColumnsParam .
+
+:RemoveColumnSetting
+    gufo:participatedIn :PreprocessCovid ;
+    a owl:NamedIndividual, :ParameterSetting ;
+    rdfs:comment "Indicates the columns to be removed of the dataset."^^xsd:string .
+
+:RemoveColumnValue
+    gufo:hasQualityValue "['id', 'covid_res','entry_date','date_symptoms','date_died', 'contact_other_covid', 'pregnancy']"^^xsd:string ;
+    gufo:inheresIn :RemoveColumnSetting ;
+    a owl:NamedIndividual, :ParameterSettingValue .
+
+:RemoveColumnsPython
+    dc:creator """pandas: powerful Python data analysis toolkit
+Wes McKinney and the Pandas Development Team"""^^xsd:string ;
+    gufo:isComponentOf :MLWorkflow, :PythonNotebook ;
+    a owl:NamedIndividual, :PreprocessImplementation ;
+    rdfs:comment "Implementation of drop function to remove columns of the dataframe in Python."^^xsd:string ;
+    owl:versionInfo "Release 1.2.4"^^xsd:string ;
+    :executedBy :PreprocessCovid .
+
+:RemoveColumnsPythonImplementsDropColumn
+    a owl:NamedIndividual, :Implements ;
+    :implementsInvolvesAlgorithm :DropColumn ;
+    :implementsInvolvesImplementation :RemoveColumnsPython .
+
+:RemoveColumnsSpecifiesRemoveColumnSetting
+    a owl:NamedIndividual, :SpecifiesParameter ;
+    :specifiesInvolvesParameter :DropColumnsParam ;
+    :specifiesInvolvesParameterSetting :RemoveColumnSetting .
+
+:RenalChronic_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has a diagnosis of chronic kidney failure."@en .
+
+:RenalChronic_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has a diagnosis of chronic kidney failure."@en .
+
+:RenalChronic_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :RenalChronic_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:RenalChronic_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "Identifies if the patient has a diagnosis of chronic kidney failure."@en .
+
+:RenalChronic_Covid-19Train_1
+    gufo:hasQualityValue 130 ;
+    gufo:inheresIn :RenalChronic_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:RenalChronic_Covid-19Train_2
+    gufo:hasQualityValue 6485 ;
+    gufo:inheresIn :RenalChronic_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:RenalChronic_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :RenalChronic_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:RenalChronic_Covid-19_1
+    gufo:hasQualityValue 11250 ;
+    gufo:inheresIn :RenalChronic_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:RenalChronic_Covid-19_2
+    gufo:hasQualityValue 553560 ;
+    gufo:inheresIn :RenalChronic_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:RenalChronic_Covid-19_Null
+    gufo:hasQualityValue 1792 ;
+    gufo:inheresIn :RenalChronic_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:RenalChronic_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No"^^xsd:string ;
+    gufo:inheresIn :RenalChronic_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:RenameColumn
+    gufo:hasReifiedQualityValue :TransformData ;
+    a owl:NamedIndividual, :PreprocessingAlgorithm ;
+    rdfs:comment "Rename columns from the dataframe."@en .
+
+:RenameColumnNewValueSetting
+    gufo:participatedIn :PreprocessCovid ;
+    a owl:NamedIndividual, :ParameterSetting ;
+    rdfs:comment "Indicates the columns to be renamed of the dataset."^^xsd:string .
+
+:RenameColumnParam
+    a owl:NamedIndividual, :Parameter ;
+    rdfs:comment "Columns of the dataset to be removed."@en .
+
+:RenameColumnPython
+    dc:creator """pandas: powerful Python data analysis toolkit
+Wes McKinney and the Pandas Development Team"""^^xsd:string ;
+    gufo:isComponentOf :MLWorkflow, :PythonNotebook ;
+    a owl:NamedIndividual, :PreprocessImplementation ;
+    rdfs:comment "Implementation of rename function to rename columns of the dataframe in Python."^^xsd:string ;
+    owl:versionInfo "Release 1.2.4"^^xsd:string ;
+    :executedBy :PreprocessCovid .
+
+:RenameColumnPythonFromLibrary
+    dc:creator """pandas: powerful Python data analysistoolkit
+Wes McKinney and the Pandas Development Team"""^^xsd:string ;
+    gufo:hasQualityValue "pandas"^^xsd:string ;
+    gufo:inheresIn :RenameColumnPython ;
+    a owl:NamedIndividual, :ImplementationLibrary ;
+    owl:versionInfo "Release 1.2.4"^^xsd:string .
+
+:RenameColumnPythonHasParameterColumn
+    a owl:NamedIndividual, :HasParameter ;
+    :hasParameterInvolvesImplementation :RenameColumnPython ;
+    :hasParameterInvolvesParameter :RenameColumnParam .
+
+:RenameColumnPythonHasParameterNewColumn
+    a owl:NamedIndividual, :HasParameter ;
+    :hasParameterInvolvesImplementation :RenameColumnPython ;
+    :hasParameterInvolvesParameter :NewValueColumnParam .
+
+:RenameColumnSetting
+    gufo:participatedIn :PreprocessCovid ;
+    a owl:NamedIndividual, :ParameterSetting ;
+    rdfs:comment "Indicates the new names for the columns to be renamed of the dataset."^^xsd:string .
+
+:RenameColumnValue
+    gufo:hasQualityValue "[inmsupr,patient_type]"^^xsd:string ;
+    gufo:inheresIn :RenameColumnSetting ;
+    a owl:NamedIndividual, :ParameterSettingValue .
+
+:RenameColumnsPythonImplementsRenameColumn
+    a owl:NamedIndividual, :Implements ;
+    :implementsInvolvesAlgorithm :RenameColumn ;
+    :implementsInvolvesImplementation :RenameColumnPython .
+
+:RenameNewColumnValue
+    gufo:hasQualityValue "[immunosuppression,hospitalized]"^^xsd:string ;
+    gufo:inheresIn :RenameColumnNewValueSetting ;
+    a owl:NamedIndividual, :ParameterSettingValue .
+
+:Result
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Type of output that is generated by the test(predict) operation. It has the results or predictions generated using the fitted MLModel on the test data."@en ;
+    rdfs:label "Result"@en ;
+    rdfs:subClassOf :Output, [
+        a owl:Restriction ;
+        owl:onClass :Predict ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ResultExplanation
+    a gufo:Role, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of explanation, which focus on explaining the result or predicitons obtained by applying the MLModel function on the test data."@en ;
+    rdfs:label "ResultExplanation"@en ;
+    rdfs:subClassOf :Explanation .
+
+:ResultInstance
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Instance that represents one result or prediction from the total results."@en ;
+    rdfs:label "ResultInstance"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty gufo:isComponentOf ;
+        owl:someValuesFrom :Result
+    ] .
+
+:ResultInstance00
+    gufo:isComponentOf :TestPrediction ;
+    a owl:NamedIndividual, :ResultInstance ;
+    rdfs:comment "Result/prediction generated using the fitted SVM model for one instance of the test dataset."^^xsd:string .
+
+:ResultInstance01
+    gufo:isComponentOf :TestPrediction ;
+    a owl:NamedIndividual, :ResultInstance ;
+    rdfs:comment "Result/prediction generated using the fitted SVM model for one instance of the test dataset."^^xsd:string .
+
+:ResultInstance02
+    gufo:isComponentOf :TestPrediction ;
+    a owl:NamedIndividual, :ResultInstance ;
+    rdfs:comment "Result/prediction generated using the fitted SVM model for one instance of the test dataset."^^xsd:string .
+
+:ResultInstance03
+    gufo:isComponentOf :TestPrediction ;
+    a owl:NamedIndividual, :ResultInstance .
+
+:ResultInstance15
+    gufo:isComponentOf :TestPrediction ;
+    a owl:NamedIndividual, :ResultInstance ;
+    rdfs:comment "Result/prediction generated using the fitted SVM model for one instance of the test dataset."^^xsd:string .
+
+:ResultInstance28
+    gufo:isComponentOf :TestPrediction ;
+    a owl:NamedIndividual, :ResultInstance ;
+    rdfs:comment "Result/prediction generated using the fitted SVM model for one instance of the test dataset."^^xsd:string .
+
+:ResultInstance46
+    gufo:isComponentOf :TestPrediction ;
+    a owl:NamedIndividual, :ResultInstance ;
+    rdfs:comment "Result/prediction generated using the fitted SVM model for one instance of the test dataset."^^xsd:string .
+
+:RipperEvaluation
+    gufo:wasCreatedIn :EvaluateRIPPER ;
+    a owl:NamedIndividual, :ExplanationEvaluation ;
+    rdfs:comment "Evaluation of the explanations generated by Ripper."^^xsd:string .
+
+:RipperExplanation
+    gufo:participatedIn :EvaluateRIPPER ;
+    gufo:wasCreatedIn :ExplainSVMRIPPER ;
+    a owl:NamedIndividual, :ModelExplanation ;
+    rdfs:comment "Rule set generated by RIPPER aims to explains the logic behind the ML model, instead of explaining a single result."^^xsd:string .
+
+:RipperPython
+    dc:creator "Ilan Moscovitz"^^xsd:string ;
+    gufo:isComponentOf :ExplainWorkflow_exp1, :PythonNotebook ;
+    a owl:NamedIndividual, :ExplainImplementation ;
+    rdfs:comment "Implementation of the RIPPER rule extractor method in wittgenstein library in Python."^^xsd:string ;
+    :executedBy :ExplainSVMRIPPER .
+
+:RipperPythonFromLibrary
+    dc:creator "Ilan Moscovitz"^^xsd:string ;
+    gufo:hasQualityValue "Wittgenstein"^^xsd:string ;
+    gufo:inheresIn :RipperPython ;
+    a owl:NamedIndividual, :ImplementationLibrary ;
+    rdfs:comment "https://github.com/imoscovitz/wittgenstein"^^xsd:string .
+
+:RipperPythonImplementsRipper
+    a owl:NamedIndividual, :Implements ;
+    :implementsInvolvesAlgorithm :RIPPER ;
+    :implementsInvolvesImplementation :RipperPython .
+
+:RipperRule01
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule01Value
+    gufo:hasQualityValue "[age=66-99 ^ pneumonia=1 ^ hypertension=1 ^ hospitalized=2 ^ sex=2]"^^xsd:string ;
+    gufo:inheresIn :RipperRule01 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule02
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule02Value
+    gufo:hasQualityValue "[pneumonia=1 ^ age=66-99 ^ icu=2 ^ intubed=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule02 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule03
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule03Value
+    gufo:hasQualityValue "[pneumonia=1 ^ age=66-99 ^ icu=2 ^ hypertension=1 ^ asthma=2 ^ copd=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule03 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule04
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule04Value
+    gufo:hasQualityValue "[pneumonia=1 ^ age=66-99 ^ icu=2 ^ hypertension=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule04 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule05
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule05Value
+    gufo:hasQualityValue "[pneumonia=1 ^ intubed=1 ^ icu=2]"^^xsd:string ;
+    gufo:inheresIn :RipperRule05 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule06
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule06Value
+    gufo:hasQualityValue "[pneumonia=1 ^ age=66-99 ^ icu=2 ^ sex=2]"^^xsd:string ;
+    gufo:inheresIn :RipperRule06 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule07
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule07Value
+    gufo:hasQualityValue "[renal_chronic=1 ^ pneumonia=1 ^ hospitalized=2 ^ sex=2]"^^xsd:string ;
+    gufo:inheresIn :RipperRule07 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule08
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule08Value
+    gufo:hasQualityValue "[pneumonia=1 ^ age=66-99 ^ intubed=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule08 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule09
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule09Value
+    gufo:hasQualityValue ""^^xsd:string ;
+    gufo:inheresIn :RipperRule09 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule10
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule10Value
+    gufo:hasQualityValue "[pneumonia=1 ^ age=66-99 ^ renal_chronic=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule10 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule11
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule11Value
+    gufo:hasQualityValue "[hospitalized=2 ^ renal_chronic=1 ^ other_disease=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule11 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule12
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule12Value
+    gufo:hasQualityValue "[pneumonia=1 ^ renal_chronic=1 ^ age=51-57]"^^xsd:string ;
+    gufo:inheresIn :RipperRule12 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule13
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule13Value
+    gufo:hasQualityValue "[icu=2 ^ age=66-99 ^ renal_chronic=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule13 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule14
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule14Value
+    gufo:hasQualityValue "[pneumonia=1 ^ hypertension=1 ^ age=57-66 ^ sex=2 ^ intubed=1]"^^xsd:string ;
+    gufo:inheresIn :RipperRule14 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule15
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule15Value
+    gufo:hasQualityValue "[age=57-66 ^ hypertension=1 ^ pneumonia=1 ^ diabetes=2 ^ sex=2 ^ tobacco=2]"^^xsd:string ;
+    gufo:inheresIn :RipperRule15 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule16
+    gufo:isComponentOf :RipperExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:RipperRule16Value
+    gufo:hasQualityValue "[intubed=1 ^ icu=2]"^^xsd:string ;
+    gufo:inheresIn :RipperRule16 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:RipperRule1ExplainsResultInstance46
+    a owl:NamedIndividual, :ExplainsResultInstance ;
+    :explainsInvolvesExplanationComponent :RipperRule01 ;
+    :explainsInvolvesResultInstance :ResultInstance46 .
+
+:RipperRule6ExplainsResultInstance28
+    a owl:NamedIndividual, :ExplainsResultInstance ;
+    :explainsInvolvesExplanationComponent :RipperRule06 ;
+    :explainsInvolvesResultInstance :ResultInstance28 .
+
+:RipperRule7ExplainsResultInstance15
+    a owl:NamedIndividual, :ExplainsResultInstance ;
+    :explainsInvolvesExplanationComponent :RipperRule07 ;
+    :explainsInvolvesResultInstance :ResultInstance15 .
+
+:RipperRulesAccuracy
+    gufo:hasQualityValue 0.90 ;
+    gufo:inheresIn :EvaluationRIPPERAccuracy ;
+    a owl:NamedIndividual, :ExplanationAccuracy .
+
+:Rules
+    a owl:NamedIndividual, :ExplanationFormat ;
+    rdfs:comment "Indicates that the explainable method generates explanations in the format of rules." .
+
+:SPLIMEExplainsSVMModel
+    a owl:NamedIndividual, :ExplainsModel ;
+    :explainsModelInvolvesModel :SVMModel ;
+    :explainsModelInvolvesModelExplanation :SPLimeExplanation .
+
+:SPLimeEvaluation
+    gufo:wasCreatedIn :EvaluateSPLIME ;
+    a owl:NamedIndividual, :ExplanationEvaluation .
+
+:SPLimeExplanation
+    gufo:participatedIn :EvaluateSPLIME ;
+    gufo:wasCreatedIn :ExplainSVMLIME ;
+    a owl:NamedIndividual, :ModelExplanation .
+
+:SPLimeExplanation01
+    gufo:isComponentOf :SPLimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:SPLimeExplanation01Value
+    gufo:hasQualityValue """{'intubed=2': 0.7302359122759174,
+ 'icu=2': -0.22954003757272462,
+ 'pneumonia=1': 0.04581327864020495,
+ 'patient_type=2': -0.034584928434211695,
+ 'asthma=2': 0.027595011362469453,
+ 'age': 0.02738461930590004,
+ 'other_disease=1': -0.026795250312212974,
+ 'cardiovascular=2': 0.019499776159190345,
+ 'renal_chronic=2': -0.017185647822532412,
+ 'copd=1': -0.015029791025598985,
+ 'hypertension=1': 0.012109344746743541,
+ 'immunosuppression=2': -0.010143495665769735,
+ 'sex=1': -0.009535126637207039,
+ 'diabetes=1': -0.0029883123021770064,
+ 'tobacco=2': 0.0016895031607088214,
+ 'obesity=1': 0.001163529237239696,
+ 'exp number': 1}"""^^xsd:string ;
+    gufo:inheresIn :SPLimeExplanation01 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:SPLimeExplanation02
+    gufo:isComponentOf :SPLimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:SPLimeExplanation02Value
+    gufo:hasQualityValue """{'intubed=2': 0.7272498521085603,
+ 'icu=2': -0.2421863611446646,
+ 'pneumonia=1': 0.04253194088840385,
+ 'renal_chronic=2': -0.04082307044947787,
+ 'immunosuppression=2': -0.03780903346185646,
+ 'copd=1': -0.03181651896221923,
+ 'age': 0.023476161504144204,
+ 'patient_type=2': -0.01472961568828479,
+ 'diabetes=1': -0.01122094270293093,
+ 'obesity=1': -0.009858389349132319,
+ 'cardiovascular=2': 0.009525737521261932,
+ 'hypertension=1': 0.00924052022631108,
+ 'asthma=2': 0.00826332067373552,
+ 'sex=1': -0.005026340253797025,
+ 'tobacco=2': 0.0028567527217517245,
+ 'other_disease=2': 0.0005695780252155741,
+ 'exp number': 1}"""^^xsd:string ;
+    gufo:inheresIn :SPLimeExplanation02 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:SPLimeExplanation03
+    gufo:isComponentOf :SPLimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:SPLimeExplanation03Value
+    gufo:hasQualityValue """{'intubed=1': 0.6553617786618254,
+ 'icu=1': -0.2451102674364559,
+ 'renal_chronic=2': -0.07599107114491671,
+ 'pneumonia=1': 0.05209765097200194,
+ 'tobacco=1': -0.035714286774753336,
+ 'cardiovascular=2': 0.024268778740394372,
+ 'asthma=2': 0.02163447913495186,
+ 'age': 0.01943252669867966,
+ 'hypertension=2': -0.019300023723394552,
+ 'immunosuppression=2': -0.01357399240165284,
+ 'patient_type=2': -0.009912440527736332,
+ 'obesity=1': 0.00989801823162346,
+ 'other_disease=2': 0.006915059486896542,
+ 'diabetes=1': -0.00682619817619423,
+ 'copd=2': 0.0033162724258061545,
+ 'sex=2': 0.0019108890933709247,
+ 'exp number': 2}"""^^xsd:string ;
+    gufo:inheresIn :SPLimeExplanation03 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:SPLimeExplanation04
+    gufo:isComponentOf :SPLimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:SPLimeExplanation04Value
+    gufo:hasQualityValue """{'intubed=2': 0.7057727742821465,
+ 'icu=2': -0.23763531949355285,
+ 'pneumonia=1': 0.04901037794450674,
+ 'cardiovascular=1': -0.04238624673910528,
+ 'patient_type=2': -0.0228036323960163,
+ 'other_disease=1': -0.01820419544062246,
+ 'tobacco=1': -0.018155757223197164,
+ 'renal_chronic=1': 0.01671595321011683,
+ 'immunosuppression=1': -0.015370380829449186,
+ 'age': 0.015038212937832694,
+ 'copd=1': -0.013541457225898392,
+ 'sex=1': -0.012928745421242156,
+ 'asthma=1': -0.01223954829809454,
+ 'diabetes=1': -0.008036259015752074,
+ 'obesity=1': -0.005226248652916203,
+ 'hypertension=1': -0.0008443806814255352,
+ 'exp number': 3}"""^^xsd:string ;
+    gufo:inheresIn :SPLimeExplanation04 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:SPLimeExplanation05
+    gufo:isComponentOf :SPLimeExplanation ;
+    a owl:NamedIndividual, :ExplanationComponent .
+
+:SPLimeExplanation05Value
+    gufo:hasQualityValue """{'intubed=2': 0.7249059880876344,
+ 'icu=2': -0.23506496954265338,
+ 'pneumonia=2': -0.0394402043900181,
+ 'patient_type=2': -0.02830830958544467,
+ 'immunosuppression=2': 0.027876847156680578,
+ 'cardiovascular=2': 0.0261611057578221,
+ 'tobacco=2': 0.02440373659248841,
+ 'asthma=2': 0.020537755319247064,
+ 'age': 0.019889050457562247,
+ 'hypertension=1': 0.015303023086232702,
+ 'copd=2': 0.013393110145669539,
+ 'renal_chronic=1': 0.012298246260305694,
+ 'diabetes=2': -0.010665702285202923,
+ 'sex=2': 0.010493478169157439,
+ 'obesity=2': 0.004463017322041727,
+ 'other_disease=2': -0.00021578332411475271,
+ 'exp number': 4}"""^^xsd:string ;
+    gufo:inheresIn :SPLimeExplanation05 ;
+    a owl:NamedIndividual, :ExplanationComponentCharacteristic .
+
+:SVM
+    dc:creator "Vladimir Vapnik"^^xsd:string ;
+    dc:date "1963"^^xsd:date ;
+    gufo:hasReifiedQualityValue :Classification, :Supervised, :Tabular ;
+    a owl:NamedIndividual, :MLAlgorithm ;
+    rdfs:label "Support Vector Machine"^^xsd:string .
+
+:SVMAccuracyValue
+    gufo:hasQualityValue 0.9 ;
+    gufo:inheresIn :AccuracySpecifiesSVMEvaluation ;
+    a owl:NamedIndividual, :MeasureValue .
+
+:SVMAddressesClassification_exp1
+    a owl:NamedIndividual, :Addresses ;
+    :addressesInvolvesAlgorithm :SVM ;
+    :addressesInvolvesGoal :ClassifyMortality_exp1 .
+
+:SVMAddressesClassification_exp2
+    a owl:NamedIndividual, :Addresses ;
+    :addressesInvolvesAlgorithm :SVM ;
+    :addressesInvolvesGoal :ClassifyMortality_exp2 .
+
+:SVMEvaluation
+    gufo:wasCreatedIn :EvaluateSVM ;
+    a owl:NamedIndividual, :ModelEvaluation ;
+    rdfs:comment "SVM evaluation using testing set."^^xsd:string .
+
+:SVMKernelSetting
+    gufo:participatedIn :TrainSVM ;
+    a owl:NamedIndividual, :ParameterSetting ;
+    rdfs:comment "Indicates the type of kernel used to train the SVM model."^^xsd:string .
+
+:SVMKernelValue
+    gufo:hasQualityValue "Linear"^^xsd:string ;
+    gufo:inheresIn :SVMKernelSetting ;
+    a owl:NamedIndividual, :ParameterSettingValue .
+
+:SVMModel
+    gufo:hasReifiedQualityValue :Inscrutable ;
+    gufo:wasCreatedIn :TrainSVM ;
+    a owl:NamedIndividual, :MLModel ;
+    rdfs:comment "Fitted ML model generated in the train operation."^^xsd:string .
+
+:SVMPython
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:isComponentOf :MLWorkflow, :PythonNotebook ;
+    a owl:NamedIndividual, :MLImplementation ;
+    rdfs:comment "Implementation of the Support Vector Machine Algorithm in the scikit-learn library in Python."^^xsd:string ;
+    :executedBy :TrainSVM .
+
+:SVMPythonFromLibrary
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:hasQualityValue "scikit-learn"^^xsd:string ;
+    gufo:inheresIn :SVMPython ;
+    a owl:NamedIndividual, :ImplementationLibrary .
+
+:SVMPythonHasParameterTypeOfKernel
+    a owl:NamedIndividual, :HasParameter ;
+    :hasParameterInvolvesImplementation :SVMPython ;
+    :hasParameterInvolvesParameter :TypeOfKernelParam .
+
+:SVMPythonImplementsSVM
+    a owl:NamedIndividual, :Implements ;
+    :implementsInvolvesAlgorithm :SVM ;
+    :implementsInvolvesImplementation :SVMPython .
+
+:SVMSensitivityValue
+    gufo:hasQualityValue 0.79 ;
+    gufo:inheresIn :SensitivitySpecifiesSVMEvaluation ;
+    a owl:NamedIndividual, :MeasureValue .
+
+:SVMSpecificityValue
+    gufo:hasQualityValue 0.9 ;
+    gufo:inheresIn :SpecificitySpecifiesSVMEvaluation ;
+    a owl:NamedIndividual, :MeasureValue .
+
+:SVMTransparency
+    gufo:hasQualityValue """SVM maps training examples to points in space so as to maximise the width of the gap between the two categories. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.
+
+In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
+
+When data are unlabelled, supervised learning is not possible, and an unsupervised learning approach is required, which attempts to find natural clustering of the data to groups, and then map new data to these formed groups."""^^rdfs:Literal ;
+    gufo:inheresIn :SVM ;
+    a owl:NamedIndividual, :AlgorithmTransparency .
+
+:Sensitivity
+    dc:creator "Jacob Yerushalmy"^^xsd:string ;
+    dc:date "1947"^^xsd:date ;
+    dc:rights "https://en.wikipedia.org/wiki/Sensitivity_and_specificity"^^xsd:string ;
+    a owl:NamedIndividual, :EvaluationMeasure ;
+    rdfs:comment """Sensitivity (True Positive rate) measures the proportion of positives that are correctly identified (i.e. the proportion of those who have some condition (affected) who are correctly identified as having the condition).
+ In a diagnostic test, sensitivity is a measure of how well a test can identify true positives."""^^xsd:string ;
+    rdfs:seeAlso "True Positive Rate, recall of the positive class, hit rate"^^xsd:string .
+
+:SensitivitySpecifiesSVMEvaluation
+    a owl:NamedIndividual, :SpecifiesModelEvaluation ;
+    :specifiesInvolvesEvaluationMeasure :Sensitivity ;
+    :specifiesInvolvesModelEvaluation :SVMEvaluation .
+
+:Sex_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "SEX Identifies the sex of the patient."@en .
+
+:Sex_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "SEX Identifies the sex of the patient."@en .
+
+:Sex_Covid-19Test_categories
+    gufo:hasQualityValue "1=woman, 2=man"^^xsd:string ;
+    gufo:inheresIn :Sex_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Sex_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "SEX Identifies the sex of the patient."@en .
+
+:Sex_Covid-19Train_1
+    gufo:hasQualityValue 3123 ;
+    gufo:inheresIn :Sex_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Sex_Covid-19Train_2
+    gufo:hasQualityValue 3492 ;
+    gufo:inheresIn :Sex_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Sex_Covid-19Train_categories
+    gufo:hasQualityValue "1=woman, 2=man"^^xsd:string ;
+    gufo:inheresIn :Sex_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Sex_Covid-19_1
+    gufo:hasQualityValue 279490 ;
+    gufo:inheresIn :Sex_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Sex_Covid-19_2
+    gufo:hasQualityValue 287112 ;
+    gufo:inheresIn :Sex_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Sex_Covid-19_categories
+    gufo:hasQualityValue "1=woman, 2=man"^^xsd:string ;
+    gufo:inheresIn :Sex_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Software
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Software is implemented computer programs, procedures, scripts or rules with associated documentation, possibly constituting an organized environment, stored in read/write memory for the purpose of being executed within a computer system."@en ;
+    rdfs:label "Software"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:Source
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the source of the dataset, for example, the book or the website."@en ;
+    rdfs:label "Source"@en ;
+    rdfs:subClassOf :DataSource .
+
+:SourceName
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Indicates the source name of the dataset."@en ;
+    rdfs:label "SourceName"@en ;
+    rdfs:subClassOf :DataSource .
+
+:Specificity
+    dc:creator "Jacob Yerushalmy"^^xsd:string ;
+    dc:date "1947"^^xsd:date ;
+    dc:rights "https://en.wikipedia.org/wiki/Sensitivity_and_specificity"^^xsd:string ;
+    a owl:NamedIndividual, :EvaluationMeasure ;
+    rdfs:comment "Specificity (True Negative rate) measures the proportion of negatives that are correctly identified (i.e. the proportion of those who do not have the condition (unaffected) who are correctly identified as not having the condition)."^^xsd:string ;
+    rdfs:seeAlso "recall of the negative class, selectivity or true negative rate"^^xsd:string .
+
+:SpecificitySpecifiesSVMEvaluation
+    a owl:NamedIndividual, :SpecifiesModelEvaluation ;
+    :specifiesInvolvesEvaluationMeasure :Specificity ;
+    :specifiesInvolvesModelEvaluation :SVMEvaluation .
+
+:SpecifiesMeasure
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the Goal of the study specifies which evaluation measures are adequate to evaluate the Machine Learning Model."@en ;
+    rdfs:label "SpecifiesMeasure"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluationMeasure ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Goal ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:SpecifiesModelEvaluation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the evaluation measures specify the model evaluation."@en ;
+    rdfs:label "SpecifiesModelEvaluation"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluationMeasure ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ModelEvaluation ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:onClass :ModelEvaluationCharacteristic ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:SpecifiesParameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Relator that indicates that the ParameterSetting is specified by the Parameter."@en ;
+    rdfs:label "SpecifiesParameter"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Parameter ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ParameterSetting ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Split
+    gufo:hasReifiedQualityValue :SplitData ;
+    a owl:NamedIndividual, :PreprocessingAlgorithm ;
+    rdfs:comment "Split data into train and test sets."@en .
+
+:SplitData
+    a owl:NamedIndividual, :PreprocessingTechnique ;
+    rdfs:comment "Indicates that the preprocessing technique is related to splitting the data into train and test sets." .
+
+:SplitDataHasParameterTestSize
+    a owl:NamedIndividual, :HasParameter ;
+    :hasParameterInvolvesImplementation :SplitPython ;
+    :hasParameterInvolvesParameter :TestSizeParam .
+
+:SplitPython
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:isComponentOf :MLWorkflow, :PythonNotebook ;
+    a owl:NamedIndividual, :PreprocessImplementation ;
+    rdfs:comment "Implementation of split function  in Python to split a dataset into train and test  sets."^^xsd:string ;
+    :executedBy :PreprocessCovid .
+
+:SplitPythonFromLibrary
+    dc:creator "Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011."^^xsd:string ;
+    gufo:hasQualityValue "scikit-learn"^^xsd:string ;
+    gufo:inheresIn :SplitPython ;
+    a owl:NamedIndividual, :ImplementationLibrary .
+
+:SplitPythonImplementsSplit
+    a owl:NamedIndividual, :Implements ;
+    :implementsInvolvesAlgorithm :Split ;
+    :implementsInvolvesImplementation :SplitPython .
+
+:Static
+    a owl:NamedIndividual, :ExplanationInteraction ;
+    rdfs:comment "Indicates that the explainable method generates static explanations." .
+
+:Study
+    a owl:Class ;
+    rdfs:subClassOf gufo:Event .
+
+:SuitableMeasurement
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Suitable measurements for the goal, for example, sensitivity and specificity for diagnosis."@en ;
+    rdfs:label "SuitableMeasurement"@en ;
+    rdfs:subClassOf :GoalCharacteristic .
+
+:Supervised
+    a owl:NamedIndividual, :LearningType ;
+    rdfs:comment "Indicates that the ML algorithm performs supervised learning (labeled data)." .
+
+:Tabular
+    a owl:NamedIndividual, :DataType .
+
+:TestData
+    a gufo:Role, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Part of preprocessed data that has the role to be used by the Test(predict) operation. "@en ;
+    rdfs:label "TestData"@en ;
+    rdfs:subClassOf :PreprocessedData ;
+    owl:disjointWith :TrainData .
+
+:TestPredict
+    a gufo:EventType, owl:NamedIndividual .
+
+:TestPrediction
+    gufo:participatedIn :EvaluateSVM ;
+    gufo:wasCreatedIn :PredictTest ;
+    a owl:NamedIndividual, :Result ;
+    rdfs:comment "Result predicted using the fitted SVM in the test set."^^xsd:string .
+
+:TestSizeParam
+    a owl:NamedIndividual, :Parameter ;
+    rdfs:comment "Parameter to indicate the size of the test set to split the original dataset."@en .
+
+:TestSizeSetting
+    gufo:participatedIn :PreprocessCovid ;
+    a owl:NamedIndividual, :ParameterSetting ;
+    rdfs:comment "Indicates the size of the test set to split the original dataset."^^xsd:string .
+
+:TestSizeSpecifiesTestSizeSetting
+    a owl:NamedIndividual, :SpecifiesParameter ;
+    :specifiesInvolvesParameter :TestSizeParam ;
+    :specifiesInvolvesParameterSetting :TestSizeSetting .
+
+:TestSizeValue
+    gufo:hasQualityValue "0.3"^^xsd:string ;
+    gufo:inheresIn :TestSizeSetting ;
+    a owl:NamedIndividual, :ParameterSettingValue .
+
+:Text
+    a owl:NamedIndividual, :DataType .
+
+:Tobacco_Covid-19
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19 ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "TOBACCO Identify if the patient has a smoking habit."@en .
+
+:Tobacco_Covid-19Test
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TestData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "TOBACCO Identify if the patient has a smoking habit."@en .
+
+:Tobacco_Covid-19Test_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Tobacco_Covid-19Test ;
+    a owl:NamedIndividual, :Categories .
+
+:Tobacco_Covid-19Train
+    gufo:hasReifiedQualityValue :Categorical ;
+    gufo:isComponentOf :Covid-19TrainData ;
+    a owl:NamedIndividual, :Feature ;
+    rdfs:comment "TOBACCO Identify if the patient has a smoking habit."@en .
+
+:Tobacco_Covid-19Train_1
+    gufo:hasQualityValue 502 ;
+    gufo:inheresIn :Tobacco_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Tobacco_Covid-19Train_2
+    gufo:hasQualityValue 6113 ;
+    gufo:inheresIn :Tobacco_Covid-19Train ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Tobacco_Covid-19Train_categories
+    gufo:hasQualityValue "1 = Yes , 2 = No"^^xsd:string ;
+    gufo:inheresIn :Tobacco_Covid-19Train ;
+    a owl:NamedIndividual, :Categories .
+
+:Tobacco_Covid-19_1
+    gufo:hasQualityValue 48017 ;
+    gufo:inheresIn :Tobacco_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Tobacco_Covid-19_2
+    gufo:hasQualityValue 516678 ;
+    gufo:inheresIn :Tobacco_Covid-19 ;
+    a owl:NamedIndividual, :CategoryQuantity .
+
+:Tobacco_Covid-19_Null
+    gufo:hasQualityValue 1907 ;
+    gufo:inheresIn :Tobacco_Covid-19 ;
+    a owl:NamedIndividual, :NumberNulls .
+
+:Tobacco_Covid-19_categories
+    gufo:hasQualityValue "1 = Yes, 2 = No"^^xsd:string ;
+    gufo:inheresIn :Tobacco_Covid-19 ;
+    a owl:NamedIndividual, :Categories .
+
+:Train
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Specific type of operation that train the Machine Learning model, executing the ML Algorithm implementation."@en ;
+    rdfs:label "Train"@en ;
+    rdfs:subClassOf :Operation, [
+        a owl:Restriction ;
+        owl:onProperty gufo:historicallyDependsOn ;
+        owl:someValuesFrom :Preprocess
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :TrainData
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLImplementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ], [
+        a owl:Restriction ;
+        owl:onClass :MLModel ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:TrainData
+    a gufo:Role, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Part of preprocessed data that has the role to be used by the Train operation. "@en ;
+    rdfs:label "TrainData"@en ;
+    rdfs:subClassOf :PreprocessedData .
+
+:TrainPrediction_exp1
+    gufo:participatedIn :ExplainSVMRIPPER ;
+    gufo:wasCreatedIn :PredictTrain_exp1 ;
+    a owl:NamedIndividual, :Result ;
+    rdfs:comment "Result predicted using the fitted SVM in the train set."^^xsd:string .
+
+:TrainSVM
+    dc:creator "Patricia"^^xsd:string ;
+    gufo:historicallyDependsOn :PreprocessCovid ;
+    gufo:isEventProperPartOf :MLWorkflow_exec ;
+    a owl:NamedIndividual, :Train ;
+    rdfs:comment "Train Support Vector Machine using train data."^^xsd:string .
+
+:TransformData
+    a owl:NamedIndividual, :PreprocessingTechnique ;
+    rdfs:comment "Indicates that the preprocessing technique is related to transforming the data, for example renaming columns or encoding labels." .
+
+:Transparent
+    a owl:NamedIndividual, :Interpretability ;
+    rdfs:comment "Indicates that the ML algorithm is transparent." .
+
+:TypeOfKernelParam
+    a owl:NamedIndividual, :Parameter ;
+    rdfs:comment "Parameter to indicate the type of kernel of SVM  (linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’)"@en .
+
+:Unfaithful
+    a owl:NamedIndividual, :ExplanationFidelity ;
+    rdfs:comment "Indicates if the explanation if unfaithfull to the underlying ML model." .
+
+:Unsupervised
+    a owl:NamedIndividual, :LearningType ;
+    rdfs:comment "Indicates that the ML algorithm performs unsupervised learning (uses unlabeled data)." .
+
+:WFExecution
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Workflow execution (WFExecution) is complex process composed of a series of operations. It executes the implementations of  operations by executing Workflows, which organizes sequentially the implementations of these operations."@en ;
+    rdfs:label "WFExecution"@en ;
+    rdfs:subClassOf gufo:Event, [
+        a owl:Restriction ;
+        owl:onProperty gufo:isEventProperPartOf ;
+        owl:someValuesFrom :Experiment
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:isEventProperPartOf
+        ] ;
+        owl:someValuesFrom :Operation
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :Workflow
+    ] .
+
+:Workflow
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:comment "Workflow is a complex structure thais composed of series of implementations that need to be completed sequentially. It can be, for example, a workflow for the ML process and a workflow for the explanation."@en ;
+    rdfs:label "Workflow"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:addressesInvolvesAlgorithm
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Addresses ;
+    rdfs:range :Algorithm ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:addressesInvolvesGoal
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Addresses ;
+    rdfs:range :Goal ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:assessesInvolvesModel
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Assesses ;
+    rdfs:range :MLModel ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:assessesInvolvesModelEvaluation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Assesses ;
+    rdfs:range :ModelEvaluation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:callsInvolvesMLModel
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Calls ;
+    rdfs:range :MLModel ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:callsInvolvesPredictImplementation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Calls ;
+    rdfs:range :PredictImplementation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:correlates
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Correlates ;
+    rdfs:range :Feature ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:evaluatesInvolvesExplanationComponent
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :EvaluatesExplanationComponent ;
+    rdfs:range :ExplanationComponent ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:evaluatesInvolvesExplanationComponentEvaluation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :EvaluatesExplanationComponent ;
+    rdfs:range :ExplanationComponentEvaluation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:executedBy
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Implementation ;
+    rdfs:range :Operation ;
+    rdfs:subPropertyOf gufo:participatedIn .
+
+:explainsInvolvesExplanationComponent
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :ExplainsResultInstance ;
+    rdfs:range :ExplanationComponent ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:explainsInvolvesResultInstance
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :ExplainsResultInstance ;
+    rdfs:range :ResultInstance ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:explainsModelInvolvesModel
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :ExplainsModel ;
+    rdfs:range :MLModel ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:explainsModelInvolvesModelExplanation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :ExplainsModel ;
+    rdfs:range :ModelExplanation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:hasMeasure
+    a gufo:Kind, owl:NamedIndividual .
+
+:hasMeasureInvolvesEvaluateModelImplementation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :HasMeasure ;
+    rdfs:range :EvaluateModelImplementation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:hasMeasureInvolvesMeasure
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :HasMeasure ;
+    rdfs:range :EvaluationMeasure ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:hasParameterInvolvesImplementation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :HasParameter ;
+    rdfs:range :Implementation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:hasParameterInvolvesParameter
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :HasParameter ;
+    rdfs:range :Parameter ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:implementsInvolvesAlgorithm
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Implements ;
+    rdfs:range :Algorithm ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:implementsInvolvesImplementation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :Implements ;
+    rdfs:range :Implementation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:specifiesInvolvesEvaluationMeasure
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :SpecifiesModelEvaluation ;
+    rdfs:range :EvaluationMeasure ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:specifiesInvolvesModelEvaluation
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :SpecifiesModelEvaluation ;
+    rdfs:range :ModelEvaluation ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:specifiesInvolvesParameter
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :SpecifiesParameter ;
+    rdfs:range :Parameter ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:specifiesInvolvesParameterSetting
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :SpecifiesParameter ;
+    rdfs:range :ParameterSetting ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:specifiesMeasureInvolvesGoal
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :SpecifiesMeasure ;
+    rdfs:range :Goal ;
+    rdfs:subPropertyOf gufo:mediates .
+
+:specifiesMeasureInvolvesMeasure
+    a owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+    rdfs:domain :SpecifiesMeasure ;
+    rdfs:range :EvaluationMeasure ;
+    rdfs:subPropertyOf gufo:mediates .
+
+[]
+    a owl:AllDisjointClasses ;
+    owl:members (:Algorithm
+        :Data
+        :EvaluationMeasure
+        :ExplanationComponent
+        :ExplanationComponentEvaluation
+        :Feature
+        :Goal
+        :Implementation
+        :Parameter
+        :ParameterSetting
+        :ResultInstance
+        :Software
+        :Workflow
+    ) .
+
+[]
+    a owl:AllDisjointClasses ;
+    owl:members (:AlgorithmCharacteristic
+        :DataCharacteristic
+        :ExperimentCharacteristic
+        :ExplanationComponentEvaluationCharacteristic
+        :GoalCharacteristic
+        :ImplementationCharacteristic
+        :ModelCharacteristic
+        :ModelEvaluationCharacteristic
+        :ParameterSettingCharacteristic
+    ) .
+
+[]
+    a owl:AllDisjointClasses ;
+    owl:members (:EvaluateExplanation
+        :EvaluateModel
+        :Explain
+        :Predict
+        :Preprocess
+        :Train
+    ) .
+
+[]
+    a owl:AllDisjointClasses ;
+    owl:members (:Explanation
+        :ExplanationEvaluation
+        :MLModel
+        :ModelEvaluation
+        :PreprocessedData
+        :Result
+    ) .
+
