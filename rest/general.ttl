@@ -1,5 +1,5 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <#> .
+@prefix : <general#> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -57,7 +57,12 @@
         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onClass :Algorithm ;
         owl:onProperty gufo:inheresIn
-    ] .
+    ];
+    skos:editorialNote """
+    A gufo:Quality is a gufo:IntrinsicAspect of a concrete individual.
+    So this re-inforces the choice of gufo:Algorith as gufo:Object. 
+    It would help if there were more explanation as to why this choice was made.
+    """ .
 
 :Assesses
     a gufo:Kind, owl:Class;
