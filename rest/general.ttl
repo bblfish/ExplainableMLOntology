@@ -1,348 +1,412 @@
-@prefix : <https://example.com#>.
-@prefix gufo: <http://purl.org/nemo/gufo#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <https://example.com#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com> rdf:type owl:Ontology;
-    owl:imports gufo:.
-:MLModel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:label "MLModel"@en.
-:ModelCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "ModelCharacteristic"@en.
-:ModelEvaluation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:label "ModelEvaluation"@en.
-:ModelEvaluationCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "ModelEvaluationCharacteristic"@en.
-:MLAlgorithm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
-    rdfs:label "MLAlgorithm"@en.
-:EvaluationProcedure rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
-    rdfs:label "EvaluationProcedure"@en.
-:Assesses rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Relator;
-    rdfs:label "Assesses"@en.
-:SpecifiesModelEvaluation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Relator;
-    rdfs:label "SpecifiesModelEvaluation"@en.
-:EvaluationMeasure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "EvaluationMeasure"@en.
-:Addresses rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Relator;
-    rdfs:label "Addresses"@en.
-:SpecifiesMeasure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Relator;
-    rdfs:label "SpecifiesMeasure"@en.
-:Experiment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Event;
-    rdfs:label "Experiment"@en.
-:Workflow rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Event;
-    rdfs:label "Workflow"@en.
-:Task rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Event;
-    rdfs:label "Task"@en.
-:Goal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Goal"@en.
-:ExperimentCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "ExperimentCharacteristic"@en.
-:Data rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Data"@en.
-:Output rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Output"@en.
-:ParameterSetting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "ParameterSetting"@en.
-:SpecifiesParameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Relator;
-    rdfs:label "SpecifiesParameter"@en.
-:Implementation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Implementation"@en.
-:Software rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Software"@en.
-:Implements rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Relator;
-    rdfs:label "Implements"@en.
-:Algorithm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Algorithm"@en.
-:InputData rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
-    rdfs:label "InputData"@en.
-:Feature rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Feature"@en.
-:FeatureCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "FeatureCharacteristic"@en.
-:DataCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "DataCharacteristic"@en.
-:ParameterCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "ParameterCharacteristic"@en.
-:HasParameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Relator;
-    rdfs:label "HasParameter"@en.
-:ImplementationCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "ImplementationCharacteristic"@en.
-:AlgorithmCharacteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:Quality;
-    rdfs:label "AlgorithmCharacteristic"@en.
-:Parameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
-    rdfs:subClassOf gufo:FunctionalComplex;
-    rdfs:label "Parameter"@en.
-:InputData rdfs:subClassOf :Data.
-:MLModel rdfs:subClassOf :Output.
-:ModelEvaluation rdfs:subClassOf :Output.
-:MLAlgorithm rdfs:subClassOf :Algorithm.
-:EvaluationProcedure rdfs:subClassOf :Algorithm.
-:MLModel rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:someValuesFrom :ModelCharacteristic
-].
-:ModelCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :MLModel
-].
-:SpecifiesModelEvaluation rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:someValuesFrom :ModelEvaluationCharacteristic
-].
-:ModelEvaluationCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :SpecifiesModelEvaluation
-].
-:Assesses rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :MLModel
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :ModelEvaluation
-].
-:SpecifiesModelEvaluation rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :ModelEvaluation
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :EvaluationMeasure
-].
-:Addresses rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :MLAlgorithm
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Goal
-].
-:SpecifiesMeasure rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Goal
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :EvaluationMeasure
-].
-:Experiment rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Goal
-].
-:Goal rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:participatedIn;
-  owl:someValuesFrom :Experiment
-].
-:Experiment rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:someValuesFrom :ExperimentCharacteristic
-].
-:ExperimentCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Experiment
-].
-:Task rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:wasCreatedIn ];
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Output
-].
-:Output rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:wasCreatedIn;
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Task
-].
-:ParameterSetting rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:participatedIn;
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Task
-].
-:SpecifiesParameter rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :ParameterSetting
-].
-:Task rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Implementation
-].
-:Implements rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Implementation
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Algorithm
-].
-:Feature rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:someValuesFrom :FeatureCharacteristic
-].
-:FeatureCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Feature
-].
-:Data rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:someValuesFrom :DataCharacteristic
-].
-:DataCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Data
-].
-:ParameterSetting rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :ParameterCharacteristic
-].
-:ParameterCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :ParameterSetting
-].
-:Implementation rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:someValuesFrom :ImplementationCharacteristic
-].
-:ImplementationCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Implementation
-].
-:HasParameter rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Implementation
-].
-:SpecifiesParameter rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Parameter
-].
-:HasParameter rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:mediates;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Parameter
-].
-:Algorithm rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
-  owl:someValuesFrom :AlgorithmCharacteristic
-].
-:AlgorithmCharacteristic rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:inheresIn;
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Algorithm
-].
-:Experiment rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:isEventProperPartOf ];
-  owl:someValuesFrom :Workflow
-].
-:Workflow rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:isEventProperPartOf;
-  owl:someValuesFrom :Experiment
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:isEventProperPartOf ];
-  owl:someValuesFrom :Task
-].
-:Task rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:isEventProperPartOf;
-  owl:someValuesFrom :Workflow
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
-  owl:someValuesFrom :Data
-], [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
-  owl:someValuesFrom :Output
-].
-:Data rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty [ owl:inverseOf gufo:isComponentOf ];
-  owl:someValuesFrom :Feature
-].
-:Feature rdfs:subClassOf [
-  rdf:type owl:Restriction;
-  owl:onProperty gufo:isComponentOf;
-  owl:someValuesFrom :Data
-].
+<https://example.com>
+    a owl:Ontology ;
+    owl:imports <http://purl.org/nemo/gufo#> .
+
+:Addresses
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Addresses"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLAlgorithm ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Goal ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Algorithm
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Algorithm"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :AlgorithmCharacteristic
+    ] .
+
+:AlgorithmCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "AlgorithmCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Algorithm ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:Assesses
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Assesses"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLModel ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ModelEvaluation ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Data
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Data"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :DataCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:isComponentOf
+        ] ;
+        owl:someValuesFrom :Feature
+    ] .
+
+:DataCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "DataCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Data ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:EvaluationMeasure
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "EvaluationMeasure"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:EvaluationProcedure
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "EvaluationProcedure"@en ;
+    rdfs:subClassOf :Algorithm .
+
+:Experiment
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Experiment"@en ;
+    rdfs:subClassOf gufo:Event, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Goal ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :ExperimentCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:isEventProperPartOf
+        ] ;
+        owl:someValuesFrom :Workflow
+    ] .
+
+:ExperimentCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "ExperimentCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Experiment ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:Feature
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Feature"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :FeatureCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:onProperty gufo:isComponentOf ;
+        owl:someValuesFrom :Data
+    ] .
+
+:FeatureCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "FeatureCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Feature ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:Goal
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Goal"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty gufo:participatedIn ;
+        owl:someValuesFrom :Experiment
+    ] .
+
+:HasParameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "HasParameter"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Parameter ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Implementation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Implementation"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :ImplementationCharacteristic
+    ] .
+
+:ImplementationCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "ImplementationCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:Implements
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Implements"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Algorithm ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:InputData
+    a gufo:Phase, owl:Class, owl:NamedIndividual ;
+    rdfs:label "InputData"@en ;
+    rdfs:subClassOf :Data .
+
+:MLAlgorithm
+    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "MLAlgorithm"@en ;
+    rdfs:subClassOf :Algorithm .
+
+:MLModel
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "MLModel"@en ;
+    rdfs:subClassOf :Output, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :ModelCharacteristic
+    ] .
+
+:ModelCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "ModelCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :MLModel ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ModelEvaluation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "ModelEvaluation"@en ;
+    rdfs:subClassOf :Output .
+
+:ModelEvaluationCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "ModelEvaluationCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :SpecifiesModelEvaluation ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:Output
+    a gufo:Category, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Output"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onClass :Task ;
+        owl:onProperty gufo:wasCreatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Parameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Parameter"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:ParameterCharacteristic
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "ParameterCharacteristic"@en ;
+    rdfs:subClassOf gufo:Quality, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ParameterSetting ;
+        owl:onProperty gufo:inheresIn
+    ] .
+
+:ParameterSetting
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "ParameterSetting"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex, [
+        a owl:Restriction ;
+        owl:onClass :Task ;
+        owl:onProperty gufo:participatedIn ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :ParameterCharacteristic ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Software
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Software"@en ;
+    rdfs:subClassOf gufo:FunctionalComplex .
+
+:SpecifiesMeasure
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "SpecifiesMeasure"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Goal ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluationMeasure ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:SpecifiesModelEvaluation
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "SpecifiesModelEvaluation"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :EvaluationMeasure ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:inheresIn
+        ] ;
+        owl:someValuesFrom :ModelEvaluationCharacteristic
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ModelEvaluation ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:SpecifiesParameter
+    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    rdfs:label "SpecifiesParameter"@en ;
+    rdfs:subClassOf gufo:Relator, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :ParameterSetting ;
+        owl:onProperty gufo:mediates
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Parameter ;
+        owl:onProperty gufo:mediates
+    ] .
+
+:Task
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Task"@en ;
+    rdfs:subClassOf gufo:Event, [
+        a owl:Restriction ;
+        owl:onClass :Output ;
+        owl:onProperty [
+            owl:inverseOf gufo:wasCreatedIn
+        ] ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Implementation ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ]
+    ], [
+        a owl:Restriction ;
+        owl:onProperty gufo:isEventProperPartOf ;
+        owl:someValuesFrom :Workflow
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :Data
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:participatedIn
+        ] ;
+        owl:someValuesFrom :Output
+    ] .
+
+:Workflow
+    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    rdfs:label "Workflow"@en ;
+    rdfs:subClassOf gufo:Event, [
+        a owl:Restriction ;
+        owl:onProperty gufo:isEventProperPartOf ;
+        owl:someValuesFrom :Experiment
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf gufo:isEventProperPartOf
+        ] ;
+        owl:someValuesFrom :Task
+    ] .
+
