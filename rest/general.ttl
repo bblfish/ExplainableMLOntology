@@ -1,16 +1,19 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <https://example.com#> .
+@prefix : <#> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<https://example.com>
-    a owl:Ontology ;
+<>  a owl:Ontology ;
     owl:imports <http://purl.org/nemo/gufo#> .
 
 :Addresses
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
+    rdfs:comment """
+    gufo Relator that indicates that the ML Algorithm addresses the goal of the study.
+    """;
     rdfs:label "Addresses"@en ;
     rdfs:subClassOf gufo:Relator, [
         a owl:Restriction ;
@@ -25,18 +28,29 @@
     ] .
 
 :Algorithm
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Algorithm"@en ;
+    rdfs:comment """
+    The algorithm regardless of software implementation. 
+    An algorithm can be a machine learning algorithm, a preprocessing algorithm, 
+    an evaluation procedure, etc.
+    """ ;
     rdfs:subClassOf gufo:FunctionalComplex, [
         a owl:Restriction ;
         owl:onProperty [
             owl:inverseOf gufo:inheresIn
         ] ;
         owl:someValuesFrom :AlgorithmCharacteristic
-    ] .
+    ] ;
+    skos:editorialNote """
+    * Is a Algorithm not rather an Abstract Object?   
+      A FunctionalComplex is a gufo:Object which is a endurant: usual examples of those are physical objects.  
+      It would seem that instead a gufo:AbstractIndividual would be the more appropriate type 
+      A gufo:ConcreteIndividual, differently from a gufo:AbstractIndividual, is one that exists in space-time.
+    """ .
 
 :AlgorithmCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "AlgorithmCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -46,7 +60,7 @@
     ] .
 
 :Assesses
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class;
     rdfs:label "Assesses"@en ;
     rdfs:subClassOf gufo:Relator, [
         a owl:Restriction ;
@@ -61,7 +75,7 @@
     ] .
 
 :Data
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Data"@en ;
     rdfs:subClassOf gufo:FunctionalComplex, [
         a owl:Restriction ;
@@ -78,7 +92,7 @@
     ] .
 
 :DataCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "DataCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -88,17 +102,17 @@
     ] .
 
 :EvaluationMeasure
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "EvaluationMeasure"@en ;
     rdfs:subClassOf gufo:FunctionalComplex .
 
 :EvaluationProcedure
-    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    a gufo:SubKind, owl:Class ;
     rdfs:label "EvaluationProcedure"@en ;
     rdfs:subClassOf :Algorithm .
 
 :Experiment
-    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    a gufo:EventType, owl:Class ;
     rdfs:label "Experiment"@en ;
     rdfs:subClassOf gufo:Event, [
         a owl:Restriction ;
@@ -122,7 +136,7 @@
     ] .
 
 :ExperimentCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "ExperimentCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -132,7 +146,7 @@
     ] .
 
 :Feature
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Feature"@en ;
     rdfs:subClassOf gufo:FunctionalComplex, [
         a owl:Restriction ;
@@ -147,7 +161,7 @@
     ] .
 
 :FeatureCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "FeatureCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -157,7 +171,7 @@
     ] .
 
 :Goal
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Goal"@en ;
     rdfs:subClassOf gufo:FunctionalComplex, [
         a owl:Restriction ;
@@ -166,7 +180,7 @@
     ] .
 
 :HasParameter
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "HasParameter"@en ;
     rdfs:subClassOf gufo:Relator, [
         a owl:Restriction ;
@@ -181,7 +195,7 @@
     ] .
 
 :Implementation
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Implementation"@en ;
     rdfs:subClassOf gufo:FunctionalComplex, [
         a owl:Restriction ;
@@ -192,7 +206,7 @@
     ] .
 
 :ImplementationCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "ImplementationCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -202,7 +216,7 @@
     ] .
 
 :Implements
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Implements"@en ;
     rdfs:subClassOf gufo:Relator, [
         a owl:Restriction ;
@@ -217,17 +231,17 @@
     ] .
 
 :InputData
-    a gufo:Phase, owl:Class, owl:NamedIndividual ;
+    a gufo:Phase, owl:Class ;
     rdfs:label "InputData"@en ;
     rdfs:subClassOf :Data .
 
 :MLAlgorithm
-    a gufo:SubKind, owl:Class, owl:NamedIndividual ;
+    a gufo:SubKind, owl:Class ;
     rdfs:label "MLAlgorithm"@en ;
     rdfs:subClassOf :Algorithm .
 
 :MLModel
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "MLModel"@en ;
     rdfs:subClassOf :Output, [
         a owl:Restriction ;
@@ -238,7 +252,7 @@
     ] .
 
 :ModelCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "ModelCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -248,12 +262,12 @@
     ] .
 
 :ModelEvaluation
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "ModelEvaluation"@en ;
     rdfs:subClassOf :Output .
 
 :ModelEvaluationCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "ModelEvaluationCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -263,7 +277,7 @@
     ] .
 
 :Output
-    a gufo:Category, owl:Class, owl:NamedIndividual ;
+    a gufo:Category, owl:Class ;
     rdfs:label "Output"@en ;
     rdfs:subClassOf gufo:FunctionalComplex, [
         a owl:Restriction ;
@@ -273,12 +287,12 @@
     ] .
 
 :Parameter
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Parameter"@en ;
     rdfs:subClassOf gufo:FunctionalComplex .
 
 :ParameterCharacteristic
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "ParameterCharacteristic"@en ;
     rdfs:subClassOf gufo:Quality, [
         a owl:Restriction ;
@@ -288,7 +302,7 @@
     ] .
 
 :ParameterSetting
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "ParameterSetting"@en ;
     rdfs:subClassOf gufo:FunctionalComplex, [
         a owl:Restriction ;
@@ -305,12 +319,12 @@
     ] .
 
 :Software
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "Software"@en ;
     rdfs:subClassOf gufo:FunctionalComplex .
 
 :SpecifiesMeasure
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "SpecifiesMeasure"@en ;
     rdfs:subClassOf gufo:Relator, [
         a owl:Restriction ;
@@ -325,7 +339,7 @@
     ] .
 
 :SpecifiesModelEvaluation
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "SpecifiesModelEvaluation"@en ;
     rdfs:subClassOf gufo:Relator, [
         a owl:Restriction ;
@@ -346,7 +360,7 @@
     ] .
 
 :SpecifiesParameter
-    a gufo:Kind, owl:Class, owl:NamedIndividual ;
+    a gufo:Kind, owl:Class ;
     rdfs:label "SpecifiesParameter"@en ;
     rdfs:subClassOf gufo:Relator, [
         a owl:Restriction ;
@@ -361,7 +375,7 @@
     ] .
 
 :Task
-    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    a gufo:EventType, owl:Class ;
     rdfs:label "Task"@en ;
     rdfs:subClassOf gufo:Event, [
         a owl:Restriction ;
@@ -396,7 +410,7 @@
     ] .
 
 :Workflow
-    a gufo:EventType, owl:Class, owl:NamedIndividual ;
+    a gufo:EventType, owl:Class ;
     rdfs:label "Workflow"@en ;
     rdfs:subClassOf gufo:Event, [
         a owl:Restriction ;
